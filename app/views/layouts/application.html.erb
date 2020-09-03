@@ -55,10 +55,10 @@
   <% if user_signed_in? %>
     <nav>
       <ul class="nav navbar-nav navbar-right">
-          <li class="customer-li"><%= link_to "マイページ", customers_path,class: "Editlink" %></li>
-          <li class="customer-li"><%= link_to "商品一覧", products_path,class: "Editlink" %></li>
-          <li class="customer-li"><%= link_to "カート", cart_items_path,class: "Editlink" %></li>
-          <li class="customer-li"><%= link_to "ログアウト", destroy_customer_session_path, method: :delete,class: "Editlink"%></li>
+          <li class="customer-li"><%= link_to "マイページ", user_path,class: "Editlink" %></li>
+          <li class="customer-li"><%= link_to "商品一覧", user_path,class: "Editlink" %></li>
+          <li class="customer-li"><%= link_to "カート", user_path,class: "Editlink" %></li>
+          <li class="customer-li"><%= link_to "ログアウト", destroy_user_session_path, method: :delete,class: "Editlink"%></li>
       </ul>
     </nav>
   <% else %>
@@ -78,8 +78,8 @@
 
   <div class= container>
     <%= yield %>
+  </div>
+  <footer>
+  </footer>
   </body>
-    </div>
-<footer>
-</footer>
 </html>

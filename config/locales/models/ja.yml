@@ -2,7 +2,7 @@ ja:
   activerecord:
     models:
       cart_item: カートアイテム
-      customer: お客様
+      user: 会員
       genre: ジャンル
       destination: 配送先
       order: 注文
@@ -10,15 +10,14 @@ ja:
     attributes:
       cart_item:
         quantity: 数量
-      customer:
-        email: メール
+      user:
+        email: メールアドレス
         password: パスワード
-        last_name: 名
-        first_name: 姓
-        last_name_kana: 名（カナ）
-        first_name_kana: 姓（カナ）
+        name: 名前
         post_code: 郵便番号
-        address: 住所
+        prefecture code: 都道府県
+        address_city: 区市町村
+        address_street: 番地
         phone_number: 電話番号
       genre:
         name: ジャンル名

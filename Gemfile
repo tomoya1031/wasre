@@ -75,5 +75,6 @@ gem 'dotenv-rails'
 gem 'rails-i18n'
 gem 'activeadmin'
 gem 'cancancan'
+gem 'jp_prefecture'
 
 gem 'rename'

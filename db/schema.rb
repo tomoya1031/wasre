@@ -83,7 +83,7 @@ ActiveRecord::Schema.define(version: 2020_09_02_162101) do
     t.string "prefecture_code", null: false
     t.string "address_city", null: false
     t.string "address_street", null: false
-    t.integer "phone_number", null: false
+    t.string "phone_number", null: false
     t.boolean "is_deleted", default: false
     t.text "introduction"
     t.string "profile_image_id"
