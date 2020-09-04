@@ -18,13 +18,9 @@
 	      	<th></th>
 	      	<td>
 	      	  <div class="item-image">
-                <% if @product.product_images.present? %>
-                  <% @product.product_images.each do |image| %>
-                  <%= attachment_image_tag image, :image, :fill, 200, 200 %>
-                <% end %>
-                <% else %>
-                  <%= image_tag 'no_image.jpg', size: '200x200' %>
-                <% end %>
+                  <% @product.product_images.each do |imag| %>
+                    <%= attachment_image_tag imag, :image, :fill, 200, 200, fallback: "no_image.jpg", size:"200x160"  %>
+                  <% end %>
 	      	      <%= f.attachment_field :product_images_images, multiple: true %>
 	      	  </div>
 	      	</td>

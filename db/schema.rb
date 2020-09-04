@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_09_02_162101) do
+ActiveRecord::Schema.define(version: 2020_09_04_031733) do
 
   create_table "comments", force: :cascade do |t|
     t.integer "user_id"
@@ -36,7 +36,7 @@ ActiveRecord::Schema.define(version: 2020_09_02_162101) do
 
   create_table "genres", force: :cascade do |t|
     t.string "name", null: false
-    t.boolean "is_active", null: false
+    t.boolean "is_active", default: true, null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -49,7 +49,7 @@ ActiveRecord::Schema.define(version: 2020_09_02_162101) do
     t.datetime "updated_at", null: false
   end
 
-  create_table "product_imags", force: :cascade do |t|
+  create_table "product_images", force: :cascade do |t|
     t.integer "product_id"
     t.string "image_id"
     t.datetime "created_at", null: false
@@ -61,7 +61,7 @@ ActiveRecord::Schema.define(version: 2020_09_02_162101) do
     t.string "name", null: false
     t.text "introduction"
     t.integer "status", null: false
-    t.boolean "is_active", null: false
+    t.boolean "is_active", default: false, null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

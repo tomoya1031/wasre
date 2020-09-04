@@ -1,2 +1,39 @@
-<h1>Products#show</h1>
-<p>Find me in app/views/products/show.html.erb</p>
+<div class="row">
+  <h3 class="admin-title">商品詳細</h3><br>
+</div>
+<div class="row">
+  <div class="col-xs-3">
+    <% if @product.product_images.present? %>
+      <% @product.product_images.each do |image| %>
+        <%= attachment_image_tag image, :image, :fill, 200, 200 %>
+      <% end %>
+    <% else %>
+      <%= image_tag 'no_image.jpg', size: '200x200' %>
+    <% end %>
+  </div>
+  <div class="col-xs-6">
+	<table class="table">
+		<tr>
+			<th class="col-xs-4">商品名</th>
+			<td><%= @product.name %></td>
+		</tr>
+		<tr>
+			<th>商品説明</th>
+			<td><%= @product.introduction %></td>
+		</tr>
+		<tr>
+			<th>ジャンル</th>
+			<td><%= @product.genre.name %></td>
+		</tr>
+		<tr>
+	      <th>販売ステータス</th>
+		  <td><%= @product.status  %></td>
+		</tr>
+		<tr>
+	      <th>販売ステータス</th>
+		  <td><%= @product.is_active ? "取引終了" : "販売中"  %></td>
+		</tr>
+	</table>
+	<%= link_to "編集する", edit_product_path(@product), class: "btn btn-primary", :style=>"float:right;"%>
+  </div>
+</div>

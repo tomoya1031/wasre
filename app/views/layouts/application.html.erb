@@ -55,9 +55,9 @@
   <% if user_signed_in? %>
     <nav>
       <ul class="nav navbar-nav navbar-right">
-          <li class="customer-li"><%= link_to "マイページ", user_path,class: "Editlink" %></li>
-          <li class="customer-li"><%= link_to "商品一覧", user_path,class: "Editlink" %></li>
-          <li class="customer-li"><%= link_to "カート", user_path,class: "Editlink" %></li>
+          <li class="customer-li"><%= link_to "マイページ", user_path(current_user.id),class: "Editlink" %></li>
+          <li class="customer-li"><%= link_to "商品一覧", user_path(current_user.id),class: "Editlink" %></li>
+          <li class="customer-li"><%= link_to "カート", user_path(current_user.id),class: "Editlink" %></li>
           <li class="customer-li"><%= link_to "ログアウト", destroy_user_session_path, method: :delete,class: "Editlink"%></li>
       </ul>
     </nav>
@@ -67,7 +67,7 @@
           <li><%= link_to "Home", root_path,class: "Editlink" %></li>
           <li><%= link_to "About", home_about_path,class: "Editlink" %></li>
           <li><%= link_to "商品一覧", home_about_path,class: "Editlink" %></li>
-          <li><%= link_to "新規登録", new_user_registration_path,class: "Editlink" %></li>
+          <li><%= link_to "新規登録", new_user_registration_path, 'data-turbolinks': false, class: "Editlink" %></li>
           <li><%= link_to "ログイン", new_user_session_path,class: "Editlink" %></li>
       </ul>
     </nav>
