@@ -21,10 +21,12 @@ ActiveRecord::Schema.define(version: 2020_09_04_031733) do
   end
 
   create_table "entries", force: :cascade do |t|
-    t.integer "user_id", null: false
-    t.string "room_id", null: false
+    t.integer "user_id"
+    t.integer "room_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["room_id"], name: "index_entries_on_room_id"
+    t.index ["user_id"], name: "index_entries_on_user_id"
   end
 
   create_table "favorites", force: :cascade do |t|
@@ -42,11 +44,13 @@ ActiveRecord::Schema.define(version: 2020_09_04_031733) do
   end
 
   create_table "messages", force: :cascade do |t|
-    t.integer "user_id", null: false
-    t.integer "room_id", null: false
-    t.text "massage"
+    t.integer "user_id"
+    t.integer "room_id"
+    t.text "message"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["room_id"], name: "index_messages_on_room_id"
+    t.index ["user_id"], name: "index_messages_on_user_id"
   end
 
   create_table "product_images", force: :cascade do |t|
@@ -57,9 +61,10 @@ ActiveRecord::Schema.define(version: 2020_09_04_031733) do
   end
 
   create_table "products", force: :cascade do |t|
+    t.integer "user_id", null: false
     t.integer "genre_id", null: false
     t.string "name", null: false
-    t.text "introduction"
+    t.text "introduction", null: false
     t.integer "status", null: false
     t.boolean "is_active", default: false, null: false
     t.datetime "created_at", null: false
@@ -67,9 +72,10 @@ ActiveRecord::Schema.define(version: 2020_09_04_031733) do
   end
 
   create_table "rooms", force: :cascade do |t|
-    t.integer "user_id", null: false
+    t.integer "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_rooms_on_user_id"
   end
 
   create_table "users", force: :cascade do |t|
