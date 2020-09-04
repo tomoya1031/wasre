@@ -20,6 +20,7 @@ class ProductsController < ApplicationController
   end
 
   def show
+    @comment = Comment.new
   end
 
   def edit
