@@ -3,21 +3,11 @@
 </div>
 <div class="row">
   <div class="col-xs-3">
-    <% if @product.favorited_by?(current_user) %>
-      <li>
-        <%= link_to product_favorite_path(@product), method: :delete do %>
-          <i class="fa fa-heart" aria-hidden="true" style="color: red;"></i>
-          <%= @product.favorites.count %> いいね
-        <% end %>
-      </li>
-    <% else %>
-      <li>
-        <%= link_to product_favorites_path(@product), method: :post do %>
-          <i class="fa fa-heart" aria-hidden="true"></i>
-          <%= @product.favorites.count %> いいね
-        <% end %>
-      </li>
-    <% end %>
+  <!-- いいね -->
+    <div id="favorite_<%= @product.id %>">
+      <%= render 'favorites/favorite', product: @product %>
+    </div>
+    <!-- 商品 -->
     <% if @product.product_images.present? %>
       <% @product.product_images.each do |image| %>
         <%= attachment_image_tag image, :image, :fill, 200, 200 %>
@@ -50,6 +40,17 @@
 		</tr>
 	</table>
 	<%= link_to "編集する", edit_product_path(@product), class: "btn btn-primary", :style=>"float:right;"%>
+  <!-- コメント -->
+  <div id="comments_count">
+    <%= render 'comments/count', product: @product %>
+  </div>
+  <div id="comments_area">
+    <%= render 'comments/index', product: @product %>
+  </div>
+  <div id="comment">
+    <%= render "comments/form", product: @product, comment: @comment %>
+  </div>
+  <!-- コメント
 	<div class="comment-list bt style-2" id="comments">
       <div class="float-wrapper">
         <h2 class="comment-count"><%= @product.comments.count %>件コメント</h2>
@@ -97,17 +98,26 @@
       </div>
       <%= f.submit "送信する", class: "btn btn-lg btn-base-1 mt-20 pull-right" %>
     <% end %>
-  </div>
+  </div> -->
+  <!-- チャット -->
   <% unless @product.user_id == current_user.id %>
     <% if @isRoom == true %>
-      <p class="user-show-room"><a href="/rooms/<%= @roomId %>" class="btn btn-primary btn-lg">チャットへ</a>
+      <p class="user-show-room"><a href="/rooms/<%= @room.id %>" class="btn btn-primary btn-lg">チャットへ</a>
     <% else %>
-      <%= form_for @room do |f| %>
-        <%= fields_for @entry do |e| %>
-          <%= e.hidden_field :user_id, value: @product.user_id %>
+      <% if @product.is_active %>
+      <% else %>
+        <%= form_with model: @room ,locale: true do |f| %>
+          <%= f.hidden_field :product_id, value: @product.id %>
+          <%= fields_for @entry do |e| %>
+            <%= e.hidden_field :user_id, value: @product.user_id %>
+          <% end %>
+          <%= f.submit "チャットを始める", class:"btn btn-primary btn-lg user-show-chat"%>
         <% end %>
-        <%= f.submit "チャットを始める", class:"btn btn-primary btn-lg user-show-chat"%>
       <% end %>
+    <% end %>
+  <% else %>
+    <% if @isRoom == true %>
+      <p class="user-show-room"><a href="/rooms/<%= @room.id %>" class="btn btn-primary btn-lg">チャットへ</a>
     <% end %>
   <% end %>
 </div>

@@ -1,0 +1,20 @@
+<% product.comments.each do |comment| %>
+  <li>
+    <div class="flex">
+      <div>
+        <%= link_to user_path(comment.user), remote: true do %>
+          <div>
+            <%= attachment_image_tag comment.user, :profile_image, :fill, 40, 40, fallback: "no_image.jpg", size:'40x40' %>
+          </div>
+          <div><%= comment.user.name %></div>
+        <% end %>
+      </div>
+      <div class="comment-list"><%= comment.comment %></div>
+      <% if comment.user == current_user %>
+        <div class="comment-list">
+          <%= link_to "Destroy", product_comment_path(comment.product, comment), method: :delete, remote: true, class: "btn btn-danger" %>
+        </div>
+      <% end %>
+    </div>
+  </li>
+<% end %>

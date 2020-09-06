@@ -1,16 +1,18 @@
 class CommentsController < ApplicationController
 
     def create
-      product = Product.find(params[:product_id])
-      comment = current_user.comments.new(comment_params)
-      comment.product_id = product.id
-      comment.save
-      redirect_to product_path(product)
+      @product = Product.find(params[:product_id])
+      @comment = current_user.comments.new(comment_params)
+      @comment.product_id = @product.id
+      @comment.save
+      render :index
     end
 
     def destroy
-      Comment.find_by(id: params[:id], product_id: params[:product_id]).destroy
-      redirect_to product_path(params[:product_id])
+      @product = Product.find(params[:product_id])
+      @comment = Comment.new
+      @comment = Comment.find_by(id: params[:id], product_id: params[:product_id]).destroy
+      render :index
     end
 
     private

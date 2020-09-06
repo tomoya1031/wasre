@@ -1,2 +1,19 @@
-<h1>Products#index</h1>
-<p>Find me in app/views/products/index.html.erb</p>
+<div class="products-index"><br>
+  <%= render 'genre', genres: @genres %>
+  <div class="row">
+    <% if params[:genre_id].present? %>
+      <h2><%= @product.genre.name %></h2>
+    <% else %>
+      <h2>全商品</h2>
+    <% end %>
+    <h4>(全<%= @products_all.count %>件)</h4>
+    <% @products.each do |product| %>
+      <div class="col-xs-3">
+        <%= link_to product_path(product) do %>
+          <% product.product_images.first(1).each do |image| %>
+            <%= attachment_image_tag image, :image, :fill, 280, 280, fallback: "no_image.jpg", size:"200x160", class: 'product-image'%>
+          <% end %>
+          <p><%= product.name %></p><br>
+        <% end %>
+      </div>
+    <% end %>

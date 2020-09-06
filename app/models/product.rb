@@ -3,6 +3,8 @@ class Product < ApplicationRecord
   has_many :comments, dependent: :destroy
   has_many :favorites, dependent: :destroy
   has_many :product_images, dependent: :destroy
+  has_many :orders, dependent: :destroy
+  has_one :room
   belongs_to :genre, optional: true
   accepts_attachments_for :product_images, attachment: :image
 

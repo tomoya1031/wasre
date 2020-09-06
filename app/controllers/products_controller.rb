@@ -17,22 +17,29 @@ class ProductsController < ApplicationController
   end
 
   def index
-    @products = Product.all
+    @genres = Genre.where(is_active: true)
+    if params[:genre_id].present?
+      #↓カミナリ使う時は使用する
+      @products_all = Product.where(genre_id: params[:genre_id],is_active: false)
+      @products = Product.where(genre_id: params[:genre_id],is_active: false)
+      @product = Product.find_by(genre_id: params[:genre_id])
+    else
+      #↓カミナリ使う時は使用する
+      @products_all = Product.joins(:genre).where(is_active: false, genres: { is_active: "true"})
+
+      @products = Product.joins(:genre).where(is_active: false, genres: { is_active: "true"})
+    end
   end
 
   def show
     @comment = Comment.new
+    @favorite = current_user.favorites.find_by(product: params[:id])
     @currentUserEntry=Entry.where(user_id: current_user.id)
     @userEntry=Entry.where(user_id: @product.user_id)
+    # params[:id] => product.id
+    @room = Room.find_or_initialize_by(product_id: params[:id])
+    @isRoom = @room.entries.where(user_id: current_user.id).exists?
     unless @product.user_id == current_user.id
-      @currentUserEntry.each do |cu|
-        @userEntry.each do |u|
-          if cu.room_id == u.room_id
-            @isRoom = true
-            @roomId = cu.room_id
-          end
-        end
-      end
       if @isRoom
       else
         @room = Room.new

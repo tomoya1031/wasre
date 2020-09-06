@@ -6,6 +6,7 @@ Rails.application.routes.draw do
   resources :users, only: [:show, :edit, :update]
   resources :messages, only: [:create]
   resources :rooms, only: [:create,:show]
+  resources :orders, only: [:create, :index, :show]
   resources :products, only: [:new, :create, :index, :show, :edit, :update, :destroy] do
     resources :comments, only: [:create, :destroy]
     resources :favorites, only: [:create, :destroy]

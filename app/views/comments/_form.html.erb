@@ -1,0 +1,8 @@
+<%= form_with(model: [product, comment] ) do |f| %>
+    <div class="comment-text">
+        <%= f.text_area :comment, class: "comment" %>
+    </div>
+    <div class="comment-text">
+        <%= f.submit "送信", class: "btn btn-base-1 comment-sbmit" %>
+    </div>
+<% end %>
