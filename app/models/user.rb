@@ -10,6 +10,7 @@ class User < ApplicationRecord
   validates :address_street , presence: true, length: {minimum: 1,maximum: 50}
   validates :phone_number, presence: true, length: {minimum: 3,maximum: 15}
 
+  has_many :products, dependent: :destroy
   has_many :comments, dependent: :destroy
   has_many :favorites, dependent: :destroy
   has_many :messages, dependent: :destroy

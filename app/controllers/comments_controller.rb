@@ -10,7 +10,6 @@ class CommentsController < ApplicationController
 
     def destroy
       @product = Product.find(params[:product_id])
-      @comment = Comment.new
       @comment = Comment.find_by(id: params[:id], product_id: params[:product_id]).destroy
       render :index
     end

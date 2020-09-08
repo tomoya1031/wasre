@@ -9,15 +9,21 @@
     </div>
     <!-- 商品 -->
     <% if @product.product_images.present? %>
+    <div id="slider">
       <% @product.product_images.each do |image| %>
         <%= attachment_image_tag image, :image, :fill, 200, 200 %>
       <% end %>
+    </div>
     <% else %>
       <%= image_tag 'no_image.jpg', size: '200x200' %>
     <% end %>
   </div>
   <div class="col-xs-6">
 	<table class="table">
+    <tr>
+			<th class="col-xs-4">名前</th>
+			<td><%= @product.user.name %></td>
+		</tr>
 		<tr>
 			<th class="col-xs-4">商品名</th>
 			<td><%= @product.name %></td>
@@ -33,6 +39,14 @@
 		<tr>
 	      <th>販売ステータス</th>
 		  <td><%= @product.status  %></td>
+		</tr>
+    <tr>
+	      <th>タグ</th>
+		  <td>
+        <% @product_tags.each do |tags|%>
+        <%= link_to tags.tag_name, products_path(tag_id: tags.id)  %>
+        <% end %>
+      </td>
 		</tr>
 		<tr>
 	      <th>販売ステータス</th>

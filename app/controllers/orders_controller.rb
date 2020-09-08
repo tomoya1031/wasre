@@ -1,6 +1,7 @@
 class OrdersController < ApplicationController
-    @product = Product.find(params[:id])
-    @product.update(is_active: true)
-    @order = current_user.orders.new(product_id: @product.id)
-    @order.save
+    
+    def index
+        @user = User.find(current_user.id)
+        @orders = @user.orders.all
+    end
 end

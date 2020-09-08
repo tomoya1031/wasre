@@ -7,6 +7,9 @@
 
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css"/>
+    <link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick-theme.css"/>
+    <script type="text/javascript" src="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
   </head>
 
   <body>
@@ -56,8 +59,8 @@
     <nav>
       <ul class="nav navbar-nav navbar-right">
           <li class="customer-li"><%= link_to "マイページ", user_path(current_user.id),class: "Editlink" %></li>
-          <li class="customer-li"><%= link_to "商品一覧", user_path(current_user.id),class: "Editlink" %></li>
-          <li class="customer-li"><%= link_to "カート", user_path(current_user.id),class: "Editlink" %></li>
+          <li class="customer-li"><%= link_to "商品一覧", products_path,class: "Editlink" %></li>
+          <li class="customer-li"><%= link_to "新規投稿", new_product_path,class: "Editlink" %></li>
           <li class="customer-li"><%= link_to "ログアウト", destroy_user_session_path, method: :delete,class: "Editlink"%></li>
       </ul>
     </nav>
@@ -76,7 +79,14 @@
   </div>
 </header>
 
+
   <div class= container>
+  <%= form_with(url: products_path, method: :get, local: true) do %>  
+    <p>  
+      <%= text_field_tag :search, params[:search] %>  
+      <%= submit_tag "Search", :name => nil %>  
+    </p>  
+  <% end %>  
     <%= yield %>
   </div>
   <footer>

@@ -39,10 +39,16 @@
 		  	  <%= f.collection_select :genre_id, Genre.where(is_active: "true"), :id, :name,disabled: true, include_blank: "選択して下さい" %>
 		    </th>
 		  </tr>
-      <tr>
+		  <tr>
 		    <th><%= f.label :"商品状態"%></th>
 		    <th>
-          <%= f.select :status, Product.statuses.keys.to_a, include_blank: "選択して下さい" %>
+			  <%= f.select :status, Product.statuses.keys.to_a, include_blank: "選択して下さい" %>
+		    </th>
+		  </tr>
+		  <tr>
+		    <th><%= f.label :'タグ/br（例：音楽 文芸 スポーツ）'%></th>
+		    <th>
+			  <%= f.text_area :tag_name, placeholder: "スペースを入力することで複数のタグを付けることができます。"  %>
 		    </th>
 		  </tr>
 	    </thead>

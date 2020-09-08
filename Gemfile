@@ -76,5 +76,6 @@ gem 'rails-i18n'
 gem 'rails_admin'
 gem 'cancancan'
 gem 'jp_prefecture'
+gem 'kaminari'
 
 gem 'rename'

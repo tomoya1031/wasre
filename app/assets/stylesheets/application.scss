@@ -255,4 +255,13 @@ text-align: center;
     height: 180px;       /* ※縦横を同値に */
 }
 
+// スライドショー
+.slick-next {
+    right: 10px !important;
+    z-index: 100;
+ }
 
+.slick-prev {
+    left: 10px !important;
+  z-index: 100;
+ }

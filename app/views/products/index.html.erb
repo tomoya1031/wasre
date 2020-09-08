@@ -3,6 +3,10 @@
   <div class="row">
     <% if params[:genre_id].present? %>
       <h2><%= @product.genre.name %></h2>
+    <% elsif params[:tag_id].present? %>
+      <h2><%= @tag.tag_name %>一覧</h2>
+    <% elsif params[:search]%>
+      <h2>検索結果：<%= @product %></h2>
     <% else %>
       <h2>全商品</h2>
     <% end %>
@@ -11,9 +15,10 @@
       <div class="col-xs-3">
         <%= link_to product_path(product) do %>
           <% product.product_images.first(1).each do |image| %>
-            <%= attachment_image_tag image, :image, :fill, 280, 280, fallback: "no_image.jpg", size:"200x160", class: 'product-image'%>
+            <%= attachment_image_tag image, :image, :fill, 280, 280, 'data-turbolinks': false, fallback: "no_image.jpg", size:"200x160", class: 'product-image'%>
           <% end %>
-          <p><%= product.name %></p><br>
         <% end %>
+        <p><%= product.name %></p>
       </div>
     <% end %>
+    <div class='admin-paginate'><%= paginate @products %></div>

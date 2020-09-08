@@ -50,6 +50,37 @@
 		</td>
 	</tr>
 </table>
+<h2>商品</h2>
+		<!--books一覧 -->
+		<table class="table table-hover table-inverse">
+			<thead>
+				<tr>
+					<th></th>
+					<th>Title</th>
+					<th>Opinion</th>
+					<th colspan="3"></th>
+				</tr>
+			</thead>
+
+			<tbody>
+				<% @products.each do |product| %>
+				<tr>
+					<td>
+						<%= link_to product_path(product) do %>
+						  <% product.product_images.first(1).each do |image| %>
+						    <%= attachment_image_tag image, :image, :fill, 280, 280, 'data-turbolinks': false, fallback: "no_image.jpg", size:"200x160", class: 'product-image'%>
+						  <% end %>
+						  <p><%= product.name %></p><br>
+						<% end %>
+					</td>
+					<td><%= link_to product.introduction, product_path(product), class: "product_#{product.id}" %></td>
+					<td><%= product. introduction %></td>
+				</tr>
+				<% end %>
+			</tbody>
+			
+		</table>
+		<div><%= paginate @products %></div>
 
  </div>
 </div>
