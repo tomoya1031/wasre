@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Waste</title>
+    <title>Wasre</title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
@@ -37,23 +37,6 @@
         </nav>
       </div>
 <% end %>
-
-
-<!-- 条件分岐で管理人、会員、顧客用のヘッダーを表示 -->
-  <%
-=begin%>
- <% if admin_signed_in? %>
-    <nav>
-      <ul class="nav navbar-nav navbar-right">
-          <li><%= link_to "商品一覧", admin_products_path,class: "Editlink" %></li>
-          <li><%= link_to "会員一覧", admin_customers_path,class: "Editlink" %></li>
-          <li><%= link_to "注文履歴一覧", admin_orders_path,class: "Editlink" %></li>
-          <li><%= link_to "ジャンル一覧", admin_genres_path,class: "Editlink" %></li>
-          <li><%= link_to "ログアウト", destroy_admin_session_path, method: :delete,class: "Editlink" %></li>
-      </ul>
-    </nav> 
-<%
-=end%>
 
   <% if user_signed_in? %>
     <nav>

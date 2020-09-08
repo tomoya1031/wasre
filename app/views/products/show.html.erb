@@ -53,7 +53,12 @@
 		  <td><%= @product.is_active ? "取引終了" : "販売中"  %></td>
 		</tr>
 	</table>
-	<%= link_to "編集する", edit_product_path(@product), class: "btn btn-primary", :style=>"float:right;"%>
+  <% if @product.user == current_user %>
+  <% unless @product.is_active %>
+	  <%= link_to "編集する", edit_product_path(@product), class: "btn btn-primary", :style=>"float:right;"%>
+    <%= link_to '削除する', product_path(@product), method: :delete, data: {confirm:"本当に消しますか？"} ,class: " btn btn-danger" %>
+    <% end %>
+  <% end %>
   <!-- コメント -->
   <div id="comments_count">
     <%= render 'comments/count', product: @product %>
