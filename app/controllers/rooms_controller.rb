@@ -1,7 +1,5 @@
 class RoomsController < ApplicationController
     def create 
-      
-      
         @product = Product.find(params[:room][:product_id])
         @product.update(is_active: true)
         @order = current_user.orders.new(product_id: @product.id)
