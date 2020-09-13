@@ -1,86 +1,73 @@
 <div class="row">
- <div class="col-xs-1">
- </div>
- <div class="col-xs-7">
-
-<br>
-<h3><i class="fas fa-user"></i>マイページ</h3><br>
-
-<div>
-	<span class="mypage-span">登録情報</span>
-	<%= link_to edit_user_path do %>
-		<button class="btn btn-primary">編集する</button>
+<div class="col-xs-2">
+</div>
+  <div class="col-xs-8">
+    <br>
+	<% if @user == current_user%>
+	  <h3><i class="fas fa-user"></i> マイページ</h3>
+	  <br>
+	  <div>
+	    <span class="mypage-span">登録情報</span>
+	    <%= link_to edit_user_path do %>
+		  <button class="btn btn-primary">編集する</button>
+	    <% end %>
+	    <%= link_to edit_user_registration_path do %>
+		  <button class="btn btn-primary">パスワードを変更する</button>
+	    <% end %>
+      </div>
+      <br>
+	<% else %>
+	  <h3><i class="fas fa-user"></i> プロフィール</h3>
+	  <br>
 	<% end %>
-	<%= link_to edit_user_registration_path do %>
-		<button class="btn btn-primary">パスワードを変更する</button>
-	<% end %>
-</div><br>
-
-<table class="table table-striped">
-	<tr>
-		<th>氏名</th>
+	<div class="profile-imag">
+	    <div>
+		  <%= attachment_image_tag @user, :profile_image, class:"img-square", fallback: "no_image.jpg", size:"200x160" %>
+		</div>
+		<div class="profile-name" >
+		  <%= @user.name%>
+		</div>
+	</div>
+	<table class="table table-striped">
+	  <tr>
+		<th>自己紹介</th>
 		<td>
-			<span><%= @user.name %></span>
+			<span><%= @user.introduction %></span>
 		</td>
-	</tr>
-	<tr>
-		<th>郵便番号</th>
-		<td>
-			<span><%= @user.post_code %></span>
-		</td>
-	</tr>
-	<tr>
+	  </tr>
+	  <tr>
 		<th>住所</th>
 		<td>
-			<span><%= @user.prefecture_name %></span>
-            <span><%= @user.address_city %></span>
-            <span><%= @user.address_street %></span>
+		  <span><%= @user.prefecture_name %></span>
+          <span><%= @user.address_city %></span>
 		</td>
-	</tr>
-	<tr>
-		<th>電話番号</th>
-		<td>
-			<span><%= @user.phone_number %></span>
-		</td>
-	</tr>
-	<tr>
-		<th>メールアドレス</th>
-		<td>
-			<span><%= @user.email %></span>
-		</td>
-	</tr>
-</table>
-<h2>商品</h2>
-		<!--books一覧 -->
-		<table class="table table-hover table-inverse">
-			<thead>
-				<tr>
-					<th></th>
-					<th>Title</th>
-					<th>Opinion</th>
-					<th colspan="3"></th>
-				</tr>
-			</thead>
-
-			<tbody>
-				<% @products.each do |product| %>
-				<tr>
-					<td>
-						<%= link_to product_path(product) do %>
-						  <% product.product_images.first(1).each do |image| %>
-						    <%= attachment_image_tag image, :image, :fill, 280, 280, 'data-turbolinks': false, fallback: "no_image.jpg", size:"200x160", class: 'product-image'%>
-						  <% end %>
-						  <p><%= product.name %></p><br>
-						<% end %>
-					</td>
-					<td><%= link_to product.introduction, product_path(product), class: "product_#{product.id}" %></td>
-					<td><%= product. introduction %></td>
-				</tr>
+    </table>
+	<br>
+    <h3>商品</h3>
+	<table class="table table-hover table-inverse">
+	  <thead>
+		<tr>
+		  <th></th>
+		  <th>商品名</th>
+		  <th>販売ステータス</th>
+		</tr>
+	  </thead>
+	  <tbody>
+		<% @products.each do |product| %>
+		  <tr>
+			<td>
+			  <%= link_to product_path(product) do %>
+				<% product.product_images.first(1).each do |image| %>
+				  <%= attachment_image_tag image, :image, :fill, 280, 280, 'data-turbolinks': false, fallback: "no_image.jpg", size:"200x160"%>
 				<% end %>
-			</tbody>
-			
-		</table>
-		<div><%= paginate @products %></div>
-
- </div>
+			  <% end %>
+			</td>
+			<td><%= link_to product.introduction, product_path(product), class: "product_#{product.id}" %></td>
+			<td><%= product. introduction %></td>
+		  </tr>
+		<% end %>
+	  </tbody>
+	</table>
+	<div><%= paginate @products %></div>
+  </div>
 </div>

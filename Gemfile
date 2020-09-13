@@ -71,7 +71,12 @@ gem 'font-awesome-sass', '~> 5.4.1'
 gem 'jquery-rails'
 gem 'pry-rails'
 gem 'pry-byebug'
+
 gem 'dotenv-rails'
+group :production do
+  gem 'mysql2'
+end
+
 gem 'rails-i18n'
 gem 'rails_admin'
 gem 'cancancan'

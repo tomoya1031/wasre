@@ -13,65 +13,55 @@
   </head>
 
   <body>
-  <header class="navbar navbar-fixed-top">
-  <div class="container">
-    <div class='row'>
-
-<% if user_signed_in? %>
-<span class="nav-name">
-  <%= current_user.name %>さん、こんにちは！
-</span>
-<% end %>
-
-
-<% if user_signed_in? %>
-      <div class='col-xs-offset-5'>
-        <nav class='nav navbar-nav navbar-center' >
-        <h4 class="customer-h4">WASRE</h4>
-        </nav>
+    <header>
+      <div class="container">
+        <div class='row'>
+          <% if user_signed_in? %>
+            <div class="col-lg-4 top-user">
+              <span>
+                <%= attachment_image_tag current_user, :profile_image, fallback: "no_image.jpg", class:"top-profile" %>
+                <%= current_user.name %>さん
+              </span>
+            </div>
+          <% else %>
+            <div class="col-lg-4">
+            </div>
+          <% end %>
+          <div class="col-lg-4 title">
+            <%= link_to "WASRE", root_path, class: "title-name" %>            
+          </div>
+          <div class="col-lg-4 top-search">
+            <%= form_with(url: products_path, method: :get, local: true) do %>  
+              <p>
+                <%= text_field_tag :search, params[:search] %>  
+                <%= submit_tag "商品検索", :name => nil %>  
+              </p>
+            <% end %>
+          </div>
+          <div class="col-lg-12">
+            <nav>
+              <% if user_signed_in? %>
+                <li><%= link_to "マイページ", user_path(current_user.id), class: "Editlink" %></li>
+                <li><%= link_to "商品一覧", products_path, class: "Editlink" %></li>
+                <li><%= link_to "新規投稿", new_product_path, class: "Editlink" %></li>
+                <li><%= link_to "ログアウト", destroy_user_session_path, method: :delete, class: "Editlink"%></li>
+              <% else %>
+                <li><%= link_to "Home", root_path, class: "Editlink" %></li>
+                <li><%= link_to "About", home_about_path, class: "Editlink" %></li>
+                <li><%= link_to "商品一覧", home_about_path, class: "Editlink" %></li>
+                <li><%= link_to "新規登録", new_user_registration_path, 'data-turbolinks': false, class: "Editlink" %></li>
+                <li><%= link_to "ログイン", new_user_session_path, class: "Editlink" %></li>
+              <% end %>
+            </nav>
+          </div>
       </div>
-<% else %>
-      <div class='col-xs-offset-5'>
-        <nav class='nav navbar-nav navbar-center' >
-        <h4>WASRE</h4>
-        </nav>
-      </div>
-<% end %>
-
-  <% if user_signed_in? %>
-    <nav>
-      <ul class="nav navbar-nav navbar-right">
-          <li class="customer-li"><%= link_to "マイページ", user_path(current_user.id),class: "Editlink" %></li>
-          <li class="customer-li"><%= link_to "商品一覧", products_path,class: "Editlink" %></li>
-          <li class="customer-li"><%= link_to "新規投稿", new_product_path,class: "Editlink" %></li>
-          <li class="customer-li"><%= link_to "ログアウト", destroy_user_session_path, method: :delete,class: "Editlink"%></li>
-      </ul>
-    </nav>
-  <% else %>
-    <nav>
-      <ul class="nav navbar-nav navbar-right">
-          <li><%= link_to "Home", root_path,class: "Editlink" %></li>
-          <li><%= link_to "About", home_about_path,class: "Editlink" %></li>
-          <li><%= link_to "商品一覧", home_about_path,class: "Editlink" %></li>
-          <li><%= link_to "新規登録", new_user_registration_path, 'data-turbolinks': false, class: "Editlink" %></li>
-          <li><%= link_to "ログイン", new_user_session_path,class: "Editlink" %></li>
-      </ul>
-    </nav>
-  <% end %>
     </div>
-  </div>
-</header>
-
+  </header>
 
   <div class= container>
-  <%= form_with(url: products_path, method: :get, local: true) do %>  
-    <p>  
-      <%= text_field_tag :search, params[:search] %>  
-      <%= submit_tag "Search", :name => nil %>  
-    </p>  
-  <% end %>  
     <%= yield %>
   </div>
+  
   <footer>
   </footer>
   </body>

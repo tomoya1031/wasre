@@ -13,16 +13,32 @@
   <div class="row">
 	<div class="col-xs-6">
 	  <table class="table">
-	    <thead>
+	  <thead>
 	      <tr>
 	      	<th></th>
 	      	<td>
-	      	  <div class="item-image">
+			  <div class="item-image">
                   <% @product.product_images.each do |imag| %>
-                    <%= attachment_image_tag imag, :image, :fill, 200, 200, fallback: "no_image.jpg", size:"200x160"  %>
+                    <%= attachment_image_tag imag, :image, :fill, 200, 200, fallback: "no_image.jpg", size:"200x160" , class: "file"  %>
                   <% end %>
-	      	      <%= f.attachment_field :product_images_images, multiple: true %>
-	      	  </div>
+				  <%= f.attachment_field :product_images_images, multiple: true %>
+			  </div>
+<div class="view_box">
+  <label>画像１</label>
+  <%= f.attachment_field :product_images_images, multiple: true, class: "file" %>
+</div>
+<div class="view_box">
+  <label>画像２</label>
+  <%= f.attachment_field :product_images_images, multiple: true, class: "file" %>
+</div>
+<div class="view_box">
+  <label>画像３</label>
+  <%= f.attachment_field :product_images_images, multiple: true, class: "file" %>
+</div>
+<div class="view_box">
+  <label>画像４</label>
+  <%= f.attachment_field :product_images_images, multiple: true, class: "file" %>
+</div>
 	      	</td>
 	      </tr>
 		  <tr>
@@ -67,7 +83,8 @@
         $(".image").attr('src', e.target.result);
     }
     // ここまで
-    reader.readAsDataURL(e.target.files[0]);
+	reader.readAsDataURL(e.target.files[0]);
+	reader.readAsDataURL(e.target.files[1]);
     //取得したurlにアップロード画像のurlを挿入
 });
 });

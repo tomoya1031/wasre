@@ -21,55 +21,116 @@
  @import url('https://fonts.googleapis.com/css?family=Sacramento');
 
 
-*{
-font-family: 'M PLUS Rounded 1c', sans-serif;
-	position: relative; z-index:1;
-
-}
-
-html {
+ *{
+	font-family: 'M PLUS Rounded 1c', sans-serif;
+	position: relative;
+	z-index:1;
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+ }
+ header{
+	text-decoration: none;
+ }
+ html {
     height: 100%;
 }
 body {
-    padding-top:70px;
-    margin: 0;
-    background-color:rgba(0,0,0,0.05);
-    min-height:800px;
-    padding-bottom: 70px;
+	background-color:rgba(0,0,0,0.05);
+	padding-bottom: 70px;
 }
-
 header{
 	background-color:rgba(255,255,255,0.5);
-	height: 70px;
+	height: 100px;
 }
-header li{
-	list-style: none;
-	color:white;
+header{
+	li{
+	  list-style: none;
+	  color:white;
+	}
 }
-header h4{
+.top-user{
+	margin-top: 20px;
+}
+.top-profile{
+	border-radius: 50%;  /* 角丸半径を50%にする(=円形にする) */
+	background-position: center;
+    width:  30px;       /* ※縦横を同値に */
+    height: 30px;       /* ※縦横を同値に */
+}
+
+.title{
+	text-align: center;
+	padding: 5px 0;
+}
+.top-search{
+	text-align: right;
+	padding-top: 20px;
+}
+.title-name{
+	margin: auto;
 	color:black;
-	font-family: 'Sacramento', cursive;
+	font-family: 'Impact', sans-serif;
 	font-size: 43px;
-	margin-left: -20px;
+}
+nav{
+	display: flex;
+	justify-content: space-around;
+}
+.header-list{
+	margin: auto 0;
+}
+.Editlink{
+	color:rgba(0, 0, 0, 0.7);
+}
+
+// マイページ
+.profile-imag{
+	width: 100%;
+	height: 300px;
+	background-position: center;
+	background-size: cover;
+	background-image: image-url("imge1.jpg");
+	display: flex; /* 子要素をflexboxで揃える */
+    flex-direction: column; /* 子要素をflexboxにより縦方向に揃える */
+    justify-content: center; /* 子要素をflexboxにより中央に配置する */
+    align-items: center;  /* 子要素をflexboxにより中央に配置する */
+}
+.profile-name{
+	font-size: 25px;
+
+}
+.img-square {
+    border-radius: 50%;  /* 角丸半径を50%にする(=円形にする) */
+    width:  160px;       /* ※縦横を同値に */
+    height: 160px;       /* ※縦横を同値に */
+}
+
+
+
+
+
+.nav-link{
+	font-size: 18px;
+}
+.new-genre{
+	font-color:red;
 }
 
 footer{
-   background-color: rgba(255,255,255,1);
-   position: fixed;
-   bottom: 0;
-   width: 100%;
-   height: 40px;
-   text-align: right;
-   font-size:30px;
-   margin-top:20px;
+	background-color: rgba(255,255,255,1);
+	position: fixed;
+	bottom: 0;
+	width: 100%;
+	height: 40px;
+	text-align: right;
+	font-size:30px;
+	margin-top:20px;
 }
 footer i{
 	margin-right:15px;
 }
-.Editlink{
-	color:rgba(0, 0, 0, 0.7);
-	height: 70px;
-}
+
 .admin-title{
 	font-weight: bold;
 }
@@ -225,35 +286,12 @@ height:36px;
 .order-show h4{
 
 }
-.nav-link{
-	font-size: 18px;
-	margin-right: 15px;
-}
-.new-genre{
-	font-color:red;
-}
-
-.nav-name{
-	height:70px;
-	line-height: 70px;
-}
-.customer-h4{
-	margin-top: -60px;
-}
-.customer-li{
-	margin-top: -69.9px;
-
-}
 
 .admin-paginate{
 text-align: center;
 }
 
-.img-square {
-    border-radius: 50%;  /* 角丸半径を50%にする(=円形にする) */
-    width:  180px;       /* ※縦横を同値に */
-    height: 180px;       /* ※縦横を同値に */
-}
+
 
 // スライドショー
 .slick-next {
@@ -262,6 +300,6 @@ text-align: center;
  }
 
 .slick-prev {
-    left: 10px !important;
-  z-index: 100;
+	left: 10px !important;
+	z-index: 100;
  }

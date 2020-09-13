@@ -55,8 +55,7 @@ class ProductsController < ApplicationController
     @room = Room.find_or_initialize_by(product_id: params[:id])
     @isRoom = @room.entries.where(user_id: current_user.id).exists?
     unless @product.user_id == current_user.id
-      if @isRoom
-      else
+      unless @isRoom
         @room = Room.new
         @entry = Entry.new
       end
@@ -96,7 +95,7 @@ class ProductsController < ApplicationController
   def correct_user
     @product = Product.find(params[:id])
     @product_user = current_user.products.find_by(id: params[:id])
-      if @product.is_active || @product_user == treu
+      if @product.is_active || @product_user == true
         redirect_to root_url
       end
   end
