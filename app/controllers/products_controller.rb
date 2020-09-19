@@ -27,7 +27,7 @@ class ProductsController < ApplicationController
       @products_all = Product.where(genre_id: params[:genre_id],is_active: false)
       #----------------
       @products = Product.where(genre_id: params[:genre_id],is_active: false).page(params[:page]).reverse_order.per(3)
-      @product = Product.find_by(genre_id: params[:genre_id])
+      @genre = Genre.find(params[:genre_id])
     elsif params[:tag_id].present?
       #↓カミナリ使う時は使用する,今も一応カウントで使用(お試し＠tag)
       @tag = Tag.find(params[:tag_id])

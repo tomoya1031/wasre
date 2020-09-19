@@ -2,7 +2,7 @@ Rails.application.routes.draw do
   mount RailsAdmin::Engine => '/admin', as: 'rails_admin'
   devise_for :users
   root 'home#top'
-  get 'home/about', to: 'home#about'
+  get 'about', to: 'home#about'
   resources :users, only: [:show, :edit, :update]
   resources :messages, only: [:create]
   resources :rooms, only: [:create,:show]
