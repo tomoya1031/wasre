@@ -1,15 +1,15 @@
 <% if product.favorited_by?(current_user) %>
   <li>
     <%= link_to product_favorite_path(product.id,@favorite.id), method: :delete, remote: true do %>
-      <i class="fa fa-heart" aria-hidden="true" style="color: red;"></i>
-      <%= product.favorites.count %> いいね
+        <i class="fa fa-heart" aria-hidden="true" style="color: red;"></i>
+        いいね：<%= product.favorites.count %>件
     <% end %>
   </li>
 <% else %>
   <li>
     <%= link_to product_favorites_path(product.id), method: :post, remote: true do %>
-      <i class="fa fa-heart" aria-hidden="true"></i>
-      <%= product.favorites.count %> いいね
+      <i class="fa fa-heart" aria-hidden="true" style="color: #666666;"></i>
+      いいね：<%= product.favorites.count %>件
     <% end %>
   </li>
 <% end %>

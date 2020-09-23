@@ -1,142 +1,135 @@
 <div class="row">
-  <h3 class="admin-title">商品詳細</h3><br>
+  <div class="col-xs-2">
+  </div>
+  <div class="col-xs-10">
+    <h1 class="product-title"><i class="fas fa-box-open"></i>商品詳細</h1><br>
+  </div>
 </div>
 <div class="row">
+  <div class="col-xs-2">
+  </div>
   <div class="col-xs-3">
-  <!-- いいね -->
-    <div id="favorite_<%= @product.id %>">
-      <%= render 'favorites/favorite', product: @product %>
-    </div>
     <!-- 商品 -->
     <% if @product.product_images.present? %>
-    <div id="slider">
-      <% @product.product_images.each do |image| %>
-        <%= attachment_image_tag image, :image, :fill, 200, 200 %>
-      <% end %>
-    </div>
+      <div id="slider">
+        <% @product.product_images.each do |image| %>
+          <%= attachment_image_tag image, :image, :fill, 200, 200 %>
+        <% end %>
+      </div>
     <% else %>
       <%= image_tag 'no_image.jpg', size: '200x200' %>
     <% end %>
+    
+    <!-- 商品 -->
   </div>
-  <div class="col-xs-6">
-	<table class="table">
-    <tr>
-			<th class="col-xs-4">名前</th>
-			<td><%= @product.user.name %></td>
-		</tr>
-		<tr>
-			<th class="col-xs-4">商品名</th>
-			<td><%= @product.name %></td>
-		</tr>
-		<tr>
-			<th>商品説明</th>
-			<td><%= @product.introduction %></td>
-		</tr>
-		<tr>
-			<th>ジャンル</th>
-			<td><%= @product.genre.name %></td>
-		</tr>
-		<tr>
+  <div class="col-xs-5">
+	  <table class="table table-striped product-show">
+      <tr>
+			  <th>投稿者</th>
+			  <td>
+          <%= attachment_image_tag @product.user, :profile_image, fallback: "no_image.jpg", size:"30x30" %>
+          <%= @product.user.name %>
+        </td>
+		  </tr>
+		  <tr>
+			  <th>商品名</th>
+			  <td><%= @product.name %></td>
+		  </tr>
+		  <tr>
+			  <th>ジャンル</th>
+			  <td><%= link_to @product.genre.name, products_path(genre_id: @product.genre.id)  %></td>
+		  </tr>
+		  <tr>
 	      <th>販売ステータス</th>
-		  <td><%= @product.status  %></td>
-		</tr>
-    <tr>
-	      <th>タグ</th>
-		  <td>
-        <% @product_tags.each do |tags|%>
-        <%= link_to tags.tag_name, products_path(tag_id: tags.id)  %>
-        <% end %>
-      </td>
-		</tr>
-		<tr>
-	      <th>販売ステータス</th>
-		  <td><%= @product.is_active ? "取引終了" : "販売中"  %></td>
-		</tr>
-	</table>
-  <% if @product.user == current_user %>
-  <% unless @product.is_active %>
-	  <%= link_to "編集する", edit_product_path(@product), class: "btn btn-primary", :style=>"float:right;"%>
-    <%= link_to '削除する', product_path(@product), method: :delete, data: {confirm:"本当に消しますか？"} ,class: " btn btn-danger" %>
-    <% end %>
-  <% end %>
-  <!-- コメント -->
-  <div id="comments_count">
-    <%= render 'comments/count', product: @product %>
-  </div>
-  <div id="comments_area">
-    <%= render 'comments/index', product: @product %>
-  </div>
-  <div id="comment">
-    <%= render "comments/form", product: @product, comment: @comment %>
-  </div>
-  <!-- コメント
-	<div class="comment-list bt style-2" id="comments">
-      <div class="float-wrapper">
-        <h2 class="comment-count"><%= @product.comments.count %>件コメント</h2>
-      </div>
-      <ol>
-        <% @product.comments.each do |comment| %>
-          <li class="comment">
-            <div class="comment-body bb">
-              <div class="comment-avatar">
-                <div class="avatar">
-                  <%= attachment_image_tag comment.user, :profile_image, :fill, 60, 60, fallback: "no_image.jpg" %>
-                </div>
-              </div>
-              <div class="comment-text">
-                <div class="comment-author clearfix">
-                  <a href="#" class="link-author"><%= comment.user.name %></a>
-                  <span class="comment-meta">
-                    <span class="comment-date"><%= @product.created_at.strftime('%Y/%m/%d') %></span>
-                   </span>
-                </div>
-                <div class="comment-entry"><%= comment.comment %></div>
-                  <% if comment.user == current_user %>
-                    <div>
-                      <%= link_to "削除", product_comment_path(comment.product, comment), method: :delete, class: "btn btn-danger pull-right" %>
-                    </div>
-                  <% end %>
-                </div>
-              </div>
-            </div>
-          </li>
-        <% end %>
-      </ol>
-    </div>
-    <hr>
-    <div class="section-title-wrapper style-1 v1 mt-30" id="divAddComment">
-      <h3 class="section-title left">
-        <span>コメント</span>
-      </h3>
-    </div>
-    <%= form_for [@product, @comment] do |f| %>
-      <div class="row">
-        <div class="col-sm-12">
-          <%= f.text_field :comment, class: "form-control",placeholder: "コメントをここに" %>
-        </div>
-      </div>
-      <%= f.submit "送信する", class: "btn btn-lg btn-base-1 mt-20 pull-right" %>
-    <% end %>
-  </div> -->
-  <!-- チャット -->
-  <% unless @product.user_id == current_user.id %>
-    <% if @isRoom == true %>
-      <p class="user-show-room"><a href="/rooms/<%= @room.id %>" class="btn btn-primary btn-lg">チャットへ</a>
-    <% else %>
-      <% if @product.is_active %>
-      <% else %>
-        <%= form_with model: @room ,locale: true do |f| %>
-          <%= f.hidden_field :product_id, value: @product.id %>
-          <%= fields_for @entry do |e| %>
-            <%= e.hidden_field :user_id, value: @product.user_id %>
+		    <td><%= @product.status  %></td>
+		  </tr>
+      <tr>
+	        <th>タグ</th>
+		    <td>
+          <% @product_tags.each do |tags|%>
+            <%= link_to tags.tag_name, products_path(tag_id: tags.id), class: "btn btn-info btn-xs" %>
           <% end %>
-          <%= f.submit "チャットを始める", class:"btn btn-primary btn-lg user-show-chat"%>
-        <% end %>
+        </td>
+		  </tr>
+		  <tr>
+	      <th>取引状態</th>
+		    <td><%= @product.is_active ? "取引終了" : "販売中"  %></td>
+		  </tr>
+	  </table>
+    <% if @product.user == current_user %>
+      <% unless @product.is_active %>
+        <div class="product-edit">
+	        <%= link_to "編集する", edit_product_path(@product), class: "btn btn-primary" %>
+          <%= link_to '削除する', product_path(@product), method: :delete, data: {confirm:"本当に消しますか？"} ,class: " btn btn-danger" %>
+        </div>
       <% end %>
     <% end %>
-  <% else %>
-    <% if @isRoom == true %>
-      <p class="user-show-room"><a href="/rooms/<%= @room.id %>" class="btn btn-primary btn-lg">チャットへ</a>
+    <div class="col-xs-2">
+    </div>
+  </div>
+</div>
+
+<!-- コメント -->
+<div class="row">
+  <div class="col-lg-2">
+  </div>
+  <div class="col-lg-3">
+    <div class="favorite-comment">
+      <div id="comments_count">
+        <%= render 'comments/count', product: @product %>
+      </div>
+      <div class="favorite", id="favorite_<%= @product.id %>">
+        <%= render 'favorites/favorite', product: @product %>
+      </div>
+    </div>
+  </div>
+  <div class="col-lg-7">
+  </div>
+</div>
+<div class="row">
+  <div class="col-lg-2">
+  </div>
+  <div class="col-lg-8 product-intro">
+    <div><strong>商品説明</strong></div>
+    <div>
+      <%= safe_join(@product.introduction.split("\n"),tag(:br)) %>
+    </div>
+  </div>
+  <div class="col-lg-2">
+  </div>
+</div>
+<!-- コメント -->
+<div class="row">
+  <div class="col-xs-3">
+  </div>
+  <div class="col-xs-6 comment-box">
+    <div id="comments_area">
+      <%= render 'comments/index', product: @product %>
+    </div>
+    <div id="comment">
+      <%= render "comments/form", product: @product, comment: @comment %>
+    </div>
+    <!-- チャット -->
+    <% unless @product.user_id == current_user.id %>
+      <% if @isRoom == true %>
+        <p class="user-show-room"><a href="/rooms/<%= @room.id %>" class="btn btn-primary btn-lg">チャットへ</a>
+      <% else %>
+        <% unless @product.is_active %>
+          <%= form_with model: @room ,locale: true do |f| %>
+            <%= f.hidden_field :product_id, value: @product.id %>
+            <%= fields_for @entry do |e| %>
+              <%= e.hidden_field :user_id, value: @product.user_id %>
+            <% end %>
+            <%= f.submit "チャットを始める", class:"btn btn-primary btn-lg user-show-chat"%>
+          <% end %>
+        <% end %>
+      <% end %>
+    <% else %>
+      <% if @isRoom == true %>
+        <p class="user-show-room"><a href="/rooms/<%= @room.id %>" class="btn btn-primary btn-lg">チャットへ</a>
+      <% end %>
     <% end %>
-  <% end %>
+  </div>
+  <div class="col-xs-3">
+  </div>
 </div>

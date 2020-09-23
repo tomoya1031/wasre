@@ -1,1 +1,50 @@
-コメント数：<%= product.comments.count %>
+<i class="fas fa-comment-dots"></i> コメント：<%= product.comments.count %>件
+  <!-- コメント
+	<div class="comment-list bt style-2" id="comments">
+      <div class="float-wrapper">
+        <h2 class="comment-count"><%= @product.comments.count %>件コメント</h2>
+      </div>
+      <ol>
+        <% @product.comments.each do |comment| %>
+          <li class="comment">
+            <div class="comment-body bb">
+              <div class="comment-avatar">
+                <div class="avatar">
+                  <%= attachment_image_tag comment.user, :profile_image, :fill, 60, 60, fallback: "no_image.jpg" %>
+                </div>
+              </div>
+              <div class="comment-text">
+                <div class="comment-author clearfix">
+                  <a href="#" class="link-author"><%= comment.user.name %></a>
+                  <span class="comment-meta">
+                    <span class="comment-date"><%= @product.created_at.strftime('%Y/%m/%d') %></span>
+                   </span>
+                </div>
+                <div class="comment-entry"><%= comment.comment %></div>
+                  <% if comment.user == current_user %>
+                    <div>
+                      <%= link_to "削除", product_comment_path(comment.product, comment), method: :delete, class: "btn btn-danger pull-right" %>
+                    </div>
+                  <% end %>
+                </div>
+              </div>
+            </div>
+          </li>
+        <% end %>
+      </ol>
+    </div>
+    <hr>
+    <div class="section-title-wrapper style-1 v1 mt-30" id="divAddComment">
+      <h3 class="section-title left">
+        <span>コメント</span>
+      </h3>
+    </div>
+    <%= form_for [@product, @comment] do |f| %>
+      <div class="row">
+        <div class="col-sm-12">
+          <%= f.text_field :comment, class: "form-control",placeholder: "コメントをここに" %>
+        </div>
+      </div>
+      <%= f.submit "送信する", class: "btn btn-lg btn-base-1 mt-20 pull-right" %>
+    <% end %>
+  </div> -->

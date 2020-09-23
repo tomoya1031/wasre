@@ -1,6 +1,5 @@
 <% product.comments.each do |comment| %>
-  <li>
-    <div class="flex">
+    <div class="comment-list">
       <div>
         <%= link_to user_path(comment.user), remote: true do %>
           <div>
@@ -9,12 +8,13 @@
           <div><%= comment.user.name %></div>
         <% end %>
       </div>
-      <div class="comment-list"><%= comment.comment %></div>
+      <div class="arrow_box"><%= comment.comment %></div>
       <% if comment.user == current_user %>
-        <div class="comment-list">
-          <%= link_to "Destroy", product_comment_path(comment.product, comment), method: :delete, remote: true, class: "btn btn-danger" %>
+        <div>
+          <%= link_to product_comment_path(comment.product, comment), method: :delete, remote: true do %>
+            <i class="fas fa-trash-alt" style=color:red></i>
+          <% end %>
         </div>
       <% end %>
     </div>
-  </li>
 <% end %>

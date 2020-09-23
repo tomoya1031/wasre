@@ -64,6 +64,19 @@ $(function() {
       
   });
 
+  $(function(){
+    // inputのidから情報の取得
+    $(".item-image").on('change', function (e) {
+    // ここから既存の画像のurlの取得
+    var reader = new FileReader();
+    reader.onload = function (e) {
+        $(".profile_image").attr('src', e.target.result);
+    }
+    // ここまで
+    reader.readAsDataURL(e.target.files[0]);
+    //取得したurlにアップロード画像のurlを挿入
+  });
+  });
   // $(function(){
   //   var bgImages = ['image1.jpg', 'image2', 'image3'];
   //   var randImages = bgImages[Math.floor(Math.random() * bgImages.length)];

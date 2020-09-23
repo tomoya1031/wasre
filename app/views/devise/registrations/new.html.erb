@@ -9,36 +9,36 @@
     <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
       <div class="field form-group">
         <%= f.label :name %><br />
-        <%= f.text_field :name, autofocus: true, autocomplete: "name", placeholder:"名前", class: "form-control" %>
+        <%= f.text_field :name, autofocus: true, autocomplete: "name", placeholder: "名前", class: "form-control" %>
       </div>
 
       <div class="field form-group">
         <%= f.label :email %><br />
-        <%= f.email_field :email, autofocus: true, autocomplete: "email", placeholder:"メールアドレス", class: "form-control" %>
+        <%= f.email_field :email, autofocus: true, autocomplete: "email", placeholder: "メールアドレス", class: "form-control" %>
       </div>
 
       <div class="field form-group">
         <%= f.label :post_code（ハイフンなし） %><br />
-        <%= f.text_field :post_code, autofocus: true, autocomplete: "郵便番号", placeholder:"郵便番号", class: "form-control" %>
+        <%= f.text_field :post_code, autofocus: true, autocomplete: "郵便番号", placeholder: "郵便番号", class: "form-control" %>
       </div>
 
-      <div class="field form-group">
+      <div class="field form-group dropdown">
         <%= f.label :prefecture_code %><br />
-        <%= f.collection_select :prefecture_name, JpPrefecture::Prefecture.all,  :name, :name, autocomplete: "prefecture_code", id: "customer_prefecture_code", class: "sr-only" %>
+        <%= f.collection_select :prefecture_name, JpPrefecture::Prefecture.all,  :name, :name, autocomplete: "prefecture_code", id: "customer_prefecture_code", class: "dropdown-menu" %>
       </div>
 
       <div class="field form-group">
         <%= f.label :address_city %><br />
-        <%= f.text_field :address_city, autofocus: true, autocomplete: "区市町村", placeholder:"区市町村", class: "form-control" %>
+        <%= f.text_field :address_city, autofocus: true, autocomplete: "区市町村", placeholder: "区市町村", class: "form-control" %>
       </div>
 
       <div class="field form-group">
         <%= f.label :address_street %><br />
-        <%= f.text_field :address_street, autofocus: true, autocomplete: "番地", placeholder:"番地", class: "form-control" %>
+        <%= f.text_field :address_street, autofocus: true, autocomplete: "番地", placeholder: "番地", class: "form-control" %>
       </div>
       <div class="field form-group">
         <%= f.label :Tel %><br />
-        <%= f.text_field :phone_number, autofocus: true, placeholder: "電話番号",:size=>"25", placeholder:"電話番号", class: "form-control" %>
+        <%= f.text_field :phone_number, autofocus: true, placeholder: "電話番号",:size=>"25", placeholder: "電話番号", class: "form-control" %>
       </div>
 
       <div class="field form-group">
@@ -46,16 +46,16 @@
         <% if @minimum_password_length %>
           <em>(<%= @minimum_password_length %> characters minimum)</em>
         <% end %><br />
-        <%= f.password_field :password, autocomplete: "new-password", placeholder:"パスワード入力", class: "form-control" %>
+        <%= f.password_field :password, autocomplete: "new-password", placeholder: "パスワード入力", class: "form-control" %>
       </div>
 
       <div class="field form-group">
         <%= f.label :password_confirmation %><br />
-        <%= f.password_field :password_confirmation, autocomplete: "new-password", placeholder:"確認用パスワード入力", class: "form-control" %>
+        <%= f.password_field :password_confirmation, autocomplete: "new-password", placeholder: "確認用パスワード入力", class: "form-control" %>
       </div>
 
       <div class="actions">
-        <%= f.submit "登録" %>
+        <%= f.submit "登録",class: "btn btn-success btn-block" %>
       </div>
     <% end %>
 

@@ -11,17 +11,19 @@
         <h2>全商品</h2>
       <% end %>
       <h4>(全<%= @products_all.count %>件)</h4>
-      <% @products.each do |product| %>
-        <div>
-          <%= link_to product_path(product) do %>
-            <% product.product_images.first(1).each do |image| %>
-              <%= attachment_image_tag image, :image, :fill, 280, 280, 'data-turbolinks': false, fallback: "no_image.jpg", size:"200x160", class: 'product-image'%>
+      <div class="product-contena">
+        <% @products.each do |product| %>
+          <div class="product-box">
+            <%= link_to product_path(product) do %>
+              <% product.product_images.first(1).each do |image| %>
+                <%= attachment_image_tag image, :image, :fill, 280, 280, 'data-turbolinks': false, fallback: "no_image.jpg", size:"200x160", class: 'product-image'%>
+              <% end %>
             <% end %>
-          <% end %>
-          <p><%= product.name %></p>
-        </div>
-      <% end %>
-      <div class='admin-paginate'><%= paginate @products %></div>
+            <p class="product-name"><%= product.name %></p>
+          </div>
+        <% end %>
+      </div>
+      <div class='paginate'><%= paginate @products %></div>
     </div>
   </div>
 </div>

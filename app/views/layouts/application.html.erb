@@ -41,16 +41,16 @@
           <div class="col-lg-12 col-xs-12">
             <nav>
               <% if user_signed_in? %>
-                <li><%= link_to "マイページ", user_path(current_user.id), class: "Editlink" %></li>
-                <li><%= link_to "商品一覧", products_path, class: "Editlink" %></li>
-                <li><%= link_to "新規投稿", new_product_path, class: "Editlink" %></li>
-                <li><%= link_to "ログアウト", destroy_user_session_path, method: :delete, class: "Editlink"%></li>
+                <li><%= link_to "マイページ", user_path(current_user.id), class: "Editlink", 'data-turbolinks': false %></li>
+                <li><%= link_to "商品一覧", products_path, class: "Editlink", 'data-turbolinks': false %></li>
+                <li><%= link_to "新規投稿", new_product_path, class: "Editlink", 'data-turbolinks': false %></li>
+                <li><%= link_to "ログアウト", destroy_user_session_path, method: :delete, class: "Editlink" %></li>
               <% else %>
                 <li><%= link_to "Home", root_path, class: "Editlink" %></li>
-                <li><%= link_to "About", about_path, class: "Editlink" %></li>
-                <li><%= link_to "商品一覧", products_path, class: "Editlink" %></li>
-                <li><%= link_to "新規登録", new_user_registration_path, 'data-turbolinks': false, class: "Editlink" %></li>
-                <li><%= link_to "ログイン", new_user_session_path, class: "Editlink" %></li>
+                <li><%= link_to "About", about_path, class: "Editlink", 'data-turbolinks': false %></li>
+                <li><%= link_to "商品一覧", products_path, class: "Editlink", 'data-turbolinks': false %></li>
+                <li><%= link_to "新規登録", new_user_registration_path, 'data-turbolinks': false, class: "Editlink", 'data-turbolinks': false %></li>
+                <li><%= link_to "ログイン", new_user_session_path, class: "Editlink", 'data-turbolinks': false %></li>
               <% end %>
             </nav>
           </div>
@@ -58,11 +58,18 @@
     </div>
   </header>
 
-  <div class= container>
+  <div class= "container top-hi">
     <%= yield %>
   </div>
   
   <footer>
+    <div class= "container">
+      <%= link_to inquiry_path do %> 
+      <div class="footer-i">    
+        <i class="far fa-question-circle"></i>お問い合わせ
+      </div>
+      <% end %>
+    </div>
   </footer>
   </body>
 </html>

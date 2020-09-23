@@ -21,39 +21,36 @@
  @import url('https://fonts.googleapis.com/css?family=Sacramento');
 
 
- *{
+*{
 	font-family: 'M PLUS Rounded 1c', sans-serif;
 	position: relative;
 	z-index:1;
 	margin: 0;
 	padding: 0;
 	box-sizing: border-box;
- }
- header{
-	text-decoration: none;
- }
- html {
+}
+html {
     height: 100%;
 }
-
 body {
 	// background-color:rgba(0,0,0,0.05);
 	padding-bottom: 70px;
 	
 }
 header{
-	background-color:rgba(0, 0, 0, 0);
+	text-decoration: none;
+	background-color:white;
 	height: 100px;
+	width: 100%;
 	a:link {color:black; text-decoration:none }
 	a:visited { color:black; text-decoration:none }
 	a:hover { color:black; text-decoration:none }
 	a:active { color:black; text-decoration:none }
-}
-header{
+	box-shadow: 0 0 8px gray;
 	li{
-	  list-style: none;
-	  color:white;
-	}
+		list-style: none;
+		color:white;
+	  }
 }
 .top-user{
 	margin-top: 20px;
@@ -76,7 +73,7 @@ header{
 .title-name{
 	margin: auto;
 	color:black;
-	font-family: 'Impact', sans-serif;
+	font-family: 'Comic Sans MS', cursive;
 	font-size: 43px;
 }
 nav{
@@ -99,6 +96,7 @@ nav{
 }
 .home-out{
 	color: white;
+	
 }
 .home-about{
 	margin: 10px 10px;
@@ -106,7 +104,7 @@ nav{
 	color: white;
 	width: 350px;
 	height: 60px;
-	text-align: center;
+	line-height: 38px;
 }
 .home-btn1{
 	margin: 10px 10px;
@@ -115,6 +113,8 @@ nav{
 	width: 350px;
 	height: 60px;
 	text-align: center;
+	line-height: 38px;
+	border: none;
 }
 .home-btn2{
 	margin: 10px 10px;
@@ -123,6 +123,8 @@ nav{
 	width: 350px;
 	height: 60px;
 	text-align: center;
+	line-height: 38px;
+	border: none;
 }
 .home-btn3{
 	margin: 10px 10px;
@@ -131,8 +133,16 @@ nav{
 	width: 350px;
 	height: 60px;
 	text-align: center;
+	line-height: 38px;
+	border: none;
+}
+.top-hi{
+	padding-top: 20px;
 }
 // アバウト
+.about-top{
+	text-align: center;
+}
 .about-imge1{
 	background-image: url("imge2.jpg");
 	width: 400px;
@@ -161,28 +171,56 @@ nav{
 	background-position: center;
 	background-size: cover;
 }
+.a{
+	font-size:20px;
+	padding:13px 0;
+	margin: 20px;
+	color: #494949;
+	background: #fffaf4;
+	border-left: solid 5px #ffaf58;
+}
 .about-text1{
 	padding-left:20px;
-	padding-top:50px;
+	padding-right: 40px;
+	
 	font-size:20px;
 	font-family: 'Hiragino Kaku Gothic Std';
 }
 .about-text2{
 	padding-right:20px;
-	padding-top:50px;
+
 	font-size:20px;
 	font-family: 'Hiragino Kaku Gothic Std';
 }
 // ホーム
 
-
 // マイページ
+.mypage{
+	box-shadow: 0 0 8px gray;
+}
+.mypage-product{
+	padding: 30px 10px;
+}
+.mypage{
+	table{
+		tr{
+			td{
+				font-size: 20px;
+				line-height: 40px;
+				div{
+					font-size: 23px;
+				}
+			}
+		}
+		
+	}
+}
 .profile-imag{
 	width: 100%;
 	height: 300px;
 	background-position: center;
 	background-size: cover;
-	background-image: image-url("imge1.jpg");
+
 	display: flex; /* 子要素をflexboxで揃える */
     flex-direction: column; /* 子要素をflexboxにより縦方向に揃える */
     justify-content: center; /* 子要素をflexboxにより中央に配置する */
@@ -190,7 +228,6 @@ nav{
 }
 .profile-name{
 	font-size: 25px;
-
 }
 .img-square {
     border-radius: 50%;  /* 角丸半径を50%にする(=円形にする) */
@@ -207,6 +244,9 @@ nav{
 	background-position: center;
 	background-size: cover;
 }
+// 新規登録
+
+// エラーメッセージ
 .error-message {
 	margin: 10px 30px;
 }
@@ -214,11 +254,7 @@ nav{
 	display: contents;
 	@extend .has-error;
 }
-.icon {
-	color: pink;
-	margin:  10px;
-}
-// 新規登録
+// エラーメッセージ
 
 // ジャンル
 .genre{
@@ -229,183 +265,250 @@ nav{
 }
 // ジャンル
 
-
-
-.new-genre{
-	font-color:red;
+// 商品投稿
+.view {
+	display: flex;
+	width: 100%;
+	justify-content: space-between;
+	flex-wrap: wrap;
 }
+.view > div {
+	margin: 10px;
+}
+.view_box{
+	width: 200px;
+}
+.img{
+	width: 200px;
+	height: 200px;
+}
+// 商品投稿
+// 商品一覧
+.product-contena{
+	display: flex;
+	width: 100%;
+	justify-content: flex-start;
+	flex-wrap: wrap;
+}
+.product-box{
+	width: 200px;
+}
+.product-image{
+	border-radius: 50%;
+	width:  160px;       /* ※縦横を同値に */
+    height: 160px;       /* ※縦横を同値に */
+}
+.product-image:hover{
+	transform: scale(1.1) rotate(9deg);
+	transition-duration: 0.5s;
+}
+.product-name{
+	text-align: center;
+}
+.product-intro{
+	background-color: rgb(245, 245, 245);
 
+	font-size: 18px;
+	line-height: 40px;
+}
+.paginate{
+	text-align: center;
+}
+// 商品一覧
+
+//商品詳細
+.product-show{
+	tr{
+		td{
+			font-size: 16px;
+		}
+	}
+}
+.product-title{
+	font-weight: bold;
+}
+.product-edit{
+	text-align: right;
+}
+// 商品詳細
+// いいね コメント
+.favorite-comment{
+	display: flex;
+	justify-content: center;
+	font-size: 16px;
+	padding-bottom: 10px;
+}
+.favorite{
+	li{
+		list-style: none;
+	}
+	a:link {color:black; text-decoration:none }
+	a:visited { color:black; text-decoration:none }
+	a:hover { color:black; text-decoration:none }
+	a:active { color:black; text-decoration:none }
+	padding-left: 10px;
+}
+#comment{
+	li{
+		list-style: none;
+	}
+}
+.comment-box{
+	padding-top: 30px;
+}
+.comment-list{
+	display: flex;
+	justify-content: flex-start;
+	align-items: baseline;
+}
+.arrow_box{
+    position: relative;
+    max-width: 500px;
+    background:  #0099FF;
+	padding: 10px;
+	margin: 10px 10px;
+    text-align: left;
+    color: #FFFFFF;
+    font-weight: bold;
+    border-radius: 10px;
+    -webkit-border-radius: 10px;
+	-moz-border-radius: 10px;
+	word-wrap: break-word;
+}
+.arrow_box:after{
+    border: solid transparent;
+    content: '';
+    height: 0;
+    width: 0;
+    pointer-events: none;
+    position: absolute;
+    border-color:  rgba(0, 153, 255, 0);
+    border-top-width: 10px;
+    border-bottom-width: 10px;
+    border-left-width: 10px;
+    border-right-width: 10px;
+    margin-top: -10px;
+    border-right-color: #0099FF;
+    right: 100%;
+    top: 20px;
+}
+// コメント
+// チャット
+.right-button{
+	text-align: right;
+}
+.mychat-box{
+	display: flex;
+	justify-content: flex-end;
+	align-items: baseline;
+	padding: 10px 0;
+}
+.arrow_mybox{
+	margin-right: 10px;
+    position: relative;
+	max-width: 500px;
+    background:  #09ff00;
+    padding: 10px;
+    text-align: left;
+    color: #FFFFFF;
+    font-weight: bold;
+    border-radius: 10px;
+    -webkit-border-radius: 10px;
+	-moz-border-radius: 10px;
+}
+.arrow_mybox:after{
+    border: solid transparent;
+    content: '';
+    height: 0;
+    width: 0;
+    pointer-events: none;
+    position: absolute;
+    border-color:  rgba(0, 153, 255, 0);
+    border-top-width: 10px;
+    border-bottom-width: 10px;
+    border-left-width: 10px;
+    border-right-width: 10px;
+    margin-top: -10px;
+    border-left-color: #09ff00;
+    left: 100%;
+    top: 20px;
+}
+.youchat-box{
+	display: flex;
+	justify-content: flex-start;
+	align-items: baseline;
+	padding: 10px 0;
+}
+.arrow_youbox{
+    position: relative;
+    max-width: 500px;
+    background: #c1c5c7;
+    padding: 10px 10px;
+    text-align: left;
+    color: #FFFFFF;
+    font-weight: bold;
+    border-radius: 10px;
+    -webkit-border-radius: 10px;
+	-moz-border-radius: 10px;
+	word-wrap: break-word;
+}
+.arrow_youbox:after{
+    border: solid transparent;
+    content: '';
+    height: 0;
+    width: 0;
+    pointer-events: none;
+    position: absolute;
+    border-color:  rgba(0, 153, 255, 0);
+    border-top-width: 10px;
+    border-bottom-width: 10px;
+    border-left-width: 10px;
+    border-right-width: 10px;
+    margin-top: -10px;
+    border-right-color: #c1c5c7;
+    right: 100%;
+    top: 20px;
+}
+// チャット
+// 注文履歴
+.order{
+	thead{
+		tr{
+			th{
+				text-align: center;
+			}
+		}
+	}
+	tbody{
+		tr{
+			td{
+				text-align: center;
+			}
+		}
+	}
+}
+.order-image{
+	background-position: center;
+}
+// 注文履歴
+// フッター
 footer{
-	background-color: rgba(255,255,255,1);
+	font-family: 'sans-serif', sans-serif;
+	background-color: rgb(220, 220, 220);
 	position: fixed;
 	bottom: 0;
 	width: 100%;
-	height: 40px;
+	height: 50px;
 	text-align: right;
 	font-size:30px;
-	margin-top:20px;
+	box-shadow: 0 0 8px gray;
+	a:link {color:black; text-decoration:none }
+	a:visited { color:black; text-decoration:none }
+	a:active { color:black; text-decoration:none }
 }
-footer i{
-	margin-right:15px;
+.footer-i:hover{
+	color:rgb(155, 148, 148);
 }
-
-.admin-title{
-	font-weight: bold;
-}
-.top{
-	margin-top:-70px;
-}
-.cake-image{
-	height:900px;
-	background-color: white;
-}
-.video-content{
-	margin-top:-100px;
-	height:1000px;
-	width:100%;
-}
-.home-text{
-	text-align: center;
-	font-size:15px;
-	background-color: white;
-	margin-top: -140px;
-	margin-bottom:-13px;
-	font-size: 20px;
-}
-.top h3{
-	text-align: center;
-}
-.youtube{
-	color:red;
-}
-.insta{
-	color:#cc6699;
-}
-
-
-.Nagano{
-	font-family: 'Sacramento', cursive;
-	font-weight: bold;
-	font-size: 30px;
-}
-.cakeya{
-	float:left;
-	margin-right:30px;
-	margin-bottom:80px;
-}
-.about-cake-image{
-	height: 600px;
-	background-image: url("/images/ケーキ3.jpg");
-    background-size:cover;
-}
-
-.login{
-	text-align: center;
-}
-.forgot{
-	text-align: right;
-}
-.sign_up p{
-	height:37px;
-}
-
-.margin-right{
-	margin-right: 40px;
-}
-
-.destinations-text p{
-height:36px;
-}
-
-.pull-right{
-	margin-bottom: 10px;
-}
-.sum{
-	font-weight: bold;
-}
-
-.Yuko{
-	background-color: blue;
-	padding:3px;
-	color:white;
-	border-radius: 4px;
-}
-.Muko{
-	background-color: red;
-	padding:3px;
-	color:white;
-	border-radius: 4px;
-}
-.customer-text p{
-	height: 38px;
-}
-.customer-text p :first-child{
-	height:40px;
-}
-
-
-.strong{
-	margin-left:70px;
-}
-.margin-left-block{
-	margin-left: 30px;
-}
-.second-child{
-	margin-right: 120px;
-}
-.price-margin{
-	margin-top:-30px;
-}
-.product-name{
-	border-bottom: dotted 3px rgba(0,0,0,0.5);
-}
-.product-image{
-	border-radius:50%;
-}
-.product-image2{
-	border-radius:50%;
-}
-.product-image:hover{
-    transform: scale(1.1) rotate(9deg);
-  transition-duration: 0.5s;
-}
-
-.mypage-span{
-	font-weight: bold;
-	font-size: 17px;
-}
-.mypage-span-a{
-	font-weight: bold;
-	font-size: 17px;
-	margin-right: 16px;
-}
-.hide-text{
-	text-align: center;
-	margin-top: 130px;
-	font-size: 20px;
-}
-
-.confirm-table{
-	height:100px;
-}
-.thank-you{
-    text-align: center;
-	margin-top: 130px;
-}
-.confirm-text{
-	font-size:17px;
-}
-
-.order-show h4{
-
-}
-
-.admin-paginate{
-text-align: center;
-}
-
-
-
 // スライドショー
 .slick-next {
     right: 10px !important;
@@ -416,3 +519,24 @@ text-align: center;
 	left: 10px !important;
 	z-index: 100;
  }
+.thank{
+	text-align: center;
+	margin: auto;
+}
+
+/*ページネーション自体のデザイン*/
+.pagination>li>a {          
+	border: none;     /*枠線をなくす*/
+	color: #696969;   /*文字の色を変える*/
+  }
+  
+  /* 表示しているページ番号のデザイン */
+  .pagination>.active>a {     
+	background: #93c9ff;     /*背景の色を変える*/
+	border-radius: 15px;     /*角を丸くする*/
+  }
+  
+  /*ホバー時のデザイン*/
+  .pagination>li>a:hover {        
+	border-radius: 15px;    /*角を丸くする*/
+  }
