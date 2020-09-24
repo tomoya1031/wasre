@@ -1,6 +1,8 @@
 class OrdersController < ApplicationController
-    @product = Product.find(params[:id])
-    @product.update(is_active: true)
-    @order = current_user.orders.new(product_id: @product.id)
-    @order.save
+    before_action :authenticate_user!
+    
+    def index
+        @user = User.find(current_user.id)
+        @orders = @user.orders.page(params[:page]).reverse_order.per(5)
+    end
 end

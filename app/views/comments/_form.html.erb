@@ -1,8 +1,12 @@
 <%= form_with(model: [product, comment] ) do |f| %>
-    <div class="comment-text">
-        <%= f.text_area :comment, class: "comment" %>
-    </div>
-    <div class="comment-text">
-        <%= f.submit "送信", class: "btn btn-base-1 comment-sbmit" %>
+    <div class="comment-text  form-group">
+        <%= f.text_area :comment, class: "comment", class: "form-control" %>
+        <div class="right-button">
+          <% if user_signed_in? %>
+            <%= f.submit "送信", class: "btn btn-success room-sub"%>
+          <% else %>
+            <%= link_to "送信",new_user_session_path, class: "btn btn-success room-sub" %>
+          <% end %>
+        </div>
     </div>
 <% end %>

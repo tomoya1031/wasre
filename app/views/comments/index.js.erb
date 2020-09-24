@@ -1,4 +1,3 @@
 $('#comments_count').html("<%= j(render 'comments/count', product: @product) %>");
 $('#comments_area').html("<%= j(render 'comments/index', product: @product) %>");
-$('#comment').html("<%= j(render 'comments/form', product: @product, comment: @comment) %>");
 $("textarea").val('')

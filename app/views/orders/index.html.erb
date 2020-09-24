@@ -1,0 +1,28 @@
+<h3><i class="far fa-copy"></i></i>注文履歴一覧</h3><br>
+<table class="table table-striped order">
+  <thead>
+	<tr class="warning">
+	  <th class="col-xs-2">取引開始日</th>
+	  <th class="col-xs-2"></th>
+	  <th class="col-xs-3">商品名</th>
+	  <th class="col-xs-3">投稿者名</th>
+	  <th class="col-xs-2">注文詳細</th>
+	</tr>
+  </thead>
+  <tbody>
+	<% @orders.each do |order| %>
+	  <tr>
+		<td><%= order.created_at.strftime('%Y/%m/%d %H:%M') %></td>
+        <td>
+          <% order.product.product_images.first(1).each do |image| %>
+            <%= attachment_image_tag image, :image, :fill, 100, 100, 'data-turbolinks': false, fallback: "no_image.jpg", size:"200x160", class: 'order-image'%>
+          <% end %>
+        </td>
+		<td><%= order.product.name %></td>
+		<td><%= order.product.user.name%></td>
+		<td><%= link_to "詳細", product_path(order.product.id), class: "btn btn-primary" %></td>
+	  </tr>
+	<% end %>
+  </tbody>
+</table>
+<div class='paginate'><%= paginate @orders %></div>

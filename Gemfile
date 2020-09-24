@@ -6,7 +6,7 @@ ruby '2.5.7'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '~> 5.2.4', '>= 5.2.4.3'
 # Use sqlite3 as the database for Active Record
-gem 'sqlite3'
+
 # Use Puma as the app server
 gem 'puma', '~> 3.11'
 # Use SCSS for stylesheets
@@ -39,6 +39,11 @@ gem 'bootsnap', '>= 1.1.0', require: false
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
+  gem 'sqlite3'
+  gem 'capistrano'
+  gem 'capistrano-rails'
+  gem 'capistrano3-puma'
+  gem 'capistrano-rbenv'
 end
 
 group :development do
@@ -67,14 +72,20 @@ gem 'devise-i18n-views'
 gem "refile", require: "refile/rails", github: 'manfe/refile'
 gem "refile-mini_magick", github: 'refile/refile-mini_magick'
 gem 'bootstrap-sass', '~> 3.3.6'
-gem 'font-awesome-sass', '~> 5.4.1'
+gem 'font-awesome-sass'
 gem 'jquery-rails'
 gem 'pry-rails'
 gem 'pry-byebug'
+
 gem 'dotenv-rails'
+group :production do
+  gem 'mysql2'
+end
+
 gem 'rails-i18n'
 gem 'rails_admin'
 gem 'cancancan'
 gem 'jp_prefecture'
+gem 'kaminari'
 
 gem 'rename'

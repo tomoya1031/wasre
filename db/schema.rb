@@ -10,19 +10,19 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_09_05_071426) do
+ActiveRecord::Schema.define(version: 2020_09_06_072557) do
 
   create_table "comments", force: :cascade do |t|
-    t.integer "user_id"
-    t.integer "product_id"
-    t.text "comment"
+    t.integer "user_id", null: false
+    t.integer "product_id", null: false
+    t.text "comment", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
 
   create_table "entries", force: :cascade do |t|
-    t.integer "user_id"
-    t.integer "room_id"
+    t.integer "user_id", null: false
+    t.integer "room_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["room_id"], name: "index_entries_on_room_id"
@@ -30,8 +30,8 @@ ActiveRecord::Schema.define(version: 2020_09_05_071426) do
   end
 
   create_table "favorites", force: :cascade do |t|
-    t.integer "user_id"
-    t.integer "product_id"
+    t.integer "user_id", null: false
+    t.integer "product_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -44,9 +44,9 @@ ActiveRecord::Schema.define(version: 2020_09_05_071426) do
   end
 
   create_table "messages", force: :cascade do |t|
-    t.integer "user_id"
-    t.integer "room_id"
-    t.text "message"
+    t.integer "user_id", null: false
+    t.integer "room_id", null: false
+    t.text "message", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["room_id"], name: "index_messages_on_room_id"
@@ -54,15 +54,15 @@ ActiveRecord::Schema.define(version: 2020_09_05_071426) do
   end
 
   create_table "orders", force: :cascade do |t|
-    t.integer "user_id"
-    t.integer "product_id"
+    t.integer "user_id", null: false
+    t.integer "product_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
 
   create_table "product_images", force: :cascade do |t|
-    t.integer "product_id"
-    t.string "image_id"
+    t.integer "product_id", null: false
+    t.string "image_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -79,12 +79,25 @@ ActiveRecord::Schema.define(version: 2020_09_05_071426) do
   end
 
   create_table "rooms", force: :cascade do |t|
-    t.integer "user_id"
-    t.integer "product_id"
+    t.integer "product_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["product_id"], name: "index_rooms_on_product_id"
-    t.index ["user_id"], name: "index_rooms_on_user_id"
+  end
+
+  create_table "tag_maps", force: :cascade do |t|
+    t.integer "product_id", null: false
+    t.integer "tag_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["product_id"], name: "index_tag_maps_on_product_id"
+    t.index ["tag_id"], name: "index_tag_maps_on_tag_id"
+  end
+
+  create_table "tags", force: :cascade do |t|
+    t.string "tag_name", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "users", force: :cascade do |t|
@@ -99,7 +112,6 @@ ActiveRecord::Schema.define(version: 2020_09_05_071426) do
     t.string "address_city", null: false
     t.string "address_street", null: false
     t.string "phone_number", null: false
-    t.boolean "is_deleted", default: false
     t.text "introduction"
     t.string "profile_image_id"
     t.boolean "admin_flg"
