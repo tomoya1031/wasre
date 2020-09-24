@@ -30,6 +30,8 @@ ja:
         name: 商品名
         introduction: 商品紹介
         price: 商品単価
-        status: 商品詳細
+        status: 商品状態
+        product_images_images: 商品写真
       product_images:
         image_id: 商品写真
+        

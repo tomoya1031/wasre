@@ -1,16 +1,6 @@
 <div class="right-button">
   <%= link_to "商品詳細に戻る", product_path(@room.id),class:"edit-link", 'data-turbolinks': false %>
 </div>
-<!-- <% @entries.each do |e| %>
-  <div class="user-name">
-    <strong>
-      <%= attachment_image_tag e.user, :profile_image, :fill, 280, 280, fallback: "no_image.jpg" %>
-      <a class="rooms-user-link" href="/users/<%= e.user.id %>">
-        <%= e.user.name %>さん
-      </a>
-    </strong>
-  </div>
-<% end %>-->
 <hr>
 <div class="chats">
   <div class="chat">
@@ -19,10 +9,10 @@
         <% if m.user == current_user %>
           <div class="mychat-box">
             <div class="arrow_mybox">
-              <strong><%= m.message %></strong>
+              <strong><%= safe_join(m.message.split("\n"),tag(:br)) %></strong>
             </div>
             <div class="chat-face">
-              <%= attachment_image_tag m.user, :profile_image, :fill, 100, 100, fallback: "no_image.jpg" %>
+              <%= attachment_image_tag m.user, :profile_image, :fill, 100, 100, fallback: "no_image.png", size:"100x100"  %>
               <div>
                 <%= m.created_at.strftime("%Y-%m-%d %H:%M") %>
               </div>
@@ -31,7 +21,7 @@
         <% else %>
           <div class="youchat-box">
             <div class="chat-face">
-              <%= attachment_image_tag m.user, :profile_image, :fill, 100, 100, fallback: "no_image.jpg" %>
+              <%= attachment_image_tag m.user, :profile_image, :fill, 100, 100, fallback: "no_image.png", size:"100x100" %>
               <div>
                 <%= m.user.name%>
               </div>
@@ -40,7 +30,7 @@
               </div>
             </div>
             <div class="arrow_youbox">
-              <strong><%= m.message %></strong>
+              <strong><%= safe_join(m.message.split("\n"),tag(:br)) %></strong>
             </div>
           </div>
         <% end %>
@@ -49,9 +39,11 @@
   </div>
   <div class="posts">
     <%= form_for @message do |f| %>
-      <%= f.text_field :message, placeholder: "メッセージを入力して下さい" , size: 70, class:"form-control" %>
-        <%= f.hidden_field :room_id, value: @room.id %>
-          <%= f.submit "投稿", class: "btn btn-success" %>
+      <%= f.text_area :message, placeholder: "メッセージを入力して下さい" , size: 70, class:"form-control" %>
+      <%= f.hidden_field :room_id, value: @room.id %>
+      <div class="room-post">
+        <%= f.submit "投稿", class: "btn btn-success room-sub" %>
+      </div>
     <% end %>
   </div>
 </div>

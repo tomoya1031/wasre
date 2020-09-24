@@ -1,5 +1,4 @@
 class ProductsController < ApplicationController
-  before_action :product_id, only: [:show, :edit, :update]
   before_action :correct_user, only: [:edit, :update, :destroy]
 
   def new
@@ -47,17 +46,20 @@ class ProductsController < ApplicationController
   end
   
   def show
+    @product = Product.find(params[:id])
     @product_tags = @product.tags
     @comment = Comment.new
-    @favorite = current_user.favorites.find_by(product: params[:id])
-    @currentUserEntry=Entry.where(user_id: current_user.id)
-    @userEntry=Entry.where(user_id: @product.user_id)
-    @room = Room.find_or_initialize_by(product_id: params[:id])
-    @isRoom = @room.entries.where(user_id: current_user.id).exists?
-    unless @product.user_id == current_user.id
-      unless @isRoom
-        @room = Room.new
-        @entry = Entry.new
+    if user_signed_in?
+      @favorite = current_user.favorites.find_by(product: params[:id])
+      @currentUserEntry=Entry.where(user_id: current_user.id)
+      @userEntry=Entry.where(user_id: @product.user_id)
+      @room = Room.find_or_initialize_by(product_id: params[:id])
+      @isRoom = @room.entries.where(user_id: current_user.id).exists?
+      unless @product.user_id == current_user.id
+        unless @isRoom
+          @room = Room.new
+          @entry = Entry.new
+        end
       end
     end
   end
@@ -89,9 +91,6 @@ class ProductsController < ApplicationController
     params.require(:product).permit(:name, :introduction, :status, :genre_id, product_images_images: [])
   end
 
-  def product_id
-    @product = Product.find(params[:id])
-  end
   def correct_user
     @product = Product.find(params[:id])
     @product_user = current_user.products.find_by(id: params[:id])
