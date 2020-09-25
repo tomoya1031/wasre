@@ -3,7 +3,7 @@
       <div>
         <%= link_to user_path(comment.user), remote: true do %>
           <div>
-            <%= attachment_image_tag comment.user, :profile_image, :fill, 40, 40, fallback: "no_image.jpg", size:'40x40' %>
+            <%= attachment_image_tag comment.user, :profile_image, :fill, 40, 40, fallback: "no_image.png", size:'40x40' %>
           </div>
           <div><%= comment.user.name %></div>
         <% end %>

@@ -23,7 +23,7 @@
 		    <th>プロフィール画像</th>
 		    <td>
 		      <div class="item-image">
-	      	    <%= attachment_image_tag @user, :profile_image, class:"img-square", fallback: "no_image.jpg", size:"200x160" %>
+	      	    <%= attachment_image_tag @user, :profile_image, class:"img-square", fallback: "no_image.png", size:"200x160" %>
 	      	    <%= f.attachment_field :profile_image %>
               </div>
 		    </td>
