@@ -89,3 +89,6 @@ gem 'jp_prefecture'
 gem 'kaminari'
 
 gem 'rename'
+
+gem 'omniauth'
+gem 'omniauth-google-oauth2'
