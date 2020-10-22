@@ -32,7 +32,6 @@ class User < ApplicationRecord
   protected
   def self.find_for_google(auth)
     user = User.find_by(email: auth.info.email)
-
     unless user
       user = User.create!( name: auth.info.name,
                            nickname: auth.info.name,

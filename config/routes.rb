@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
   mount RailsAdmin::Engine => '/admin', as: 'rails_admin'
-  devise_for :users, skip: :all
+  devise_for :users, skip: :all, controllers: { omniauth_callbacks: 'omniauth_callbacks' }
   devise_scope :user do
     get 'login' => 'devise/sessions#new', as: :new_user_session
     post 'login' => 'devise/sessions#create', as: :user_session
