@@ -34,7 +34,6 @@ class User < ApplicationRecord
     user = User.find_by(email: auth.info.email)
     unless user
       user = User.create!( name: auth.info.name,
-                           nickname: auth.info.name,
                               email: auth.info.email,
                            provider: auth.provider,
                                 uid: auth.uid,
