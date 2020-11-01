@@ -23,6 +23,7 @@ RSpec.describe Product, type: :model do
         @product.name = ""
         @product.introduction = "今日も晴れです。"
         @product.status = "新品・未使用"
+        @product.product_images_images = "44b898f756b831b14ab869910e8aa1391594d362352c9735573cc324addf"
         @product.save
     end
     it "名前が入力されていないので保存されない" do
