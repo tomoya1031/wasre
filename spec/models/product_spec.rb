@@ -21,7 +21,7 @@ RSpec.describe Product, type: :model do
         @product = Product.new
         @product.genre_id = 1
         @product.name = ""
-        @product.introduction = "今日も晴れです。"
+        @product.introduction = "おはようごうざいます。"
         @product.status = "新品・未使用"
         @product.product_images_images = "44b898f756b831b14ab869910e8aa1391594d362352c9735573cc324addf"
         @product.save
