@@ -16,6 +16,7 @@ class User < ApplicationRecord
   has_many :messages, dependent: :destroy
   has_many :entries, dependent: :destroy
   has_many :orders, dependent: :destroy
+  has_many :sns
 
   attachment :profile_image
 
@@ -30,18 +31,18 @@ class User < ApplicationRecord
     self.prefecture_code = JpPrefecture::Prefecture.find(name: prefecture_name).code
   end
   
-  protected
-  def self.find_for_google(auth)
-    user = User.find_by(email: auth.info.email)
-    unless user
-      user = User.create!( name: auth.info.name,
-                              email: auth.info.email,
-                           provider: auth.provider,
-                                uid: auth.uid,
-                              token: auth.credentials.token,
-                           password: Devise.friendly_token[0, 20],
-                               meta: auth.to_yaml)
+  def self.from_omniauth(auth)       # snsから取得した、providerとuidを使って、既存ユーザーを検索
+    sns = SnsCredential.where(provider: auth.provider, uid: auth.uid).first_or_create  # sns認証したことがあればアソシエーションで取得、なければSns_credentialsテーブルにレコード作成
+  
+    # snsのuser or usersテーブルに対し、SNS認証で取得したメールアドレスが登録済みの場合は、取得 or なければビルド(保存はしない)
+    user = sns.user || User.where(email: auth.info.email).first_or_initialize(
+      name: auth.info.name,
+      email: auth.info.email
+    )
+    if user.persisted?   # userが登録済みの場合：そのままログインするため、snsのuser_idを更新しとく
+      sns.user = user
+      sns.save
     end
-    user
+    { user: user, sns: sns }   # user、snsをハッシュで返す(コントローラーがこれを受け取る)
   end
 end

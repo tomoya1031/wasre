@@ -22,4 +22,6 @@
     <%= link_to "商品を見てみよう", products_path, class: "btn btn-primary btn-lg home-btn2" %>
     <%= link_to "ログイン", new_user_session_path, class: "btn btn-info btn-lg home-btn3" %>
   </div>
+  <%= link_to 'Googleで登録', user_google_oauth2_omniauth_authorize_path, method: :post %>
+  <%= link_to 'Signin with Google', user_google_oauth2_omniauth_authorize_path, method: :post  %>
 </div>

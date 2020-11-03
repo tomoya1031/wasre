@@ -41,22 +41,26 @@
         <%= f.text_field :phone_number, autofocus: true, placeholder: "電話番号",:size=>"25", placeholder: "電話番号", class: "form-control" %>
       </div>
 
-      <div class="field form-group">
-        <%= f.label :password %>
-        <% if @minimum_password_length %>
-          <em>(<%= @minimum_password_length %> 文字以上)</em>
-        <% end %><br />
-        <%= f.password_field :password, autocomplete: "new-password", placeholder: "パスワード入力", class: "form-control" %>
-      </div>
+      <% if @sns_id.present?%>
+        <%= hidden_field_tag : sns_auth, true %>
+      <% else %>
+        <div class="field form-group">
+          <%= f.label :password %>
+          <% if @minimum_password_length %>
+            <em>(<%= @minimum_password_length %> 文字以上)</em>
+          <% end %><br />
+          <%= f.password_field :password, autocomplete: "new-password", placeholder: "パスワード入力", class: "form-control" %>
+        </div>
 
-      <div class="field form-group">
-        <%= f.label :password_confirmation %><br />
-        <%= f.password_field :password_confirmation, autocomplete: "new-password", placeholder: "確認用パスワード入力", class: "form-control" %>
-      </div>
+        <div class="field form-group">
+          <%= f.label :password_confirmation %><br />
+          <%= f.password_field :password_confirmation, autocomplete: "new-password", placeholder: "確認用パスワード入力", class: "form-control" %>
+        </div>
 
-      <div class="actions">
-        <%= f.submit "登録",class: "btn btn-success btn-block" %>
-      </div>
+        <div class="actions">
+          <%= f.submit "登録",class: "btn btn-success btn-block" %>
+        </div>
+      <% end%>
     <% end %>
     <%= render "devise/shared/links" %>
   </div>
