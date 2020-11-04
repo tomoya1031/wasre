@@ -1,15 +1,15 @@
 Rails.application.routes.draw do
   mount RailsAdmin::Engine => '/admin', as: 'rails_admin'
-  devise_for :users, skip: :all#, controllers: { omniauth_callbacks: 'omniauth_callbacks' }
-  devise_scope :user do
-    get 'login' => 'devise/sessions#new', as: :new_user_session
-    post 'login' => 'devise/sessions#create', as: :user_session
-    delete 'logout' => 'devise/sessions#destroy', as: :destroy_user_session
-    get 'singin' => 'devise/registrations#new', as: :new_user_registration
-    post 'singin' => 'devise/registrations#create', as: :user_registration
-    match 'users/auth/google_oauth2',to: 'omniauth_callbacks#passthru', as: :user_google_oauth2_omniauth_authorize, via: [:get, :post]
-    match 'users/auth/google_oauth2/callback',to: 'omniauth_callbacks#google_oauth2', as: :user_google_oauth2_omniauth_callback, via: [:get, :post]
-  end
+  devise_for :users, controllers: { omniauth_callbacks: 'omniauth_callbacks' }#, skip: :all
+  # devise_scope :user do
+  #   get 'login' => 'devise/sessions#new', as: :new_user_session
+  #   post 'login' => 'devise/sessions#create', as: :user_session
+  #   delete 'logout' => 'devise/sessions#destroy', as: :destroy_user_session
+  #   get 'singin' => 'devise/registrations#new', as: :new_user_registration
+  #   post 'singin' => 'devise/registrations#create', as: :user_registration
+  #   match 'users/auth/google_oauth2',to: 'devise/omniauth_callbacks#passthru', as: :user_google_oauth2_omniauth_authorize, via: [:get, :post]
+  #   match 'users/auth/google_oauth2/callback',to: 'devise/omniauth_callbacks#google_oauth2', as: :user_google_oauth2_omniauth_callback, via: [:get, :post]
+  # end
 
   root 'home#top'
   get 'about', to: 'home#about'

@@ -1,5 +1,5 @@
 FactoryBot.define do
-    factory :user do
+    factory :product do
       genre_id         {"1"}
       name             {"ケーキ"}
       introduction     {"ケーキだよ"}
