@@ -6,6 +6,7 @@ class Product < ApplicationRecord
   has_many :orders, dependent: :destroy
   has_many :tag_maps, dependent: :destroy
   has_many :tags, through: :tag_maps
+  has_many :notifications, dependent: :destroy
   has_one :room
   belongs_to :user
   belongs_to :genre, optional: true
