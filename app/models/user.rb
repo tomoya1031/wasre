@@ -47,4 +47,5 @@ class User < ApplicationRecord
     end
     { user: user, sns: sns }   # user、snsをハッシュで返す(コントローラーがこれを受け取る)
   end
+
 end
