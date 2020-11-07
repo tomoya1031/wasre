@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_11_03_080605) do
+ActiveRecord::Schema.define(version: 2020_11_06_083217) do
 
   create_table "comments", force: :cascade do |t|
     t.integer "user_id", null: false
@@ -51,6 +51,19 @@ ActiveRecord::Schema.define(version: 2020_11_03_080605) do
     t.datetime "updated_at", null: false
     t.index ["room_id"], name: "index_messages_on_room_id"
     t.index ["user_id"], name: "index_messages_on_user_id"
+  end
+
+  create_table "notifications", force: :cascade do |t|
+    t.integer "visiter_id"
+    t.integer "visited_id"
+    t.integer "product_id"
+    t.integer "comment_id"
+    t.integer "favorite_id"
+    t.integer "message_id"
+    t.string "action"
+    t.boolean "checked", default: false, null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "orders", force: :cascade do |t|

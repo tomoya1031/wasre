@@ -2,7 +2,7 @@ class UsersController < ApplicationController
   before_action :user_set, only: [:show,:edit,:update]
 
   def show
-    @products = @user.products.page(params[:page]).reverse_order.per(5)
+    @products = @user.products.page(params[:page]).reverse_order.per(5).all.includes(:user)
   end
 
   def edit

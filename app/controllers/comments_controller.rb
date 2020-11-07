@@ -5,6 +5,7 @@ class CommentsController < ApplicationController
       @comment = current_user.comments.new(comment_params)
       @comment.product_id = @product.id
       @comment.save
+      @comment_item.create_notification_comment!(current_user, @comment.id)
       render :index
     end
 
