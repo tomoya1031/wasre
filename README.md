@@ -1,4 +1,4 @@
-![Collage_Fotor](https://user-images.githubusercontent.com/67405786/98458686-acc14f80-21d6-11eb-94a7-d36a6f4b0515.jpg)
+<img width="1149" alt="スクリーンショット 2020-11-08 15 27 24" src="https://user-images.githubusercontent.com/67405786/98458718-f0b45480-21d6-11eb-8619-63745896502c.png">
 
 
 
