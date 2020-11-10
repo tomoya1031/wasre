@@ -4,6 +4,7 @@ class CommentsController < ApplicationController
       @product = Product.find(params[:product_id])
       @comment = current_user.comments.new(comment_params)
       @comment.product_id = @product.id
+      @comment_item = @comment.product
       @comment.save
       @comment_item.create_notification_comment!(current_user, @comment.id)
       render :index
