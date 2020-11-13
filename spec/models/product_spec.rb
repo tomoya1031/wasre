@@ -27,6 +27,11 @@ RSpec.describe Product, type: :model do
         expect(@product.valid?).to eq(false)
       end
 
+      it "商品詳細が301文字以上なので保存されない" do
+        @product.introduction = "a" * 301
+        expect(@product.valid?).to eq(false)
+      end
+
       it "ジャンルIDが入力されていないので保存されない" do
         @product.genre_id = ''
         expect(@product.valid?).to eq(false)
