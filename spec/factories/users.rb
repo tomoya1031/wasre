@@ -6,7 +6,7 @@ FactoryBot.define do
       address_city          {"舞鶴市"}
       address_street        {"青井"}
       phone_number          {"000000000"}
-      email                 {"totodada@gmail.com"}
+      sequence(:email) { |n| "TEST#{n}@example.com"}
       password              {"12345678"}
       password_confirmation {"12345678"}
     end
