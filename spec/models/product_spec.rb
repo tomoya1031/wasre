@@ -17,7 +17,7 @@ RSpec.describe Product, type: :model do
         expect(@product.valid?).to eq(false)
       end
 
-      it "商品名が31文字以上なので保存されない" do
+      it "商品名が30文字を超えているので保存されない" do
         @product.name = "a" * 31
         expect(@product.valid?).to eq(false)
       end
@@ -27,7 +27,7 @@ RSpec.describe Product, type: :model do
         expect(@product.valid?).to eq(false)
       end
 
-      it "商品詳細が301文字以上なので保存されない" do
+      it "商品詳細が300文字を超えているので保存されない" do
         @product.introduction = "a" * 301
         expect(@product.valid?).to eq(false)
       end

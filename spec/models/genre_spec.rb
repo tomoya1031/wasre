@@ -14,6 +14,11 @@ RSpec.describe Genre, type: :model do
       @genre.name = ''
       expect(@genre.valid?).to eq(false)
     end
+
+    it "商品名が30文字を超えているので保存されない" do
+      @genre.name = "a" * 31
+      expect(@genre.valid?).to eq(false)
+    end
   end
 
 end
