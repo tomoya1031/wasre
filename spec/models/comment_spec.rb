@@ -17,7 +17,7 @@ RSpec.describe Comment, type: :model do
         expect(@comment.valid?).to eq(false)
       end
 
-      it "コメントが15文字を超えているので保存されない" do
+      it "コメントが300文字を超えているので保存されない" do
         @comment.comment = '1' * 301
         expect(@comment.valid?).to eq(false)
       end

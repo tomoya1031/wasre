@@ -17,7 +17,7 @@ RSpec.describe Message, type: :model do
         expect(@message.valid?).to eq(false)
       end
 
-      it "コメントが15文字を超えているので保存されない" do
+      it "メッセージが300文字を超えているので保存されない" do
         @message.message = '1' * 301
         expect(@message.valid?).to eq(false)
       end
