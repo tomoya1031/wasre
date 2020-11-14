@@ -12,12 +12,12 @@ RSpec.describe Tag, type: :model do
         expect(@tag.valid?).to eq(true)
       end
 
-      it "コメントが入力されていないので保存されない" do
+      it "タグ名が入力されていないので保存されない" do
         @tag.tag_name = ''
         expect(@tag.valid?).to eq(false)
       end
 
-      it "コメントが15文字を超えているので保存されない" do
+      it "タグ名が15文字を超えているので保存されない" do
         @tag.tag_name = '1' * 16
         expect(@tag.valid?).to eq(false)
       end
