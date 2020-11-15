@@ -1,26 +1,27 @@
 require 'rails_helper'
 RSpec.describe "Users", type: :system do
+    
 
   describe '会員認証のテスト' do
     describe '会員新規登録' do
-      let(:user) { FactoryBot.create(:user) }
       before do
         visit new_user_registration_path
       end
       context '新規登録画面に遷移' do
         it '新規登録に成功する' do
-          fill_in 'user[name]', with: user.name
-          fill_in 'user[post_code]', with: user.post_code
+          fill_in 'user[name]', with: 'テスト'
+          fill_in 'user[post_code]', with: '0000000'
           select '京都府', from: 'user[prefecture_name]'
-          fill_in 'user[address_city]', with: user.address_city
-          fill_in 'user[address_street]', with: user.address_street
-          fill_in 'user[phone_number]', with: user.phone_number
-          fill_in 'user[email]', with: 'z@zz'
+          fill_in 'user[address_city]', with: 'テスト'
+          fill_in 'user[address_street]', with: 'テスト'
+          fill_in 'user[phone_number]', with: '0000000'
+          fill_in 'user[email]', with: 'test@test'
           fill_in 'user[password]', with: 'password'
           fill_in 'user[password_confirmation]', with: 'password'
           click_button '登録'
-          expect(current_path).to eq('/users/2')
+          expect(current_path).to eq('/users/1')
         end
+
         it '新規登録に失敗する' do
           fill_in 'user[name]', with: 'aaaaa'
           fill_in 'user[post_code]', with: ''
@@ -82,9 +83,6 @@ RSpec.describe "Users", type: :system do
       context '他人の編集画面への遷移' do
         it '遷移できない' do
           visit edit_user_path(test_user2)
-          
-          binding.pry
-          
           expect(current_path).to eq('/users/' + user.id.to_s)
         end
       end
@@ -105,46 +103,5 @@ RSpec.describe "Users", type: :system do
         end
       end
     end
-  
-  #   describe '一覧画面のテスト' do
-  #     before do
-  #       visit users_path
-  #     end
-  #     context '表示の確認' do
-  #       it 'Usersと表示される' do
-  #         expect(page).to have_content('Users')
-  #       end
-  #       it '自分と他の人の画像が表示される' do
-  #         expect(all('img').size).to eq(3)
-  #       end
-  #       it '自分と他の人の名前が表示される' do
-  #         expect(page).to have_content user.name
-  #         expect(page).to have_content test_user2.name
-  #       end
-  #       it 'showリンクが表示される' do
-  #         expect(page).to have_link 'Show', href: user_path(user)
-  #         expect(page).to have_link 'Show', href: user_path(test_user2)
-  #       end
-  #     end
-  #   end
-  #   describe '詳細画面のテスト' do
-  #     before do
-  #       visit user_path(user)
-  #     end
-  #     context '表示の確認' do
-  #       it 'Booksと表示される' do
-  #         expect(page).to have_content('Books')
-  #       end
-  #       it '投稿一覧の会員の画像のリンク先が正しい' do
-  #         expect(page).to have_link '', href: user_path(user)
-  #       end
-  #       it '投稿一覧のtitleのリンク先が正しい' do
-  #         expect(page).to have_link book.title, href: book_path(book)
-  #       end
-  #       it '投稿一覧にopinionが表示される' do
-  #         expect(page).to have_content(book.body)
-  #       end
-  #     end
-  #   end
   end
 end

@@ -19,6 +19,5 @@ RSpec.describe "Users", type: :request do
         expect(response.status).to eq 200
       end
     end
-
   end
 end

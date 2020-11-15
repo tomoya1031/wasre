@@ -1,5 +1,5 @@
 class ProductsController < ApplicationController
-  before_action :correct_user, only: [:edit, :update, :destroy]
+  before_action :currect_user, only: [:edit, :update, :destroy]
 
   def new
     @product = Product.new
@@ -91,11 +91,10 @@ class ProductsController < ApplicationController
     params.require(:product).permit(:name, :introduction, :status, :genre_id, product_images_images: [])
   end
 
-  def correct_user
+  def currect_user
     @product = Product.find(params[:id])
-    @product_user = current_user.products.find_by(id: params[:id])
-      if @product.is_active || @product_user == true
-        redirect_to root_url
+      if @product.is_active || @product.user != current_user
+        redirect_to product_path
       end
   end
 end
