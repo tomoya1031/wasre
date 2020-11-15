@@ -1,9 +1,14 @@
 class ProductsController < ApplicationController
   before_action :currect_user, only: [:edit, :update, :destroy]
 
+
   def new
-    @product = Product.new
-    @product.product_images.build
+    if user_signed_in?
+      @product = Product.new
+      @product.product_images.build
+    else
+      redirect_to root_path
+    end
   end
 
   def create
