@@ -78,7 +78,6 @@ class ProductsController < ApplicationController
       @product.save_tag(tag_list)
       redirect_to product_path(@product.id)
     else
-      @product = Product.find(params[:id])
       render "edit"
     end
   end
