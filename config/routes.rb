@@ -25,6 +25,8 @@ Rails.application.routes.draw do
   end
   get 'inquiry',to: 'inquiry#index'
   post 'inquiry/confirm',to: 'inquiry#confirm'
+  get 'inquiry/confirm', to:'inquiry#index'
   post 'inquiry/thanks',to: 'inquiry#thanks' 
+  get 'inquiry/thanks', to:'inquiry#index'
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end

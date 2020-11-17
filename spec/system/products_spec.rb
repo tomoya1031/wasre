@@ -17,7 +17,6 @@ RSpec.describe "Products", type: :system do
       context '自分の商品編集画面への遷移' do
         it '遷移できる' do
           visit edit_product_path(product)
-          #単独でテストをすると通るのでOKとする
           expect(current_path).to eq('/products/' + product.id.to_s + '/edit')
         end
       end
