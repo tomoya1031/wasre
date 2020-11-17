@@ -46,8 +46,8 @@ RSpec.describe "Products", type: :system do
     end
   
     describe '投稿のテスト' do
-      let(:user) { create(:user) }
-      let!(:genre) { create(:genre) }
+      let(:user) { FactoryBot.create(:user) }
+      let!(:genre) { FactoryBot.create(:genre) }
       before do
           visit new_product_path 
       end
@@ -68,12 +68,39 @@ RSpec.describe "Products", type: :system do
         end
   
         it '投稿に失敗する' do
-            fill_in 'product[name]', with: ''
-            fill_in 'product[introduction]', with: ''
-            select 'ケーキ', from: 'product[genre_id]'
-            select '新品・未使用', from: 'product[status]'
-            click_button '新規登録'
-            expect(page).to have_content '商品名を入力してください'
+          fill_in 'product[name]', with: ''
+          fill_in 'product[introduction]', with: ''
+          select 'ケーキ', from: 'product[genre_id]'
+          select '新品・未使用', from: 'product[status]'
+          click_button '新規登録'
+          expect(page).to have_content '商品名を入力してください'
+        end
+      end
+    end
+
+    describe '商品詳細画面のテスト' do
+      let(:user) { FactoryBot.create(:user) }
+      let!(:user2) { FactoryBot.create(:user) }
+      let!(:genre) { FactoryBot.create(:genre) }
+      let!(:product) { FactoryBot.create(:product, user: user2) }
+      before do
+          visit product_path(product)
+          click_button '取　引　開　始'
+      end
+      context '商品編集画面への遷移' do
+        it '取引ルーム作成できる' do
+          expect(current_path).to eq('/rooms/' + product.id.to_s)
+        end
+
+        it '取引ルームに遷移できる' do
+          visit product_path(product)
+          click_link '取引チャットへ'
+          expect(current_path).to eq('/rooms/' + product.id.to_s)
+        end
+
+        it '取引履歴に商品が追加される' do
+          visit orders_path
+          expect(page).to have_content product.name
         end
       end
     end
