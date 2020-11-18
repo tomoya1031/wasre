@@ -78,16 +78,18 @@ RSpec.describe "Products", type: :system do
       end
     end
 
-    describe '商品詳細画面のテスト' do
+    describe 'その他画面のテスト' do
       let(:user) { FactoryBot.create(:user) }
       let!(:user2) { FactoryBot.create(:user) }
       let!(:genre) { FactoryBot.create(:genre) }
       let!(:product) { FactoryBot.create(:product, user: user2) }
-      before do
+      let!(:commtent) { FactoryBot.create(:comment, user:user, product: product)}
+      
+      context '商品取引確認' do
+        before do
           visit product_path(product)
           click_button '取　引　開　始'
-      end
-      context '商品編集画面への遷移' do
+        end
         it '取引ルーム作成できる' do
           expect(current_path).to eq('/rooms/' + product.id.to_s)
         end
@@ -98,9 +100,52 @@ RSpec.describe "Products", type: :system do
           expect(current_path).to eq('/rooms/' + product.id.to_s)
         end
 
+        it 'チャットを投稿に成功する' do
+          fill_in 'message[message]', with: 'テストチャット'
+          click_button '投稿'
+          expect(page).to have_content 'テストチャット'
+        end
+
+        it 'チャットを投稿に失敗する' do
+            fill_in 'message[message]', with: ''
+            click_button '投稿'
+            expect(page).to have_content 'メッセージ送信に失敗しました。'
+          end
+
         it '取引履歴に商品が追加される' do
           visit orders_path
           expect(page).to have_content product.name
+        end
+      end
+
+      context 'いいねをクリックした場合' do
+        before do
+          visit product_path(product)
+          find('a', text: 'いいね：0件').click
+        end
+        it 'いいねできる' do
+          expect(page).to have_content 'いいね：1件'
+        end
+
+        it 'いいねを取り消せる' do
+          find('a', text: 'いいね：1件').click
+          expect(page).to have_content 'いいね：0件'
+        end
+      end
+
+      context 'コメントを投稿した場合' do
+        before do
+          visit product_path(product)
+          fill_in 'comment[comment]', with: 'テストコメント２'
+          click_button '送信'
+        end
+        it '投稿に成功する' do
+          expect(page).to have_content 'テストコメント２'
+        end
+
+        it '投稿に失敗する' do
+          find('a', text: '').click
+          expect(page).to have_content ' コメント：1件'
         end
       end
     end
