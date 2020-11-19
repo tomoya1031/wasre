@@ -4,6 +4,7 @@ RSpec.describe User, type: :model do
 
     before do
       @user = build(:user)
+      @user2 = build(:user)
     end
   
     describe 'バリデーション' do
@@ -24,6 +25,18 @@ RSpec.describe User, type: :model do
 
       it "名前が30文字を超えているので保存されない" do
         @user.name = "a" * 31
+        expect(@user.valid?).to eq(false)
+      end
+
+      it "メールアドレスが入力されていないので保存されない" do
+        @user.email = ""
+        expect(@user.valid?).to eq(false)
+      end
+
+      it "同じメールアドレスが登録されていますので保存されない" do
+        @user2.email = 'test1@test.co.jp'
+        @user2.save
+        @user.email = 'test1@test.co.jp'
         expect(@user.valid?).to eq(false)
       end
 
@@ -84,6 +97,16 @@ RSpec.describe User, type: :model do
 
       it "電話番号が15文字を超えているので保存されない" do
         @user.phone_number = '1' * 16
+        expect(@user.valid?).to eq(false)
+      end
+
+      it "パスワードが入力されていないので保存されない" do
+        @user.password = ''
+        expect(@user.valid?).to eq(false)
+      end
+
+      it "パスワードが6文字未満なので保存されない" do
+        @user.password = 'a' * 5
         expect(@user.valid?).to eq(false)
       end
 
