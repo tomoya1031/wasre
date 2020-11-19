@@ -127,7 +127,6 @@ RSpec.describe User, type: :model do
   
       context '商品モデルとの関係' do
         let(:target) { :products }
-  
         it '1:Nとなっている' do
           expect(association.macro).to eq :has_many
         end
@@ -135,7 +134,6 @@ RSpec.describe User, type: :model do
   
       context '商品コメントモデルとの関係' do
         let(:target) { :comments }
-  
         it '1:Nとなっている' do
           expect(association.macro).to eq :has_many
         end
@@ -143,7 +141,6 @@ RSpec.describe User, type: :model do
   
       context '商品いいねモデルとの関係' do
         let(:target) { :favorites}
-  
         it '1:Nとなっている' do
           expect(association.macro).to eq :has_many
         end
@@ -151,7 +148,6 @@ RSpec.describe User, type: :model do
   
       context '取引履歴モデルとの関係' do
         let(:target) { :orders }
-  
         it '1:Nとなっている' do
           expect(association.macro).to eq :has_many
         end
@@ -159,7 +155,6 @@ RSpec.describe User, type: :model do
   
       context 'エントリーモデルとの関係' do
         let(:target) { :entries }
-  
         it '1:Nとなっている' do
           expect(association.macro).to eq :has_many
         end
@@ -167,7 +162,6 @@ RSpec.describe User, type: :model do
 
       context 'メッセージモデルとの関係' do
         let(:target) { :messages }
-  
         it '1:Nとなっている' do
           expect(association.macro).to eq :has_many
         end
@@ -175,7 +169,6 @@ RSpec.describe User, type: :model do
   
       context '通知モデルとの関連' do
         let(:target) { :active_notifications }
-  
         it '1:Nとなっている' do
           expect(association.macro).to eq :has_many
         end
@@ -186,7 +179,6 @@ RSpec.describe User, type: :model do
 
       describe 'データベースへの接続のテスト' do
         subject { described_class.connection_config[:database] }
-    
         it '指定のDBに接続していること' do
           is_expected.to match(/test.sqlite3/)
         end
