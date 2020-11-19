@@ -149,10 +149,10 @@ RSpec.describe User, type: :model do
         end
       end
   
-      context '取引完了モデルとの関係' do
+      context '取引履歴モデルとの関係' do
         let(:target) { :orders }
   
-        it '1:Nとなっている（中間テーブルevent_usersを介すので多対多）' do
+        it '1:Nとなっている' do
           expect(association.macro).to eq :has_many
         end
       end
