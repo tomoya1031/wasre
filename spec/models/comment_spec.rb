@@ -21,7 +21,25 @@ RSpec.describe Comment, type: :model do
         @comment.comment = '1' * 301
         expect(@comment.valid?).to eq(false)
       end
-
     end
 
+    describe 'アソシエーションのテスト' do
+      let(:association) do
+        described_class.reflect_on_association(target)
+      end
+
+      context '会員モデルとの関係' do
+        let(:target) { :user }
+        it 'N:1となっている' do
+          expect(association.macro).to eq :belongs_to
+        end
+      end
+
+      context '商品モデルとの関係' do
+        let(:target) { :products }
+        it '1:Nとなっている' do
+          expect(association.macro).to eq :has_many
+        end
+      end
+    end
 end
