@@ -79,4 +79,4 @@
 
 
 ## ER図
-![wasre_ER図](https://user-images.githubusercontent.com/67405786/98459315-1b091080-21dd-11eb-844b-5416cc172027.png)
+![wasre_ER図 (1)](https://user-images.githubusercontent.com/67405786/99644743-a746ed80-2a91-11eb-81ad-a1f0626e1fc2.png)
