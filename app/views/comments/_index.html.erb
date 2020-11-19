@@ -1,7 +1,7 @@
 <% product.comments.each do |comment| %>
     <div class="comment-list">
       <div>
-        <%= link_to user_path(comment.user), remote: true do %>
+        <%= link_to user_path(comment.user) do %>
           <div>
             <%= attachment_image_tag comment.user, :profile_image, :fill, 40, 40, fallback: "no_image.png", size:'40x40' %>
           </div>
