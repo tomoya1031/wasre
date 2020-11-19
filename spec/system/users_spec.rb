@@ -60,6 +60,29 @@ RSpec.describe "Users", type: :system do
         end
       end
     end
+
+    describe '会員ログイン' do
+      let(:user) { FactoryBot.create(:user) }
+      before do
+        visit new_user_session_path
+      end
+      context 'ログイン画面に遷移' do
+        let(:test_user) { user }
+        it 'ログインに成功する' do
+          fill_in 'user[email]', with: test_user.email
+          fill_in 'user[password]', with: test_user.password
+          click_button 'ログイン'
+          expect(current_path).to eq('/users/' + user.id.to_s)
+        end
+  
+        it 'ログインに失敗する' do
+          fill_in 'user[email]', with: ''
+          fill_in 'user[password]', with: ''
+          click_button 'ログイン'
+          expect(current_path).to eq(new_user_session_path)
+        end
+      end
+    end
   end
   
   describe '会員のテスト' do

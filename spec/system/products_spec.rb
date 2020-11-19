@@ -148,6 +148,22 @@ RSpec.describe "Products", type: :system do
           expect(page).to have_content ' コメント：1件'
         end
       end
+
+      context '検索した場合' do
+        before do
+          visit product_path(product)
+        end
+        it '商品名検索に成功する' do
+          fill_in 'search', with: 'テスト'
+          click_button '商品検索'
+          expect(page).to have_content '検索結果'
+        end
+
+        it 'ジャンル検索に成功する' do
+          click_link genre.name
+          expect(page).to have_content genre.name
+        end
+      end
     end
   end
 end
