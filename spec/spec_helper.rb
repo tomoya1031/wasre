@@ -13,7 +13,7 @@
 # it.
 #
 # See http://rubydoc.info/gems/rspec-core/RSpec/Core/Configuration
-require 'supports/capybara'
+require 'support/capybara'
 RSpec.configure do |config|
   config.before(:each, type: :system) do |example|
     #driven_by :selenium_chrome_headless
