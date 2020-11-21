@@ -7,7 +7,6 @@ RSpec.describe Message, type: :model do
     end
   
     describe 'バリデーション' do
-      
       it "全て入力してあるので保存される" do
         expect(@message.valid?).to eq(true)
       end
@@ -21,7 +20,26 @@ RSpec.describe Message, type: :model do
         @message.message = '1' * 301
         expect(@message.valid?).to eq(false)
       end
+    end
 
+    describe 'アソシエーションのテスト' do
+      let(:association) do
+        described_class.reflect_on_association(target)
+      end
+
+      context '会員モデルとの関係' do
+        let(:target) { :user }
+        it 'N:1となっている' do
+          expect(association.macro).to eq :belongs_to
+        end
+      end
+
+      context '商品モデルとの関係' do
+        let(:target) { :room }
+        it '1:Nとなっている' do
+          expect(association.macro).to eq :belongs_to
+        end
+      end
     end
 
 end
