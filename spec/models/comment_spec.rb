@@ -36,9 +36,9 @@ RSpec.describe Comment, type: :model do
       end
 
       context '商品モデルとの関係' do
-        let(:target) { :products }
+        let(:target) { :product }
         it '1:Nとなっている' do
-          expect(association.macro).to eq :has_many
+          expect(association.macro).to eq :belongs_to
         end
       end
     end
