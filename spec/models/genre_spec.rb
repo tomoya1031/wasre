@@ -27,9 +27,9 @@ RSpec.describe Genre, type: :model do
     end
 
     context '商品モデルとの関係' do
-      let(:target) { :product }
+      let(:target) { :products }
       it '1:Nとなっている' do
-        expect(association.macro).to eq :belongs_to
+        expect(association.macro).to eq :has_many
       end
     end
   end
