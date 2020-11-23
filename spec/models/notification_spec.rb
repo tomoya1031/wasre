@@ -26,6 +26,7 @@ RSpec.describe Notification, type: :model do
         it '1:Nとなっている' do
           expect(association.macro).to eq :belongs_to
         end
+        
         it '結合するモデルのクラスはNotification' do
           expect(association.class_name).to eq 'User'
         end

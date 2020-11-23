@@ -1,13 +1,11 @@
 require 'rails_helper'
 
 RSpec.describe Comment, type: :model do
-
     before do
       @comment = build(:comment)
     end
   
     describe 'バリデーション' do
-      
       it "全て入力してあるので保存される" do
         expect(@comment.valid?).to eq(true)
       end

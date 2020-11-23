@@ -1,6 +1,7 @@
 FactoryBot.define do
     factory :product do
       association :user
+      association :product_images
       genre_id         {1}
       name             {"ケーキ"}
       introduction     {"ケーキだよ"}

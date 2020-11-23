@@ -21,7 +21,19 @@ RSpec.describe Tag, type: :model do
         @tag.tag_name = '1' * 16
         expect(@tag.valid?).to eq(false)
       end
+    end
 
+    describe 'アソシエーションのテスト' do
+      let(:association) do
+        described_class.reflect_on_association(target)
+      end
+  
+      context '商品モデルとの関係' do
+        let(:target) { :tagu_maps }
+        it '1:Nとなっている' do
+          expect(association.macro).to eq :has_many
+        end
+      end
     end
 
 end

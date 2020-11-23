@@ -7,7 +7,6 @@ RSpec.describe Inquiry, type: :model do
     end
   
     describe 'バリデーション' do
-      
       it "全て入力してあるので保存される" do
         expect(@inquiry.valid?).to eq(true)
       end
@@ -26,7 +25,6 @@ RSpec.describe Inquiry, type: :model do
         @inquiry.message = ''
         expect(@inquiry.valid?).to eq(false)
       end
-
     end
 
 end
