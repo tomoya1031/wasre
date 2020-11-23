@@ -87,4 +87,4 @@ http://wasre.work/
 
 
 ## ER図
-![wasre_ER図 (1)](https://user-images.githubusercontent.com/67405786/99644743-a746ed80-2a91-11eb-81ad-a1f0626e1fc2.png)
+![wasre_ER図 (2)](https://user-images.githubusercontent.com/67405786/99954332-e93f9e80-2dc5-11eb-9564-f6b2feb7e763.png)
