@@ -31,7 +31,11 @@
           <tr>
 		    <th>名前</th>
 		    <td>
-		      <%= f.text_field :name, :size=>"52", class: "form-control" %>
+			  <% if @user.email == 'guest@example.com' %>
+			    <%= @user.name%>  (ゲストログインのため編集不可)
+			  <% else %>
+		        <%= f.text_field :name, :size=>"52", class: "form-control" %>
+			  <% end %>
 		    </td>
 	      </tr>
 
@@ -44,7 +48,13 @@
 
 	      <tr>
 		    <th>メールアドレス</th>
-		    <td><%= f.text_field :email, :size=>"52", class: "form-control" %></td>
+		    <td>
+			  <% if @user.email == 'guest@example.com' %>
+			    <%= @user.email%>  (ゲストログインのため編集不可)
+			  <% else %>
+			    <%= f.text_field :email, :size=>"52", class: "form-control" %>
+			  <% end %>
+			</td>
 	      </tr>
 
 	      <tr>
