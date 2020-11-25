@@ -1,6 +1,13 @@
 Rails.application.routes.draw do
   mount RailsAdmin::Engine => '/admin', as: 'rails_admin'
-  devise_for :users, controllers: { omniauth_callbacks: 'omniauth_callbacks' }#, skip: :all
+  devise_scope :user do
+    post 'users/guest_sign_in', to: 'users/sessions#new_guest'
+  end
+  devise_for :users, controllers: { 
+    omniauth_callbacks: 'omniauth_callbacks',
+    registrations: 'users/registrations',
+    passwords: 'users/passwords'
+  }#, skip: :all
   # devise_scope :user do
   #   get 'login' => 'devise/sessions#new', as: :new_user_session
   #   post 'login' => 'devise/sessions#create', as: :user_session
@@ -10,6 +17,9 @@ Rails.application.routes.draw do
   #   match 'users/auth/google_oauth2',to: 'devise/omniauth_callbacks#passthru', as: :user_google_oauth2_omniauth_authorize, via: [:get, :post]
   #   match 'users/auth/google_oauth2/callback',to: 'devise/omniauth_callbacks#google_oauth2', as: :user_google_oauth2_omniauth_callback, via: [:get, :post]
   # end
+  devise_scope :user do
+    post 'users/guest_sign_in', to: 'users/sessions#new_guest'
+  end
 
   root 'home#top'
   get 'about', to: 'home#about'

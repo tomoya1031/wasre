@@ -48,4 +48,16 @@ class User < ApplicationRecord
     { user: user, sns: sns }   # user、snsをハッシュで返す(コントローラーがこれを受け取る)
   end
 
+  def self.guest
+    find_or_create_by!(email: 'guest@example.com') do |user|
+      user.name = 'ゲスト'
+      user.post_code = '6240942'
+      user.prefecture_code = '26'
+      user.address_city = "舞鶴市"
+      user.address_street = "青井"
+      user.phone_number = "000000000"
+      user.password = SecureRandom.urlsafe_base64
+    end
+  end
+
 end
