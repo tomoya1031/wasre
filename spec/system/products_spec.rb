@@ -12,12 +12,10 @@ RSpec.describe "Products", type: :system do
       let(:user) { FactoryBot.create(:user) }
       let!(:user2) { FactoryBot.create(:user) }
       let!(:genre) { FactoryBot.create(:genre) }
-      # let(:image_path) { Rails.root.join('spec/fixtures/picture.jpg') }
-      # let(:image) { Rack::Test::UploadedFile.new(image_path) }
+      # let(:image) { Rails.root.join('spec/fixtures/test.jpg') }
+      # # let(:image) { Rack::Test::UploadedFile.new(image_path) }
       let!(:product) { FactoryBot.create(:product, user: user) }
       let!(:product2) { FactoryBot.create(:product, user: user2) }
-      # let!(:product_image) { FactoryBot.create(:product_image, product: product) }
-      # let!(:product_image2) { FactoryBot.create(:product_image, product: product2) }
       
       context '自分の商品編集画面への遷移' do
         it '遷移できる' do
