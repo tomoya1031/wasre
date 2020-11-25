@@ -1,6 +1,7 @@
 # frozen_string_literal: true
 
 class Users::RegistrationsController < Devise::RegistrationsController
+  before_action :check_guest, only: %i[update destroy]
   # before_action :configure_sign_up_params, only: [:create]
   # before_action :configure_account_update_params, only: [:update]
 
@@ -17,6 +18,12 @@ class Users::RegistrationsController < Devise::RegistrationsController
       params[:user][:password_confirmation] = pass
     end
     super
+  end
+
+  def check_guest
+    if resource.email == 'guest@example.com'
+      redirect_to user_path(current_user.id), alert: 'ゲストユーザーの変更・削除はできません。'
+    end
   end
 
   # GET /resource/edit
