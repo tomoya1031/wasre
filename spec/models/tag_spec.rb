@@ -29,7 +29,7 @@ RSpec.describe Tag, type: :model do
       end
   
       context '商品モデルとの関係' do
-        let(:target) { :tagu_maps }
+        let(:target) { :tag_maps }
         it '1:Nとなっている' do
           expect(association.macro).to eq :has_many
         end
