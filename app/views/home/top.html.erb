@@ -1,26 +1,24 @@
 <div class="row">
-  <div class="col-lg-6 col-xs-6">
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
+  <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
     <h1 class="home-text">
       お金を使わず不用品に価値を与え<br>
       地域を繋げるプロジェクト
     </h1>
-    <p class="home-out"><%= link_to "About", about_path, class: "btn btn-info btn-lg home-about", 'data-turbolinks': false %></p>
+    <%= link_to "About", about_path, class: "btn btn-info btn-lg", 'data-turbolinks': false %>
   </div>
-  <div class="col-lg-6 col-xs-6">
+  <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
     <div class="home-imge1"></div>
   </div>
 </div>
 <div class="row">
-  <div class="col-lg-12 col-xs-12">
-    <%= link_to "新規登録して投稿しましょう", new_user_registration_path, 'data-turbolinks': false, class: "btn btn-success btn-lg home-btn1" %>
-    <%= link_to "商品を見てみよう", products_path, class: "btn btn-primary btn-lg home-btn2" %>
-    <%= link_to "ログイン", new_user_session_path, class: "btn btn-info btn-lg home-btn3" %>
+  <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12">
+    <%= link_to "新規登録して投稿しましょう", new_user_registration_path, 'data-turbolinks': false, class: "btn btn-success btn-lg" %>
+  </div>
+  <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12">
+    <%= link_to "商品を見てみよう", products_path, class: "btn btn-danger btn-lg" %>
+  </div>
+  <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12">
+    <%= link_to "ログイン", new_user_session_path, class: "btn btn-warning btn-lg" %>
   </div>
   
 </div>

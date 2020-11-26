@@ -1,3 +1,139 @@
 // Place all the styles related to the home controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+// ホーム
+.home-text{
+    padding-top: 80px;
+	line-height: 80px;
+}
+
+.home-imge1{
+	background-image: image-url("imge6.jpg");
+	width: 400px;
+	height: 600px;
+	background-position: center;
+	background-size: cover;
+}
+
+.btn.btn-info{
+	margin: 10px 10px;
+	background-color: #191970;
+	color: white;
+	width: 350px;
+	height: 60px;
+	line-height: 38px;
+}
+.btn.btn-success{
+	margin: 10px 10px;
+	color:black;
+	background-color: #f0fff0;
+	width: 350px;
+	height: 60px;
+	text-align: center;
+	line-height: 38px;
+	border: none;
+}
+.btn.btn-danger{
+	margin: 10px 10px;
+	color:black;
+	background-color: #FFEEFF;
+	width: 350px;
+	height: 60px;
+	text-align: center;
+	line-height: 38px;
+	border: none;
+}
+.btn.btn-warning{
+	margin: 10px 10px;
+	color:black;
+	background-color: #fafad2;
+	width: 350px;
+	height: 60px;
+	text-align: center;
+	line-height: 38px;
+	border: none;
+}
+
+// アバウト
+.about-top{
+	padding-top: 20px;
+	text-align: center;
+}
+.about-subtitle{
+	padding:13px 0;
+	color: #494949;
+	background: #fffaf4;
+	border-left: solid 5px #ffaf58;
+}
+.about-imge1{
+	margin: 40px auto 0 auto;
+	background-image: image-url("imge2.jpg");
+	width: 400px;
+	height: 400px;
+	background-position: center;
+	background-size: cover;
+}
+.about-imge2{
+	margin: 40px auto 0 auto;
+	background-image: image-url("imge3.jpg");
+	width: 400px;
+	height: 400px;
+	background-position: center;
+	background-size: cover;
+}
+.about-imge3{
+	margin: 40px auto 0 auto;
+	background-image: image-url("imge4.jpg");
+	width: 400px;
+	height: 350px;
+	background-position: center;
+	background-size: cover;
+}
+.about-text1{
+	padding-left:20px;
+	padding-right: 40px;
+	line-height: 40px;
+	font-size:20px;
+	font-family: 'Hiragino Kaku Gothic Std';
+}
+.about-text2{
+	padding-right:20px;
+	line-height: 40px;
+	font-size:20px;
+	font-family: 'Hiragino Kaku Gothic Std';
+}
+.displey-none{
+    display: none;
+}
+@media (max-width: 1200px){
+    .displey-none {
+        display: inline;
+    }
+    .displey-on {
+        display: none;
+    }
+    .about-text1 {
+        padding: 0px;
+    }
+    .about-text2 {
+        padding: 0px;
+    }
+}
+/*アニメーション要素のスタイル*/
+.animation{
+	opacity : 0;
+	visibility: hidden;
+	transition: 3s;
+	transform: translateY(100px);
+}
+/*アニメーション要素までスクロールした時のスタイル*/
+.active{
+	opacity: 1;
+	visibility: visible;
+	transform: translateY(0);
+}
+.col-xs-12{
+    margin:0 auto;
+}
+// アバウト
