@@ -17,7 +17,7 @@
 //= require bootstrap-sprockets
 //= require_tree .
 
-  $(function() {
+  $(document).on('turbolinks:load', function() {
     $('#slider').slick({
         dots: true, //スライドの下にドットのナビゲーションを表示
         autoplay: true, //自動再生
@@ -63,7 +63,7 @@
     }  
   });
 
-  $(function(){
+  $(document).on('turbolinks:load', function() {
     // inputのidから情報の取得
     $(".item-image").on('change', function (e) {
     // ここから既存の画像のurlの取得
@@ -78,7 +78,7 @@
   });
 
   
-  $(function(){
+  $(document).on('turbolinks:load', function() {
     $(window).on('load scroll',function (){
       $('.animation').each(function(){
         //ターゲットの位置を取得
@@ -96,7 +96,7 @@
     });
   });
 
-  $(function() {
+  $(document).on('turbolinks:load', function() {
     $('.menu-trigger').on('click', function(event) {
       $(this).toggleClass('active');
       $('#sp-menu').fadeToggle();
