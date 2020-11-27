@@ -17,7 +17,7 @@
 //= require bootstrap-sprockets
 //= require_tree .
 
-$(function() {
+  $(function() {
     $('#slider').slick({
         dots: true, //スライドの下にドットのナビゲーションを表示
         autoplay: true, //自動再生
@@ -61,7 +61,6 @@ $(function() {
         return false;
       });
     }  
-      
   });
 
   $(function(){
@@ -94,5 +93,13 @@ $(function() {
           $(this).addClass('active');
         }
       });
+    });
+  });
+
+  $(function() {
+    $('.menu-trigger').on('click', function(event) {
+      $(this).toggleClass('active');
+      $('#sp-menu').fadeToggle();
+      event.preventDefault();
     });
   });
