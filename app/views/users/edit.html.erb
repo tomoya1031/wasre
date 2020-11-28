@@ -1,17 +1,17 @@
 <%= render 'shared/error', content: @user %>
 <%= form_with model:@user, local:true do |f| %>
   <div class="row">
-    <div class="col-xs-2">
+    <div class="col-lg-2 col-xs-0">
     </div>
-    <div class="col-xs-8">
+    <div class="col-lg-8 col-xs-12">
       <br>
       <h1><i class="fas fa-edit"></i>マイページ編集</h1><br>
-      <div>
-        <table class="table table-striped">
+      <div class="">
+        <table class="table table-striped mypage-edit">
 	      <tr>
 		    <th>プロフィール画像</th>
 		    <td>
-		      <div class="item-image">
+		      <div>
 	      	    <%= attachment_image_tag @user, :profile_image, class:"img-square", fallback: "no_image.png", size:"200x160" %>
 	      	    <%= f.attachment_field :profile_image %>
               </div>

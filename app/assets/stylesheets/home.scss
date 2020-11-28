@@ -117,12 +117,17 @@
         margin-top: 10px;
     }
 }
+@media (max-width: 1000px){
+    .home-text{
+        text-align: center;
+    }
+}
 @media (max-width: 480px){
     
     .home-text{
         font-size: 20px;
         line-height: 40px;
-        text-align: center;
+        
     }
     .home-imge1{
         width: 100%;

@@ -4,12 +4,10 @@
   </div>
 <% end %>
 <div class="row">
-  <div class="col-lg-2 col-xs-0">
+  <div class="col-lg-2">
   </div>
     <div class="col-lg-8 col-xs-12">
-      <br>
 	  <% if @user == current_user%>
-	    <br>
 	    <div>
 	      <h1><i class="fas fa-user"></i> マイページ</h1>
 		  <% if unchecked_notifications.any? %>
@@ -60,39 +58,39 @@
 		<% if @user == current_user%>
 	      <%= link_to "取　引　履　歴", orders_path, class: "btn btn-info btn-lg btn-block" %>
 		<% end %>
-	    <% if @products.count == 0 %>
-	      <h3>投稿商品一覧</h3>
-		  <h4>　　投稿された商品はありません<h4>
-	    <% else %>
-	    <div class="mypage-product">
+		<div class="mypage-product">
           <h3>投稿商品一覧</h3>
-	      <table class="table table-hover table-inverse">
-	        <thead>
-		      <tr>
-		        <th></th>
-		        <th>商品名</th>
-		        <th>販売ステータス</th>
-		      </tr>
-	        </thead>
-	        <tbody>
-		      <% @products.each do |product| %>
+	      <% if @products.count == 0 %>
+		    <h4>　投稿された商品はありません<h4>
+	      <% else %>
+	        <table class="table table-hover table-inverse">
+	          <thead>
 		        <tr>
-			      <td>
-			        <%= link_to product_path(product) do %>
-				      <% product.product_images.first(1).each do |image| %>
-				        <%= attachment_image_tag image, :image, class:"img-square", fallback: "no_image.png", size:"200x160" , 'data-turbolinks': false %>
-				      <% end %>
-			        <% end %>
-			      </td>
-			      <td><%= link_to product.name, product_path(product), 'data-turbolinks': false %></td>
-			      <td><%= product.is_active ? "取引終了" : "販売中"  %></td>
+		          <th></th>
+		          <th class="mypage-product-title">商品名</th>
+		          <th class="mypage-product-title">販売ステータス</th>
 		        </tr>
-		      <% end %>
-	        </tbody>
-	      </table>
-	      <div class='paginate'><%= paginate @products %></div>
-	    </div>
-	  <% end %>
+	          </thead>
+	          <tbody>
+		        <% @products.each do |product| %>
+		          <tr>
+		  	        <td>
+		  	          <%= link_to product_path(product) do %>
+		  		        <% product.product_images.first(1).each do |image| %>
+		  		          <%= attachment_image_tag image, :image, class:"img-square", fallback: "no_image.png", size:"200x160" , 'data-turbolinks': false %>
+		  		        <% end %>
+		  	          <% end %>
+		  	        </td>
+		  	        <td><%= link_to product.name, product_path(product), 'data-turbolinks': false %></td>
+		  	        <td><%= product.is_active ? "取引終了" : "販売中"  %></td>
+		          </tr>
+		        <% end %>
+	          </tbody>
+	        </table>
+	        <div class='paginate'><%= paginate @products %></div>
+	      <% end %>
+		</div>
+	  </div>
 	</div>
   </div>
 </div>

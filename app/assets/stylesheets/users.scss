@@ -1,3 +1,97 @@
 // Place all the styles related to the Users controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+// マイページ
+.mypage{
+	box-shadow: 0 0 8px gray;
+	padding: 0 20px 20px 20px;
+}
+.mypage-product{
+	padding: 10px;
+}
+.profile-imag{
+	width: 100%;
+	height: 300px;
+	background-position: center;
+	background-size: cover;
+	display: flex; /* 子要素をflexboxで揃える */
+    flex-direction: column; /* 子要素をflexboxにより縦方向に揃える */
+    justify-content: center; /* 子要素をflexboxにより中央に配置する */
+    align-items: center;  /* 子要素をflexboxにより中央に配置する */
+}
+.profile-name{
+	font-size: 25px;
+}
+.mypage{
+	table{
+		tr{
+			td{
+                div{
+					font-size: 23px;
+				}
+				font-size: 20px;
+				line-height: 40px;
+			}
+		}
+		
+	}
+}
+.img-square {
+    border-radius: 50%;  /* 角丸半径を50%にする(=円形にする) */
+    width:  160px;       /* ※縦横を同値に */
+	height: 160px;       /* ※縦横を同値に */
+	box-shadow: 0 0 8px gray;
+}
+.prof-intro{
+	margin: 30px;
+}
+// マイページ
+@media (max-width: 480px){
+    .profile-imag{
+        height: 150px;
+    }
+    .profile-name{
+        font-size: 18px;
+    }
+    .mypage{
+        table{
+            tr{
+                td{
+                    div{
+                        font-size: 18px;
+                    }
+                    font-size: 13px;
+                }
+            }
+        }
+    }
+    .img-square {
+        border-radius: 50%;  /* 角丸半径を50%にする(=円形にする) */
+        width:  80px;       /* ※縦横を同値に */
+        height: 80px;       /* ※縦横を同値に */
+        box-shadow: 0 0 8px gray;
+    }
+    .mypage-product{
+        h3{
+            margin-top: 10px;
+            font-size: 18px;
+        }
+    }
+    .mypage-product-title{
+        font-size: 8px;
+        white-space: nowrap;
+    }
+    .mypage-edit{
+        tr{
+            th{
+                width: 100%;
+                display: block;
+            }
+            td{
+                width: 100%;
+                display: block;
+            }
+        }
+    }
+}

@@ -4,8 +4,10 @@
       <% if user_signed_in? %>
         <div class="col-lg-4 col-xs-4 top-user">
           <span>
-            <div><%= attachment_image_tag current_user, :profile_image, fallback: "no_image.png", class:"top-profile" %></div>
-            <div class="menu-on"><%= current_user.name %>さん</div>
+            <%= link_to user_path(current_user.id), class: "Editlink" do %>
+              <%= attachment_image_tag current_user, :profile_image, fallback: "no_image.png", class:"top-profile" %>
+              <span class="menu-on"><%= current_user.name %>さん</span>
+            <% end %>
           </span>
         </div>
       <% else %>
