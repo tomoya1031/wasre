@@ -1,8 +1,10 @@
-<% if product.name.nil? %>
-  <h1 class="product-title"><i class="fas fa-gift"></i>商品新規投稿</h1><br>
-<% else %>
-  <h1 class="product-title"><i class="fas fa-wrench"></i>商品編集</h1><br>
-<% end %>
+<h1 class="product-title">
+  <% if product.name.nil? %>
+    <i class="fas fa-gift"></i>商品新規投稿
+  <% else %>
+    <i class="fas fa-wrench"></i>商品編集
+  <% end %>
+</h1><br>
 <%= form_with model:@product, local:true do |f| %>
   <div class="row">
 	<div class="col-xs-12">
@@ -25,16 +27,16 @@
 		  </div>
 	    </div>
 	  </div>
-	<div class="col-xs-3">
+	<div class="col-lg-3 col-md-3 col-xs-0">
 	</div>
-	<div class="col-xs-6">
+	<div class="col-lg-6 col-md-6 col-xs-12">
 	  <div class="field form-group">
 		<%= f.label :"商品名" %>
 		<%= f.text_field :name, placeholder: "商品名", class: "form-control" %>
 		</div>
 		<div class="field form-group">
 		  <%= f.label :"商品説明" %>
-		  <%= f.text_area :introduction, :size=>"35", placeholder: "商品説明", class: "form-control" %>
+		  <%= f.text_area :introduction, :size=>"20x7", placeholder: "商品説明", class: "form-control" %>
 		</div>
 		<div class="field form-group">
 		  <%= f.label :"ジャンル"%><br />
@@ -45,7 +47,7 @@
 		  <%= f.select :status, Product.statuses.keys.to_a, include_blank: "選択して下さい", class: "dropdown-menu" %>
 		</div>
 		<div class="field form-group">
-		  <%= f.label :'タグ（例：音楽 文芸 スポーツ）'%>
+		  <%= f.label :'タグ（例：ジャケット アウトドア ブランド）'%>
 		  <%= f.text_area :tag_name, placeholder: "スペースを入力することで複数のタグを付けることができます。", class: "form-control" %>
 		</div>
         <% if product.name.nil? %>
@@ -55,7 +57,7 @@
         <% end %>
       </div>
 	</div>
-	<div class="col-xs-3">
+	<div class="col-lg-3 col-md-3 col-xs-0">
 	</div>
   </div>
 <% end %>

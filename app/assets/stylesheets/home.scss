@@ -31,6 +31,7 @@
 .link-b{
     color: white;
     background-color: #191970;
+    margin: 0;
 }
 .link-b:hover{
     background-color: rgb(29, 191, 219);
@@ -120,6 +121,9 @@
 @media (max-width: 1000px){
     .home-text{
         text-align: center;
+    }
+    .link-b{
+        margin: 0 auto;
     }
 }
 @media (max-width: 480px){
