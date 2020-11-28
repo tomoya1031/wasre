@@ -1,14 +1,14 @@
 <div class="row">
-  <div class="col-lg-2">
+  <div class="col-lg-2 col-xs-0">
   </div>
-  <div class="col-lg-10">
+  <div class="col-lg-10 col-xs-12">
     <h1 class="product-title"><i class="fas fa-box-open"></i>商品詳細</h1><br>
   </div>
 </div>
 <div class="row">
-  <div class="col-lg-2">
+  <div class="col-lg-2 col-xs-0">
   </div>
-  <div class="col-lg-3">
+  <div class="col-lg-3 col-xs-12">
     <!-- 商品 -->
     <% if @product.product_images.present? %>
       <div id="slider">
@@ -19,10 +19,9 @@
     <% else %>
       <%= image_tag 'no_image.png', size: '200x200' %>
     <% end %>
-    
     <!-- 商品 -->
   </div>
-  <div class="col-lg-5">
+  <div class="col-lg-5 col-xs-12">
 	  <table class="table table-striped product-show">
       <tr>
 			  <th>投稿者</th>
@@ -66,7 +65,7 @@
         </div>
       <% end %>
     <% end %>
-    <div class="col-xs-2">
+    <div class="col-lg-2 col-xs-12">
     </div>
   </div>
 </div>
@@ -102,9 +101,9 @@
 </div>
 <!-- コメント -->
 <div class="row">
-  <div class="col-xs-3">
+  <div class="col-lg-3 col-xs-0">
   </div>
-  <div class="col-xs-6 comment-box">
+  <div class="col-lg-6 col-xs-12 comment-box">
     <div id="comments_area">
       <%= render 'comments/index', product: @product %>
     </div>
@@ -134,6 +133,6 @@
       <% end %>
     <% end %>
   </div>
-  <div class="col-xs-3">
+  <div class="col-lg-3 col-xs-0">
   </div>
 </div>
