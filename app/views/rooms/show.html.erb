@@ -1,54 +1,58 @@
-<div class="right-button">
-  <%= link_to "商品詳細に戻る", product_path(@room.id),class:"edit-link", 'data-turbolinks': false %>
-</div>
-<hr>
-<div class="chats">
-  <div class="chat">
-    <% if @messages.present? %>
-      <% @messages.each do |m| %>
-        <% if m.user == current_user %>
-          <div class="mychat-box">
-            <div class="arrow_mybox">
-              <strong><%= safe_join(m.message.split("\n"),tag(:br)) %></strong>
-            </div>
-            <div class="chat-face">
-              <%= attachment_image_tag m.user, :profile_image, :fill, 100, 100, fallback: "no_image.png", size:"100x100"  %>
-              <div>
-                <%= m.created_at.strftime("%Y-%m-%d %H:%M") %>
+<div class="row">
+  <div class="col-lg-12">
+    <div class="right-button">
+      <%= link_to "商品詳細に戻る", product_path(@room.id),class:"edit-link", 'data-turbolinks': false %>
+    </div>
+    <hr>
+    <div class="chats">
+      <div class="chat">
+        <% if @messages.present? %>
+          <% @messages.each do |m| %>
+            <% if m.user == current_user %>
+              <div class="mychat-box">
+                <div class="arrow_mybox">
+                  <strong><%= safe_join(m.message.split("\n"),tag(:br)) %></strong>
+                </div>
+                <div class="chat-face">
+                  <%= attachment_image_tag m.user, :profile_image, fallback: "no_image.png", class:"room-image"  %>
+                  <div class="chat-time">
+                    <%= m.created_at.strftime("%Y-%m-%d %H:%M") %>
+                  </div>
+                </div>
               </div>
-            </div>
-          </div>
-        <% else %>
-          <div class="youchat-box">
-            <div class="chat-face">
-              <%= attachment_image_tag m.user, :profile_image, :fill, 100, 100, fallback: "no_image.png", size:"100x100" %>
-              <div>
-                <%= m.user.name%>
+            <% else %>
+              <div class="youchat-box">
+                <div class="chat-face">
+                  <%= attachment_image_tag m.user, :profile_image, fallback: "no_image.png", class:"room-image" %>
+                  <div>
+                    <%= m.user.name%>
+                  </div>
+                  <div>
+                    <p class="chat-time"><%= m.created_at.strftime("%Y-%m-%d %H:%M")%></p>
+                  </div>
+                </div>
+                <div class="arrow_youbox">
+                  <strong><%= safe_join(m.message.split("\n"),tag(:br)) %></strong>
+                </div>
               </div>
-              <div>
-                <%= m.created_at.strftime("%Y-%m-%d %H:%M")%>
-              </div>
-            </div>
-            <div class="arrow_youbox">
-              <strong><%= safe_join(m.message.split("\n"),tag(:br)) %></strong>
-            </div>
+            <% end %>
+          <% end %>
+        <% end %>
+      </div>
+      <div class="posts">
+        <% if flash[:alert] %>
+          <div class="flash">
+            <%= flash[:alert] %>
           </div>
         <% end %>
-      <% end %>
-    <% end %>
-  </div>
-  <div class="posts">
-    <% if flash[:alert] %>
-      <div class="flash">
-        <%= flash[:alert] %>
+        <%= form_with model:@message, local:true do |f| %>
+          <%= f.text_area :message, placeholder: "メッセージを入力して下さい" , size: 70, class:"form-control" %>
+          <%= f.hidden_field :room_id, value: @room.id %>
+          <div class="room-post">
+            <%= f.submit "投稿", class: "btn btn-success room-sub" %>
+          </div>
+        <% end %>
       </div>
-    <% end %>
-    <%= form_with model:@message, local:true do |f| %>
-      <%= f.text_area :message, placeholder: "メッセージを入力して下さい" , size: 70, class:"form-control" %>
-      <%= f.hidden_field :room_id, value: @room.id %>
-      <div class="room-post">
-        <%= f.submit "投稿", class: "btn btn-success room-sub" %>
-      </div>
-    <% end %>
+    </div>
   </div>
 </div>

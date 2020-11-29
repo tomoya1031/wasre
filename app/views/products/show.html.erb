@@ -114,7 +114,7 @@
     <% if user_signed_in? %>
       <% unless @product.user_id == current_user.id %>
         <% if @isRoom == true %>
-          <p class="user-show-room"><a href="/rooms/<%= @room.id %>" class="btn btn-primary btn-block btn-lg chat-sub">取引チャットへ</a>
+          <a href="/rooms/<%= @room.id %>" class="btn btn-primary btn-block btn-lg chat-sub">取引チャットへ</a>
         <% else %>
           <% unless @product.is_active %>
             <%= form_with model: @room ,locale: true do |f| %>
@@ -128,7 +128,7 @@
         <% end %>
       <% else %>
         <% if @isRoom == true %>
-          <p class="user-show-room"><a href="/rooms/<%= @room.id %>" class="btn btn-primary btn-lg btn-block chat-sub">取引チャットへ</a>
+          <a href="/rooms/<%= @room.id %>" class="btn btn-primary btn-lg btn-block chat-sub">取引チャットへ</a>
         <% end %>
       <% end %>
     <% end %>

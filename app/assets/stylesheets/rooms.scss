@@ -1,3 +1,83 @@
 // Place all the styles related to the Rooms controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+.right-button{
+	text-align: right;
+}
+.mychat-box,.youchat-box{
+	display: flex;
+	justify-content: flex-end;
+	align-items: baseline;
+	padding: 10px 0;
+}
+.mychat-box{
+	justify-content: flex-end;
+}
+.youchat-box{
+	justify-content: flex-start;
+}
+.arrow_mybox,.arrow_youbox{
+    position: relative;
+	max-width: 500px;
+    padding: 10px;
+    text-align: left;
+    color: #FFFFFF;
+    font-weight: bold;
+    border-radius: 10px;
+    -webkit-border-radius: 10px;
+	-moz-border-radius: 10px;
+}
+.arrow_mybox{
+	margin-right: 10px;
+    background:  #09ff00;
+    padding: 10px;
+}
+.arrow_youbox{
+    background: #c1c5c7;
+    padding: 10px 10px;
+	word-wrap: break-word;
+}
+.arrow_mybox:after,.arrow_youbox:after{
+    border: solid transparent;
+    content: '';
+    height: 0;
+    width: 0;
+    pointer-events: none;
+    position: absolute;
+    border-color:  rgba(0, 153, 255, 0);
+    border-top-width: 10px;
+    border-bottom-width: 10px;
+    border-left-width: 10px;
+    border-right-width: 10px;
+    margin-top: -10px;
+    top: 20px;
+}
+.arrow_mybox:after{
+    border-left-color: #09ff00;
+    left: 100%;
+}
+.arrow_youbox:after{
+    border-right-color: #c1c5c7;
+    right: 100%;
+}
+.room-image{
+    width: 100px;
+    height: 100px;
+}
+.room-post{
+	text-align: right;
+}
+.room-sub{
+	margin-top: 10px;
+}
+
+@media (max-width: 480px){
+    .room-image{
+        width: 70px;
+        height: 70px;
+    }
+    .chat-time{
+        font-size: 8px;
+    }
+}
