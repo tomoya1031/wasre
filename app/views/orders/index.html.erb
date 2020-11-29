@@ -2,11 +2,11 @@
 <table class="table table-striped order">
   <thead>
 	<tr class="warning">
-	  <th class="col-xs-2">取引開始日</th>
-	  <th class="col-xs-2"></th>
-	  <th class="col-xs-3">商品名</th>
-	  <th class="col-xs-3">投稿者名</th>
-	  <th class="col-xs-2">注文詳細</th>
+	  <th class="col-lg-2 col-xs-2">取引開始日</th>
+	  <th class="col-lg-2 col-xs-2"></th>
+	  <th class="col-lg-3 col-xs-3">商品名</th>
+	  <th class="col-lg-3 col-xs-3">投稿者名</th>
+	  <th class="col-lg-2 col-xs-2">注文詳細</th>
 	</tr>
   </thead>
   <tbody>
@@ -20,7 +20,7 @@
         </td>
 		<td><%= order.product.name %></td>
 		<td><%= order.product.user.name%></td>
-		<td><%= link_to "詳細", product_path(order.product.id), class: "btn btn-primary" %></td>
+		<td><%= link_to "詳細", product_path(order.product.id), class: "btn btn-primary aaa" %></td>
 	  </tr>
 	<% end %>
   </tbody>
