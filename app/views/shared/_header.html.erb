@@ -30,7 +30,7 @@
           <nav>
             <li class="menu-none">
               <%= form_with(url: products_path, method: :get, local: true) do %>  
-                <%= text_field_tag :search, params[:search] %>  
+                <%= text_field_tag :search, params[:search], class:"search-text" %>  
                 <%= submit_tag "商品検索", :name => nil, class:"search-sub" %>  
               <% end %>
             </li>
