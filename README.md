@@ -5,6 +5,7 @@
 # WASRe：
 
 
+
 ## サイト概要
 「共助を育み地域を繋げるオンライン価値交換マーケット」  
 地域単位で交流を深めるための物物交換サイトです。
@@ -84,3 +85,6 @@ http://wasre.work/
 
 ## ER図
 ![wasre_ER図 (2)](https://user-images.githubusercontent.com/67405786/99954332-e93f9e80-2dc5-11eb-9564-f6b2feb7e763.png)
+
+###  GitHubの統計情報
+[![Top Langs](https://github-readme-stats.vercel.app/api/top-langs/?username=tomoya1031&layout=compact&langs_count=10)](https://github.com/anuraghazra/github-readme-stats) [![Unlimish's github stats](https://github-readme-stats.vercel.app/api?username=tomoya1031&count_private=true&show_icons=true&theme=buefy)](https://github.com/anuraghazra/github-readme-stats)
