@@ -1,3 +1,46 @@
 // Place all the styles related to the Orders controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+.order{
+	thead{
+		tr{
+			th{
+				text-align: center;
+			}
+		}
+	}
+	tbody{
+		tr{
+			td{
+				text-align: center;
+			}
+		}
+	}
+}
+.order-image{
+	background-position: center;
+}
+
+@media (max-width: 480px){
+    .order{
+        thead{
+            tr{
+                th{
+                    font-size: 10px;
+                }
+            }
+        }
+        tbody{
+            tr{
+                td{
+                    font-size: 10px;
+                }
+            }
+        }
+    }
+    .order-image{
+        width: 40px;
+        height: 40px;
+    }
+}

@@ -137,6 +137,41 @@ nav{
 	background-color: #fff;
 }
 //ハンバーガーメニュー
+// フッター
+footer{
+	font-family: 'sans-serif', sans-serif;
+	background-color: rgb(220, 220, 220);
+	position: fixed;
+	bottom: 0;
+	width: 100%;
+	height: 50px;
+	text-align: right;
+	font-size:30px;
+	box-shadow: 0 0 8px gray;
+	a:link {color:black; text-decoration:none }
+	a:visited { color:black; text-decoration:none }
+	a:active { color:black; text-decoration:none }
+}
+.footer-i:hover{
+	color:rgb(155, 148, 148);
+}
+// フッター
+/*ページネーション自体のデザイン*/
+.pagination>li>a {          
+	border: none;     /*枠線をなくす*/
+	color: #696969;   /*文字の色を変える*/
+}
+  
+  /* 表示しているページ番号のデザイン */
+.pagination>.active>a {     
+	background: #93c9ff;     /*背景の色を変える*/
+	border-radius: 15px;     /*角を丸くする*/
+}
+  
+/*ホバー時のデザイン*/
+.pagination>li>a:hover {        
+	border-radius: 15px;    /*角を丸くする*/
+}
 
 // エラーメッセージ
 .error-message {
@@ -179,10 +214,6 @@ nav{
 	header{
 		height: 70px;
 	}
-	.search-sub{
-		background-color: gray;
-		padding: 0 5px;
-	}
 	.top-profile{
 		border-radius: 50%;  /* 角丸半径を50%にする(=円形にする) */
 		background-position: center;
@@ -220,6 +251,13 @@ nav{
 	.sign-up-imge{
 		width: 350px;
 		height: 400px;
+	}
+	.search-sub{
+		background-color: gray;
+		padding: 0 5px;
+	}
+	.search-text{
+		color: black;
 	}
 }
 
@@ -320,76 +358,14 @@ nav{
 	text-align: right;
 }
 // チャット
-// 注文履歴
-.order{
-	thead{
-		tr{
-			th{
-				text-align: center;
-			}
-		}
-	}
-	tbody{
-		tr{
-			td{
-				text-align: center;
-			}
-		}
-	}
-}
-.order-image{
-	background-position: center;
-}
-// 注文履歴
-// フッター
-footer{
-	font-family: 'sans-serif', sans-serif;
-	background-color: rgb(220, 220, 220);
-	position: fixed;
-	bottom: 0;
-	width: 100%;
-	height: 50px;
-	text-align: right;
-	font-size:30px;
-	box-shadow: 0 0 8px gray;
-	a:link {color:black; text-decoration:none }
-	a:visited { color:black; text-decoration:none }
-	a:active { color:black; text-decoration:none }
-}
-.footer-i:hover{
-	color:rgb(155, 148, 148);
-}
-// スライドショー
-.slick-next {
-    right: 10px !important;
-    z-index: 100;
- }
 
-.slick-prev {
-	left: 10px !important;
-	z-index: 100;
- }
+
 .thank{
 	text-align: center;
 	margin: auto;
 }
 
-/*ページネーション自体のデザイン*/
-.pagination>li>a {          
-	border: none;     /*枠線をなくす*/
-	color: #696969;   /*文字の色を変える*/
-  }
-  
-  /* 表示しているページ番号のデザイン */
-  .pagination>.active>a {     
-	background: #93c9ff;     /*背景の色を変える*/
-	border-radius: 15px;     /*角を丸くする*/
-  }
-  
-  /*ホバー時のデザイン*/
-  .pagination>li>a:hover {        
-	border-radius: 15px;    /*角を丸くする*/
-  }
+
 
 
 
