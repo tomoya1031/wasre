@@ -16,7 +16,7 @@
     </h2>
     <h4>(全<%= @products_all.count %>件)</h4>
     <div class="product-contena">
-      <% @products.each do |product| %>
+      <% @products.includes(:product_images).each do |product| %>
         <div class="product-box">
           <%= link_to product_path(product) do %>
             <% product.product_images.first(1).each do |image| %>

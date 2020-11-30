@@ -3,7 +3,7 @@ class UsersController < ApplicationController
 
   def show
     @user = User.find(params[:id])
-    @products = @user.products.page(params[:page]).reverse_order.per(5).all.includes(:user)
+    @products = @user.products.page(params[:page]).reverse_order.per(5).all.includes(:product_images)
   end
 
   def edit
