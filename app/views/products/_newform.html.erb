@@ -44,13 +44,13 @@
 		</div>
 		<div class="field form-group">
 		  <%= f.label :"商品状態"%><br />
-		  <%= f.select :status, Product.statuses.keys.to_a, include_blank: "選択して下さい", class: "dropdown-menu" %>
+		  <%= f.select :status, Product.statuses.keys.to_a, include_blank: "選択して下さい", class: "form-control" %>
 		</div>
 		<div class="field form-group">
 		  <%= f.label :'タグ（例：ジャケット アウトドア ブランド）'%>
 		  <%= f.text_area :tag_name, placeholder: "スペースを入力することで複数のタグを付けることができます。", class: "form-control" %>
 		</div>
-        <% if product.name.nil? %>
+        <% if product.id.nil? %>
 	      <%= f.submit "新規登録", class: "btn btn-success", 'data-turbolinks': false %>
         <% else %>
           <%= f.submit "編集内容を保存する",class:"btn btn-primary", 'data-turbolinks': false %>

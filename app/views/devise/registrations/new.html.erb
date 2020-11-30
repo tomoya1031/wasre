@@ -21,9 +21,9 @@
         <%= f.text_field :post_code, autofocus: true, autocomplete: "郵便番号", placeholder: "郵便番号", class: "form-control" %>
       </div>
 
-      <div class="field form-group dropdown">
+      <div class="field form-group">
         <%= f.label :prefecture_code %><br />
-        <%= f.collection_select :prefecture_name, JpPrefecture::Prefecture.all,  :name, :name, autocomplete: "prefecture_code", id: "customer_prefecture_code", class: "dropdown-menu" %>
+        <%= f.collection_select :prefecture_name, JpPrefecture::Prefecture.all,  :name, :name, autocomplete: "prefecture_code", id: "customer_prefecture_code", class: "form-control" %>
       </div>
 
       <div class="field form-group">
