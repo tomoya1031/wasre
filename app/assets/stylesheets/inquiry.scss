@@ -1,3 +1,35 @@
 // Place all the styles related to the inquiry controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+.thanks{
+    text-align: center;
+    margin: auto;
+}
+
+@media (max-width: 480px){
+    .thanks-text{
+        font-size: 20px;
+    }
+    .inquiry{
+        tr{
+            th{
+                width: 100%;
+                display: block;
+                border-style: none !important;
+            }
+            td{
+                width: 100%;
+                display: block;
+                border-style: none!important;
+                border-bottom: 1px solid #ddd !important;
+            }
+        }
+    }
+    .thnks-text{
+        font-size: 10px;
+    }
+    .thanks-title{
+        font-size: 20pz;
+    }
+}
