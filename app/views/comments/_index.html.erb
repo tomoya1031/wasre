@@ -1,20 +1,20 @@
 <% product.comments.includes(:user).each do |comment| %>
-    <div class="comment-list">
-      <div>
-        <%= link_to user_path(comment.user) do %>
-          <div>
-            <%= attachment_image_tag comment.user, :profile_image, :fill, 40, 40, fallback: "no_image.png", size:'40x40' %>
-          </div>
-          <div><%= comment.user.name %></div>
-        <% end %>
-      </div>
-      <div class="arrow_box"><%= comment.comment %></div>
-      <% if comment.user == current_user %>
+  <div class="comment-list">
+    <div>
+      <%= link_to user_path(comment.user) do %>
         <div>
-          <%= link_to product_comment_path(comment.product, comment), method: :delete, remote: true do %>
-            <i class="fas fa-trash-alt" style=color:red></i>
-          <% end %>
+          <%= attachment_image_tag comment.user, :profile_image, :fill, 40, 40, fallback: "no_image.png", size:'40x40' %>
         </div>
+        <div><%= comment.user.name %></div>
       <% end %>
     </div>
+    <div class="arrow_box"><%= comment.comment %></div>
+    <% if comment.user == current_user %>
+      <div>
+        <%= link_to product_comment_path(comment.product, comment), method: :delete, remote: true do %>
+          <i class="fas fa-trash-alt" style=color:red></i>
+        <% end %>
+      </div>
+    <% end %>
+  </div>
 <% end %>

@@ -1,0 +1,32 @@
+<div class="profile-imag">
+  <div>
+    <%= attachment_image_tag user, :profile_image, fallback: "no_image.png", class:"img-square" %>
+  </div>
+  <div class="profile-name" >
+    <%= user.name%>
+    <% if user == current_user%>
+      <%= link_to edit_user_path, 'data-turbolinks': false do %>
+        <i class="fas fa-edit"></i>
+      <% end %>
+    <% end %>
+  </div>
+</div>
+<table class="table table-striped">
+  <tr>
+    <td>
+      <div><strong>自己紹介</strong></div>
+	  <% unless user.introduction.nil? %>
+	    <%= safe_join(user.introduction.split("\n"),tag(:br)) %>
+	  <% else %>
+	    <div class="prof-intro"></div>
+	  <% end %>
+    </td>
+  </tr>
+  <tr>
+    <td>
+      <div>住所</div>
+      <span><%= user.prefecture_name %></span>
+      <span><%= user.address_city %></span>
+    </td>
+  </tr>
+</table>
