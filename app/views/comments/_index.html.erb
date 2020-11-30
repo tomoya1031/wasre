@@ -1,4 +1,4 @@
-<% product.comments.each do |comment| %>
+<% product.comments.includes(:user).each do |comment| %>
     <div class="comment-list">
       <div>
         <%= link_to user_path(comment.user) do %>
