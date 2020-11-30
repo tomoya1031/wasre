@@ -84,15 +84,12 @@
     }
     .mypage-edit{
         tr{
-            th{
+            th,td{
                 width: 100%;
                 display: block;
                 border-style: none !important;
             }
             td{
-                width: 100%;
-                display: block;
-                border-style: none!important;
                 border-bottom: 1px solid #ddd !important;
             }
         }
