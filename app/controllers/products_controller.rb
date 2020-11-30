@@ -1,7 +1,6 @@
 class ProductsController < ApplicationController
   before_action :currect_user, only: [:edit, :update, :destroy]
 
-
   def new
     if user_signed_in?
       @product = Product.new
