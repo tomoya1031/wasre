@@ -103,3 +103,9 @@
       event.preventDefault();
     });
   });
+
+  $(function () {
+	$('#ButtonStateful').on('click', function () {
+		$(this).button('loading');
+	});
+});

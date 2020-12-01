@@ -51,9 +51,9 @@
 		  <%= f.text_area :tag_name, placeholder: "スペースを入力することで複数のタグを付けることができます。", class: "form-control" %>
 		</div>
         <% if product.id.nil? %>
-	      <%= f.submit "新規登録", class: "btn btn-success", 'data-turbolinks': false %>
+	      <%= f.submit "新規登録", id:"ButtonStateful" , class: "btn btn-success sub-produtc", 'data-turbolinks': false, 'data-loading-text': "実行中", autocomplete: "off" %>
         <% else %>
-          <%= f.submit "編集内容を保存する",class:"btn btn-primary", 'data-turbolinks': false %>
+          <%= f.submit "編集内容を保存する", id:"ButtonStateful" , class:"btn btn-primary sub-produtc", 'data-turbolinks': false, 'data-loading-text': "実行中", autocomplete: "off" %>
         <% end %>
       </div>
 	</div>

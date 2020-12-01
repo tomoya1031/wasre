@@ -56,27 +56,7 @@
       <%= render "comments/form", product: @product, comment: @comment %>
     </div>
     <!-- チャット -->
-    <% if user_signed_in? %>
-      <% unless @product.user_id == current_user.id %>
-        <% if @isRoom == true %>
-          <a href="/rooms/<%= @room.id %>" class="btn btn-primary btn-block btn-lg chat-sub">取引チャットへ</a>
-        <% else %>
-          <% unless @product.is_active %>
-            <%= form_with model: @room ,locale: true do |f| %>
-              <%= f.hidden_field :product_id, value: @product.id %>
-              <%= fields_for @entry do |e| %>
-                <%= e.hidden_field :user_id, value: @product.user_id %>
-              <% end %>
-              <%= f.submit "取　引　開　始", data: {confirm:"取引開始しますが本当によろしいでしょうか？"}, class:"btn btn-primary btn-lg btn-block chat-sub"%>
-            <% end %>
-          <% end %>
-        <% end %>
-      <% else %>
-        <% if @isRoom == true %>
-          <a href="/rooms/<%= @room.id %>" class="btn btn-primary btn-lg btn-block chat-sub">取引チャットへ</a>
-        <% end %>
-      <% end %>
-    <% end %>
+    <%= render "message_room", product: @product, isRoom: @isRoom, room: @room, entry: @entry  %>
   </div>
   <div class="col-lg-3 col-xs-0">
   </div>
