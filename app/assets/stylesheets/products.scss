@@ -1,6 +1,7 @@
 // Place all the styles related to the products controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+@import 'setting/_break_point';
 
 // 商品一覧
 .product-contena{
@@ -18,11 +19,18 @@
 .product-box{
 	width: 200px;
 	text-align: center;
+	@include max-screen($breakpoint-xs) { /* 480px以下のとき */
+		width: 100px;
+	}
 }
 .product-image{
 	border-radius: 50%;
 	width:  160px;       /* ※縦横を同値に */
-    height: 160px;       /* ※縦横を同値に */
+	height: 160px;       /* ※縦横を同値に */
+	@include max-screen($breakpoint-xs) { /* 480px以下のとき */
+		width:  80px;
+		height: 80px;
+	}
 }
 .product-image:hover{
 	transform: scale(1.1) rotate(9deg);
@@ -31,6 +39,9 @@
 .product-name{
 	text-align: center;
 	font-size: 20px;
+	@include max-screen($breakpoint-xs) { /* 480px以下のとき */
+		font-size: 13px;
+	}
 }
 .product-intro{
 	background-color: rgb(245, 245, 245);
@@ -66,6 +77,9 @@
 }
 .product-edit{
 	text-align: right;
+	@include max-screen($breakpoint-xs) { /* 480px以下のとき */
+		text-align: center;
+	}
 }
 .chat-sub{
 	margin-top: 50px;
@@ -92,22 +106,3 @@
 	width: 100%;
 }
 // 商品投稿
-
-
-
-@media (max-width: 480px){
-    .product-box{
-        width: 100px;
-    }
-    .product-image{
-        width:  80px;
-        height: 80px;
-    }
-    .product-name{
-        font-size: 13px;
-    }
-    .product-edit{
-        text-align: center;
-    }
-}
-
