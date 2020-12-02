@@ -20,6 +20,23 @@
  @import url('https://fonts.googleapis.com/css?family=M+PLUS+Rounded+1c');
  @import url('https://fonts.googleapis.com/css?family=Sacramento');
 
+$breakpoint-lg: 1200px; /* 変数 */
+$breakpoint-md: 991px; /* 変数 */
+$breakpoint-xs: 480px; /* 変数 */
+
+/* $break-point以下の時に@contentを適用 */
+@mixin max-screen($break-point) { 
+	@media screen and (max-width: $break-point) {
+		@content;
+	}
+}
+/* $break-point以上の時に@contentを適用 */
+@mixin min-screen($break-point) { 
+	@media screen and (min-width: $break-point) {
+		@content;
+	}
+}
+
 *{
 	font-family: 'M PLUS Rounded 1c', sans-serif;
 	position: relative;
@@ -40,11 +57,13 @@ header{
 	background-color:white;
 	height: 100px;
 	width: 100%;
-	a:link {color:black; text-decoration:none }
-	a:visited { color:black; text-decoration:none }
-	a:hover { color:black; text-decoration:none }
-	a:active { color:black; text-decoration:none }
 	box-shadow: 0 0 8px gray;
+	a{
+		&:link,&:visited,&:hover,:active {
+			color:black;
+			text-decoration:none;
+		}
+	}
 	li{
 		list-style: none;
 		color:white;
@@ -113,35 +132,41 @@ nav{
 	width: 50px;
 	height: 44px;
 }
-.menu-trigger span {
-	position: absolute;
-	left: 0;
-	width: 100%;
-	height: 4px;
-	background-color: #000;
-	border-radius: 4px;
+.menu-trigger{
+	span {
+		position: absolute;
+		left: 0;
+		width: 100%;
+		height: 4px;
+		background-color: #000;
+		border-radius: 4px;
+	}
 }
-.menu-trigger span:nth-of-type(1) {
-	top: 0;
+.menu-trigger{
+	span:nth-of-type(1) {
+		top: 0;
+	}
+	span:nth-of-type(2) {
+		top: 20px;
+	}
+	span:nth-of-type(3) {
+		bottom: 0;
+	}
 }
-.menu-trigger span:nth-of-type(2) {
-	top: 20px;
-}
-.menu-trigger span:nth-of-type(3) {
-	bottom: 0;
-}
-.menu-trigger.active span:nth-of-type(1) {
+.menu-trigger.active{
+	span:nth-of-type(1) {
 	-webkit-transform: translateY(20px) rotate(-45deg);
 	transform: translateY(20px) rotate(-45deg);
 	background-color: #fff;
-}
-.menu-trigger.active span:nth-of-type(2) {
-	opacity: 0;
-}
-.menu-trigger.active span:nth-of-type(3) {
-	-webkit-transform: translateY(-20px) rotate(45deg);
-	transform: translateY(-20px) rotate(45deg);
-	background-color: #fff;
+	}
+	span:nth-of-type(2) {
+		opacity: 0;
+	}
+	span:nth-of-type(3) {
+		-webkit-transform: translateY(-20px) rotate(45deg);
+		transform: translateY(-20px) rotate(45deg);
+		background-color: #fff;
+	}
 }
 //ハンバーガーメニュー
 // フッター
@@ -155,9 +180,12 @@ footer{
 	text-align: right;
 	font-size:30px;
 	box-shadow: 0 0 8px gray;
-	a:link {color:black; text-decoration:none }
-	a:visited { color:black; text-decoration:none }
-	a:active { color:black; text-decoration:none }
+	a{
+		&:link,&:visited,&:active {
+			color:black;
+			text-decoration:none;
+		}
+	}
 }
 .footer-i:hover{
 	color:rgb(155, 148, 148);
@@ -207,7 +235,7 @@ footer{
 	}
 }
 
-@media (max-width: 1000px){
+@media (max-width: 991px){
 	nav{
         flex-direction: column;
     }
