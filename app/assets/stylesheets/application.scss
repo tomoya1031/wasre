@@ -19,23 +19,7 @@
  @import 'font-awesome';
  @import url('https://fonts.googleapis.com/css?family=M+PLUS+Rounded+1c');
  @import url('https://fonts.googleapis.com/css?family=Sacramento');
-
-$breakpoint-lg: 1200px; /* 変数 */
-$breakpoint-md: 991px; /* 変数 */
-$breakpoint-xs: 480px; /* 変数 */
-
-/* $break-point以下の時に@contentを適用 */
-@mixin max-screen($break-point) { 
-	@media screen and (max-width: $break-point) {
-		@content;
-	}
-}
-/* $break-point以上の時に@contentを適用 */
-@mixin min-screen($break-point) { 
-	@media screen and (min-width: $break-point) {
-		@content;
-	}
-}
+ @import 'setting/_break_point';
 
 *{
 	font-family: 'M PLUS Rounded 1c', sans-serif;
@@ -68,9 +52,15 @@ header{
 		list-style: none;
 		color:white;
 	}
+	@include max-screen($breakpoint-md) { /* 991px以下のとき */
+		height: 70px;
+	}
 }
 .top-user{
 	margin-top: 20px;
+	@include max-screen($breakpoint-md) { /* 991px以下のとき */
+		margin-top: 5px;
+	}
 }
 .top-profile{
 	border-radius: 50%;  /* 角丸半径を50%にする(=円形にする) */
@@ -78,6 +68,13 @@ header{
     width:  30px;       /* ※縦横を同値に */
 	height: 30px;       /* ※縦横を同値に */
 	box-shadow: 0 0 2px rgb(0, 0, 0);
+	@include max-screen($breakpoint-md) { /* 991px以下のとき */
+		border-radius: 50%;  /* 角丸半径を50%にする(=円形にする) */
+		background-position: center;
+		width:  60px;       /* ※縦横を同値に */
+		height: 60px;       /* ※縦横を同値に */
+		margin: auto;
+	}
 }
 
 .title{
@@ -93,10 +90,16 @@ header{
 	color:black;
 	font-family: 'Comic Sans MS', cursive;
 	font-size: 43px;
+	@include max-screen($breakpoint-xs) { /* 480px以下のとき */
+		font-size: 35px;
+	}
 }
 nav{
 	display: flex;
 	justify-content: space-around;
+	@include max-screen($breakpoint-md) { /* 991px以下のとき */
+		flex-direction: column;
+	}
 }
 .header-list{
 	margin: auto 0;
@@ -112,15 +115,22 @@ nav{
 }
 
 //ハンバーガーメニュー
-.menu-none{
+.menu-on{
+	@include max-screen($breakpoint-md) { /* 991px以下のとき */
+		display: none;
+	}
+}
+.menu-none,#hm-icon{
 	display: none;
+	@include max-screen($breakpoint-md) { /* 991px以下のとき */
+		display: inline;
+	}
 }
 #hm-icon{
 	position: absolute;
 	right: 20px;
 	top: 10px;
 	z-index: 10;
-	display: none;
 }
 .menu-trigger,.menu-trigger span {
 	display: inline-block;
@@ -168,6 +178,34 @@ nav{
 		background-color: #fff;
 	}
 }
+  /* ------ spメニュー ------ */
+@include max-screen($breakpoint-md) { /* 991px以下のとき */
+    #sp-menu {
+    	position: fixed;
+    	padding-top: 55px;
+    	top: 0;
+    	left: 0;
+    	background: #000;
+    	color: #fff;
+    	width: 100%;
+    	min-height: 100%;
+    	display: none;
+    	z-index: 9;
+    }
+    #sp-menu li{
+    	text-align: center;
+    	margin-bottom: 30px;
+    }
+    #sp-menu a{
+    	color: #fff;
+    	text-decoration: none;
+    	font-weight: bold;
+	}
+	.sign-up-imge{
+		width: 350px;
+		height: 400px;
+	}
+}
 //ハンバーガーメニュー
 // フッター
 footer{
@@ -196,13 +234,13 @@ footer{
 	border: none;     /*枠線をなくす*/
 	color: #696969;   /*文字の色を変える*/
 }
-  
+
   /* 表示しているページ番号のデザイン */
 .pagination>.active>a {     
 	background: #93c9ff;     /*背景の色を変える*/
 	border-radius: 15px;     /*角を丸くする*/
 }
-  
+
 /*ホバー時のデザイン*/
 .pagination>li>a:hover {        
 	border-radius: 15px;    /*角を丸くする*/
@@ -217,92 +255,3 @@ footer{
 	@extend .has-error;
 }
 // エラーメッセージ
-
-// 新規登録 サンキューページ 画像
-.sign-up-imge{
-	background-image: image-url("imge7.png");
-	width: 600px;
-	height: 800px;
-	background-position: center;
-	background-size: cover;
-}
-// 新規登録 サンキューページ 画像
-@media (max-width: 1200px){
-	.sign-up-imge{
-		width: 500px;
-		height: 700px;
-		margin: 0 auto;
-	}
-}
-
-@media (max-width: 991px){
-	nav{
-        flex-direction: column;
-    }
-	.menu-none,#hm-icon{
-		display: inline;
-	}
-	.menu-on{
-		display: none;
-	}
-	header{
-		height: 70px;
-	}
-	.top-profile{
-		border-radius: 50%;  /* 角丸半径を50%にする(=円形にする) */
-		background-position: center;
-		width:  60px;       /* ※縦横を同値に */
-		height: 60px;       /* ※縦横を同値に */
-		margin: auto;
-	}
-	.top-user{
-		margin-top: 5px;
-	}
-	  /* ------------------------ */
-  /* ------ spメニュー ------ */
-  /* ------------------------ */
-    #sp-menu {
-    	position: fixed;
-    	padding-top: 55px;
-    	top: 0;
-    	left: 0;
-    	background: #000;
-    	color: #fff;
-    	width: 100%;
-    	min-height: 100%;
-    	display: none;
-    	z-index: 9;
-    }
-    #sp-menu li{
-    	text-align: center;
-    	margin-bottom: 30px;
-    }
-    #sp-menu a{
-    	color: #fff;
-    	text-decoration: none;
-    	font-weight: bold;
-	}
-	.sign-up-imge{
-		width: 350px;
-		height: 400px;
-	}
-}
-
-@media (max-width: 480px){
-	.title-name{
-		font-size: 35px;
-	}
-	.sign-up-imge{
-		width: 180px;
-		height: 200px;
-	}
-}
-
-
-
-
-
-
-
-
-

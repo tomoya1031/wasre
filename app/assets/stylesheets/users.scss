@@ -1,6 +1,26 @@
 // Place all the styles related to the Users controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+@import 'setting/_break_point';
+
+// 新規登録 サンキューページ 画像
+.sign-up-imge{
+	background-image: image-url("imge7.png");
+	width: 600px;
+	height: 800px;
+	background-position: center;
+	background-size: cover;
+	@include max-screen($breakpoint-lg) { /* 1200px以下のとき */
+		width: 500px;
+		height: 700px;
+		margin: 0 auto;
+	}
+	@include max-screen($breakpoint-xs) { /* 480px以下のとき */
+		width: 180px;
+		height: 200px;
+	}
+}
+// 新規登録 サンキューページ 画像
 
 // マイページ
 .mypage{
@@ -8,7 +28,13 @@
 	padding: 0 20px 20px 20px;
 }
 .mypage-product{
-	padding: 10px;
+    padding: 10px;
+    h3{
+        @include max-screen($breakpoint-xs) { /* 480px以下のとき */
+            margin-top: 10px;
+            font-size: 18px;
+        }
+    }
 }
 .profile-imag{
 	width: 100%;
@@ -19,19 +45,31 @@
     flex-direction: column; /* 子要素をflexboxにより縦方向に揃える */
     justify-content: center; /* 子要素をflexboxにより中央に配置する */
     align-items: center;  /* 子要素をflexboxにより中央に配置する */
+    @include max-screen($breakpoint-xs) { /* 480px以下のとき */
+        height: 150px;
+    }
 }
 .profile-name{
-	font-size: 25px;
+    font-size: 25px;
+    @include max-screen($breakpoint-xs) { /* 480px以下のとき */
+        font-size: 18px;
+    }
 }
 .mypage{
 	table{
 		tr{
 			td{
                 div{
-					font-size: 23px;
+                    font-size: 23px;
+                    @include max-screen($breakpoint-xs) { /* 480px以下のとき */
+                        font-size: 18px;
+                    }
 				}
 				font-size: 20px;
-				line-height: 40px;
+                line-height: 40px;
+                @include max-screen($breakpoint-xs) { /* 480px以下のとき */
+                    font-size: 13px;
+                }
 			}
 		}
 		
@@ -41,43 +79,16 @@
     border-radius: 50%;  /* 角丸半径を50%にする(=円形にする) */
     width:  160px;       /* ※縦横を同値に */
 	height: 160px;       /* ※縦横を同値に */
-	box-shadow: 0 0 8px gray;
+    box-shadow: 0 0 8px gray;
+    @include max-screen($breakpoint-xs) { /* 480px以下のとき */
+        width:  80px;       /* ※縦横を同値に */
+        height: 80px;       /* ※縦横を同値に */
+    }
 }
 .prof-intro{
 	margin: 30px;
 }
-// マイページ
-@media (max-width: 480px){
-    .profile-imag{
-        height: 150px;
-    }
-    .profile-name{
-        font-size: 18px;
-    }
-    .mypage{
-        table{
-            tr{
-                td{
-                    div{
-                        font-size: 18px;
-                    }
-                    font-size: 13px;
-                }
-            }
-        }
-    }
-    .img-square {
-        border-radius: 50%;  /* 角丸半径を50%にする(=円形にする) */
-        width:  80px;       /* ※縦横を同値に */
-        height: 80px;       /* ※縦横を同値に */
-        box-shadow: 0 0 8px gray;
-    }
-    .mypage-product{
-        h3{
-            margin-top: 10px;
-            font-size: 18px;
-        }
-    }
+@include max-screen($breakpoint-xs) { /* 480px以下のとき */
     .mypage-product-title{
         font-size: 8px;
         white-space: nowrap;
@@ -95,3 +106,4 @@
         }
     }
 }
+// マイページ

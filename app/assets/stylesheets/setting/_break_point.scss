@@ -1,0 +1,23 @@
+/* 変数 */
+$breakpoint-lg: 1200px;
+$breakpoint-md: 991px;
+$breakpoint-xs: 480px;
+
+/* $break-point以下の時に@contentを適用 */
+@mixin max-screen($break-point) { 
+    @media screen and (max-width: $break-point) {
+        @content;
+    }
+}
+/* $break-point以上の時に@contentを適用 */
+@mixin min-screen($break-point) { 
+    @media screen and (min-width: $break-point) {
+        @content;
+    }
+}
+/* $break-point以上の時に@contentを適用 */
+@mixin min-screen($break-point) { 
+    @media screen and (min-width: $break-point) {
+        @content;
+    }
+}
