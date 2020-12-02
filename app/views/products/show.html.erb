@@ -14,23 +14,20 @@
   <div class="col-lg-2 col-xs-0">
   </div>
 </div>
-<!-- 商品 -->
-<!-- コメント -->
 <div class="row">
   <div class="col-lg-2">
   </div>
   <div class="col-lg-3">
     <div class="favorite-comment">
+
       <div id="comments_count">
-
         <%= render 'comments/count', product: @product %>
-        
       </div>
+
       <div class="favorite", id="favorite_<%= @product.id %>">
-
         <%= render 'favorites/favorite', product: @product %>
-
       </div>
+
     </div>
   </div>
   <div class="col-lg-7">
@@ -48,19 +45,21 @@
   <div class="col-lg-2">
   </div>
 </div>
-<!-- コメント -->
 <div class="row">
   <div class="col-lg-3 col-xs-0">
   </div>
   <div class="col-lg-6 col-xs-12 comment-box">
+
     <div id="comments_area">
       <%= render 'comments/index', product: @product %>
     </div>
+
     <div id="comment">
       <%= render "comments/form", product: @product, comment: @comment %>
     </div>
-    <!-- チャット -->
+
     <%= render "message_room", product: @product, isRoom: @isRoom, room: @room, entry: @entry  %>
+
   </div>
   <div class="col-lg-3 col-xs-0">
   </div>

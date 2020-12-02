@@ -14,12 +14,12 @@ class ProductsController < ApplicationController
     @product = Product.new(product_params)
     @product.user_id = current_user.id
     tag_list = params[:product][:tag_name].split(nil)
-     if @product.save
-      @product.save_tag(tag_list)
-      redirect_to product_path(@product.id)
-     else
-       render 'new'
-     end
+      if @product.save
+        @product.save_tag(tag_list)
+        redirect_to product_path(@product.id)
+      else
+        render 'new'
+      end
   end
 
   def index

@@ -1,55 +1,54 @@
 <%= render 'shared/error', content: @user %>
 <%= form_with model:@user, local:true do |f| %>
   <div class="row">
-    <div class="col-lg-2 col-xs-0">
-    </div>
+    <div class="col-lg-2 col-xs-0"></div>
     <div class="col-lg-8 col-xs-12">
       <br>
       <h1><i class="fas fa-edit"></i>マイページ編集</h1><br>
       <div class="">
         <table class="table table-striped mypage-edit">
 	      <tr>
-		    <th>プロフィール画像</th>
-		    <td>
-		      <div>
-	      	    <%= attachment_image_tag @user, :profile_image, class:"img-square", fallback: "no_image.png", size:"200x160" %>
-	      	    <%= f.attachment_field :profile_image %>
+			<th>プロフィール画像</th>
+			<td>
+			  <div>
+				<%= attachment_image_tag @user, :profile_image, class:"img-square", fallback: "no_image.png", size:"200x160" %>
+				<%= f.attachment_field :profile_image %>
               </div>
-		    </td>
+			</td>
 	      </tr>
 
           <tr>
-		    <th>名前</th>
-		    <td>
+			<th>名前</th>
+			<td>
 			  <% if @user.email == 'guest@example.com' %>
-			    <%= @user.name%>  (ゲストログインのため編集不可)
+				<%= @user.name%>  (ゲストログインのため編集不可)
 			  <% else %>
-		        <%= f.text_field :name, :size=>"52", class: "form-control" %>
+				<%= f.text_field :name, :size=>"52", class: "form-control" %>
 			  <% end %>
-		    </td>
+			</td>
 	      </tr>
 
           <tr>
-		    <th>自己紹介</th>
-		    <td>
+			<th>自己紹介</th>
+			<td>
 		      <%= f.text_area :introduction, placeholder: "自己紹介", size: "50x10", class: "form-control" %>
-		    </td>
+			</td>
 	      </tr>
 
 	      <tr>
-		    <th>メールアドレス</th>
-		    <td>
+			<th>メールアドレス</th>
+			<td>
 			  <% if @user.email == 'guest@example.com' %>
-			    <%= @user.email%>  (ゲストログインのため編集不可)
+				<%= @user.email%>  (ゲストログインのため編集不可)
 			  <% else %>
-			    <%= f.text_field :email, :size=>"52", class: "form-control" %>
+				<%= f.text_field :email, :size=>"52", class: "form-control" %>
 			  <% end %>
 			</td>
 	      </tr>
 
 	      <tr>
-		    <th><%= f.label :郵便番号（ハイフンなし） %></th>
-		    <td><%= f.text_field :post_code, class: "form-control" %></td>
+			<th><%= f.label :郵便番号（ハイフンなし） %></th>
+			<td><%= f.text_field :post_code, class: "form-control" %></td>
 	      </tr>
           <tr>
             <th><%= f.label :prefecture_code %></th>
@@ -57,23 +56,23 @@
           </tr>
 
 	      <tr>
-		    <th><%= f.label :address_city %></th>
-		    <td><%= f.text_field :address_city, :size=>"52", class: "form-control" %></td>
+			<th><%= f.label :address_city %></th>
+			<td><%= f.text_field :address_city, :size=>"52", class: "form-control" %></td>
 	      </tr>
 
           <tr>
-		    <th><%= f.label :address_street %></th>
-		    <td><%= f.text_field :address_street, :size=>"52", class: "form-control" %></td>
+			<th><%= f.label :address_street %></th>
+			<td><%= f.text_field :address_street, :size=>"52", class: "form-control" %></td>
 	      </tr>
 
 	      <tr>
-		    <th>電話番号（ハイフンなし）</th>
-		    <td><%= f.text_field :phone_number, class: "form-control" %></td>
+			<th>電話番号（ハイフンなし）</th>
+			<td><%= f.text_field :phone_number, class: "form-control" %></td>
 	      </tr>
         </table>
       </div>
       <div>
-	    <%= f.submit "編集内容を保存する",class:"btn btn-primary" %>
+		<%= f.submit "編集内容を保存する",class:"btn btn-primary" %>
       </div>
 	</div>
   </div>

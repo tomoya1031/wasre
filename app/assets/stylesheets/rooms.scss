@@ -1,6 +1,7 @@
 // Place all the styles related to the Rooms controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+@import 'setting/_break_point';
 
 .right-button{
 	text-align: right;
@@ -64,6 +65,10 @@
 .room-image{
     width: 100px;
     height: 100px;
+    @include max-screen($breakpoint-xs) { /* 480px以下のとき */
+        width: 70px;
+        height: 70px;
+    }
 }
 .room-post{
 	text-align: right;
@@ -71,13 +76,8 @@
 .room-sub{
 	margin-top: 10px;
 }
-
-@media (max-width: 480px){
-    .room-image{
-        width: 70px;
-        height: 70px;
-    }
-    .chat-time{
-        font-size: 8px;
+.chat-time{
+    @include max-screen($breakpoint-xs) { /* 480px以下のとき */
+    font-size: 8px;
     }
 }

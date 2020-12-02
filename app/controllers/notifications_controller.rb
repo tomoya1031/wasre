@@ -1,5 +1,6 @@
 class NotificationsController < ApplicationController
   before_action :authenticate_user!
+  
   def index
     unless current_user.passive_notifications.nil?
       #current_userの投稿に紐づいた通知一覧
