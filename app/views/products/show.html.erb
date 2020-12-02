@@ -22,10 +22,14 @@
   <div class="col-lg-3">
     <div class="favorite-comment">
       <div id="comments_count">
+
         <%= render 'comments/count', product: @product %>
+        
       </div>
       <div class="favorite", id="favorite_<%= @product.id %>">
+
         <%= render 'favorites/favorite', product: @product %>
+
       </div>
     </div>
   </div>

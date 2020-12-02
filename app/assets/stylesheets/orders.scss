@@ -3,16 +3,9 @@
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
 .order{
-	thead{
+	thead tbody{
 		tr{
 			th{
-				text-align: center;
-			}
-		}
-	}
-	tbody{
-		tr{
-			td{
 				text-align: center;
 			}
 		}
@@ -24,16 +17,9 @@
 
 @media (max-width: 480px){
     .order{
-        thead{
+        thead tbody{
             tr{
                 th{
-                    font-size: 10px;
-                }
-            }
-        }
-        tbody{
-            tr{
-                td{
                     font-size: 10px;
                 }
             }
