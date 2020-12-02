@@ -11,8 +11,7 @@
           </span>
         </div>
       <% else %>
-        <div class="col-lg-4 col-xs-4">
-        </div>
+        <div class="col-lg-4 col-xs-4"></div>
       <% end %>
       <div class="col-lg-4 col-xs-4 title">
         <%= link_to "WASRe:", root_path, class: "title-name" %>            
@@ -20,7 +19,7 @@
       <div class="col-lg-4 top-search menu-on">
         <div  class="form-group search">
           <%= form_with(url: products_path, method: :get, local: true) do %>  
-            <%= text_field_tag :search, params[:search] ,class:"form-control"%>
+            <%= text_field_tag :search, params[:search] ,class:"form-control" %>
             <%= submit_tag "商品検索", :name => nil ,class:"btn btn-default" %>
           <% end %>
         </div>
@@ -30,7 +29,7 @@
           <nav>
             <li class="menu-none form-group search">
               <%= form_with(url: products_path, method: :get, local: true) do %>  
-                <%= text_field_tag :search, params[:search] ,class:"form-control"%>
+                <%= text_field_tag :search, params[:search] ,class:"form-control" %>
                 <%= submit_tag "商品検索", :name => nil ,class:"btn btn-default" %>
               <% end %>
             </li>

@@ -15,11 +15,11 @@
   <tr>
     <td>
       <div><strong>自己紹介</strong></div>
-	  <% unless user.introduction.nil? %>
-	    <%= safe_join(user.introduction.split("\n"),tag(:br)) %>
-	  <% else %>
-	    <div class="prof-intro"></div>
-	  <% end %>
+      <% unless user.introduction.nil? %>
+        <%= safe_join(user.introduction.split("\n"),tag(:br)) %>
+      <% else %>
+        <div class="prof-intro"></div>
+      <% end %>
     </td>
   </tr>
   <tr>
