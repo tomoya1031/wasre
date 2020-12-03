@@ -4,7 +4,7 @@
       <% if user_signed_in? %>
         <div class="col-lg-4 col-xs-4 top-user">
           <span>
-            <%= link_to user_path(current_user.id), class: "Editlink" do %>
+            <%= link_to user_path(current_user.id) do %>
               <%= attachment_image_tag current_user, :profile_image, fallback: "no_image.png", class:"top-profile" %>
               <span class="menu-on"><%= current_user.name %>さん</span>
             <% end %>
@@ -34,20 +34,20 @@
               <% end %>
             </li>
             <% if user_signed_in? %>
-              <li><%= link_to "マイページ", user_path(current_user.id), class: "Editlink" %></li>
-              <li><%= link_to "商品一覧", products_path, class: "Editlink" %></li>
-              <li><%= link_to "新規投稿", new_product_path, class: "Editlink", 'data-turbolinks': false %></li>
-              <li><%= link_to "ログアウト", destroy_user_session_path, method: :delete, class: "Editlink" %></li>
+              <li><%= link_to "マイページ", user_path(current_user.id) %></li>
+              <li><%= link_to "商品一覧", products_path %></li>
+              <li><%= link_to "新規投稿", new_product_path, 'data-turbolinks': false %></li>
+              <li><%= link_to "ログアウト", destroy_user_session_path, method: :delete %></li>
               <% if current_user.admin_flg == true %>
-                <li><%= link_to "管理者画面", rails_admin_path, class: "Editlink" %></li>
+                <li><%= link_to "管理者画面", rails_admin_path %></li>
               <% end %>
             <% else %>
-              <li><%= link_to "Home", root_path, class: "Editlink" %></li>
-              <li><%= link_to "About", about_path, class: "Editlink", 'data-turbolinks': false %></li>
-              <li><%= link_to "商品一覧", products_path, class: "Editlink" %></li>
+              <li><%= link_to "Home", root_path %></li>
+              <li><%= link_to "About", about_path, 'data-turbolinks': false %></li>
+              <li><%= link_to "商品一覧", products_path %></li>
               <li><%= link_to 'ｹﾞｽﾄﾛｸﾞｲﾝ(閲覧用)', users_guest_sign_in_path, method: :post %></li>
-              <li><%= link_to "新規登録", new_user_registration_path, class: "Editlink" %></li>
-              <li><%= link_to "ログイン", new_user_session_path, class: "Editlink" %></li>
+              <li><%= link_to "新規登録", new_user_registration_path %></li>
+              <li><%= link_to "ログイン", new_user_session_path %></li>
             <% end %>
           </nav>
         </div>

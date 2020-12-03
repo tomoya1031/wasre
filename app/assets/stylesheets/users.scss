@@ -14,7 +14,11 @@
 		width: 500px;
 		height: 700px;
 		margin: 0 auto;
-	}
+    }
+    @include max-screen($breakpoint-md) { /* 991px以下のとき */
+        width: 350px;
+        height: 400px;
+    }
 	@include max-screen($breakpoint-xs) { /* 480px以下のとき */
 		width: 180px;
 		height: 200px;
