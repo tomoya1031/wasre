@@ -3,17 +3,7 @@
     <%= render 'genre', genres: @genres %>
   </div>
   <div class="col-lg-9 col-xs-8">
-    <h2><i class="fas fa-boxes"></i>
-      <% if @genre_id.present? %>
-        <%= @genre.name %>
-      <% elsif params[:tag_id].present? %>
-        <%= @tag.tag_name %>一覧
-      <% elsif @product %>
-        検索結果：<%= @product %>
-      <% else %>
-        全商品
-      <% end %>
-    </h2>
+    <h2><i class="fas fa-boxes"></i><%= @product %></h2>
     <h4>(全<%= @products_all.count %>件)</h4>
     <div class="product-contena">
       <% @products.includes(:product_images).each do |product| %>

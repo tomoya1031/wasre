@@ -24,20 +24,21 @@ class ProductsController < ApplicationController
 
   def index
     @genres = Genre.where(is_active: true)
-    @tag_list = Tag.all
-    if params[:genre_id].present?
+    if (@genre_id = params[:genre_id]).present?
+      @genre = Genre.find(@genre_id)
       #↓カミナリ使う時は使用する,今も一応カウントで使用
-      @genre = Genre.find(params[:genre_id])
       @products_all = Product.where(genre_id: @genre,is_active: false)
-    elsif params[:tag_id].present?
-      @tag = Tag.find(params[:tag_id])
+      @product = "ジャンル検索結果：#{@genre.name}"
+    elsif (@tag_id = params[:tag_id]).present?
+      @tag = Tag.find(@tag_id)
       @products_all = @tag.products.joins(:genre).where(is_active: false, genres: { is_active: "true"})
-      @product = @tag.products.find_by(params[:tag_id])
-    elsif params[:search].present?
-      @products_all = Product.where(['products.name LIKE ?', "%#{params[:search]}%"]).joins(:genre).where(is_active: false, genres: { is_active: "true"})
-      @product = params[:search]
+      @product = "タグ検索結果：#{@tag.tag_name}"
+    elsif (@search = params[:search]).present?
+      @products_all = Product.where(['products.name LIKE ?', "%#{@search}%"]).joins(:genre).where(is_active: false, genres: { is_active: "true"})
+      @product = "文字検索結果：#{@search}"
     else
       @products_all = Product.joins(:genre).where(is_active: false, genres: { is_active: "true"})
+      @product = "全商品"
     end
     @products = @products_all.page(params[:page]).reverse_order.per(12)
   end
@@ -89,8 +90,8 @@ class ProductsController < ApplicationController
 
   def currect_user
     @product = Product.find(params[:id])
-      if @product.is_active || @product.user != current_user
-        redirect_to product_path
-      end
+    if @product.is_active || @product.user != current_user
+      redirect_to product_path
+    end
   end
 end
