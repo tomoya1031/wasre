@@ -24,18 +24,15 @@ class ProductsController < ApplicationController
 
   def index
     @genres = Genre.where(is_active: true)
-    @tag_list = Tag.all
-    if params[:genre_id].present?
+    if (@genre_id = params[:genre_id]).present?
+      @genre = Genre.find(@genre_id)
       #↓カミナリ使う時は使用する,今も一応カウントで使用
-      @genre = Genre.find(params[:genre_id])
       @products_all = Product.where(genre_id: @genre,is_active: false)
-    elsif params[:tag_id].present?
-      @tag = Tag.find(params[:tag_id])
+    elsif (@tag_id = params[:tag_id]).present?
+      @tag = Tag.find(@tag_id)
       @products_all = @tag.products.joins(:genre).where(is_active: false, genres: { is_active: "true"})
-      @product = @tag.products.find_by(params[:tag_id])
-    elsif params[:search].present?
-      @products_all = Product.where(['products.name LIKE ?', "%#{params[:search]}%"]).joins(:genre).where(is_active: false, genres: { is_active: "true"})
-      @product = params[:search]
+    elsif (@product = params[:search]).present?
+      @products_all = Product.where(['products.name LIKE ?', "%#{@product}%"]).joins(:genre).where(is_active: false, genres: { is_active: "true"})
     else
       @products_all = Product.joins(:genre).where(is_active: false, genres: { is_active: "true"})
     end
