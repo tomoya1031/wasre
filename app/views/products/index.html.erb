@@ -4,11 +4,11 @@
   </div>
   <div class="col-lg-9 col-xs-8">
     <h2><i class="fas fa-boxes"></i>
-      <% if params[:genre_id].present? %>
+      <% if @genre_id.present? %>
         <%= @genre.name %>
       <% elsif params[:tag_id].present? %>
         <%= @tag.tag_name %>一覧
-      <% elsif params[:search]%>
+      <% elsif @product %>
         検索結果：<%= @product %>
       <% else %>
         全商品

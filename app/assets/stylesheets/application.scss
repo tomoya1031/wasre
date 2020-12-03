@@ -32,9 +32,7 @@ html {
     height: 100%;
 }
 body {
-	// background-color:rgba(0,0,0,0.05);
 	padding-bottom: 70px;
-	
 }
 header{
 	background-color:white;
@@ -71,7 +69,6 @@ header{
 		height: 60px;
 	}
 }
-
 .title{
 	text-align: center;
 	padding: 5px 0;
@@ -170,7 +167,6 @@ nav{
 	}
 }
   /* ------ spメニュー ------ */
-
 #sp-menu {
 	@include max-screen($breakpoint-md) { /* 991px以下のとき */
     	position: fixed;
@@ -207,14 +203,14 @@ footer{
 	font-size:30px;
 	box-shadow: 0 0 8px gray;
 	a{
-		&:link,&:visited,&:active {
+		&:link,&:visited {
 			color:black;
 			text-decoration:none;
 		}
+		&:hover{
+			color:rgb(155, 148, 148);
+		}
 	}
-}
-.footer-i:hover{
-	color:rgb(155, 148, 148);
 }
 // フッター
 /*ページネーション自体のデザイン*/
@@ -222,18 +218,15 @@ footer{
 	border: none;     /*枠線をなくす*/
 	color: #696969;   /*文字の色を変える*/
 }
-
   /* 表示しているページ番号のデザイン */
 .pagination>.active>a {     
 	background: #93c9ff;     /*背景の色を変える*/
 	border-radius: 15px;     /*角を丸くする*/
 }
-
 /*ホバー時のデザイン*/
 .pagination>li>a:hover {        
 	border-radius: 15px;    /*角を丸くする*/
 }
-
 // エラーメッセージ
 .error-message {
 	margin: 10px 30px;

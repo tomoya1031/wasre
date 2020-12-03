@@ -27,26 +27,19 @@ class ProductsController < ApplicationController
     @tag_list = Tag.all
     if params[:genre_id].present?
       #↓カミナリ使う時は使用する,今も一応カウントで使用
-      @products_all = Product.where(genre_id: params[:genre_id],is_active: false)
-      #----------------
-      @products = Product.where(genre_id: params[:genre_id],is_active: false).page(params[:page]).reverse_order.per(12)
       @genre = Genre.find(params[:genre_id])
+      @products_all = Product.where(genre_id: @genre,is_active: false)
     elsif params[:tag_id].present?
-      #↓カミナリ使う時は使用する,今も一応カウントで使用(お試し＠tag)
       @tag = Tag.find(params[:tag_id])
       @products_all = @tag.products.joins(:genre).where(is_active: false, genres: { is_active: "true"})
-      #----------------
-      @products = Product.joins(:genre, :tag_maps).where(is_active: false, genres: { is_active: "true"}, tag_maps: { tag_id: params[:tag_id] }).page(params[:page]).reverse_order.per(12)
       @product = @tag.products.find_by(params[:tag_id])
     elsif params[:search].present?
-      #↓カミナリ使う時は使用する,今も一応カウントで使用
       @products_all = Product.where(['products.name LIKE ?', "%#{params[:search]}%"]).joins(:genre).where(is_active: false, genres: { is_active: "true"})
-      @products = Product.where(['products.name LIKE ?', "%#{params[:search]}%"]).joins(:genre).where(is_active: false, genres: { is_active: "true"}).page(params[:page]).reverse_order.per(12)
       @product = params[:search]
     else
       @products_all = Product.joins(:genre).where(is_active: false, genres: { is_active: "true"})
-      @products = Product.joins(:genre).where(is_active: false, genres: { is_active: "true"}).page(params[:page]).reverse_order.per(12)
     end
+    @products = @products_all.page(params[:page]).reverse_order.per(12)
   end
   
   def show
