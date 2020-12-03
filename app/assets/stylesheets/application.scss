@@ -36,21 +36,19 @@ body {
 	padding-bottom: 70px;
 	
 }
-
 header{
 	background-color:white;
 	height: 100px;
 	width: 100%;
 	box-shadow: 0 0 8px gray;
 	a{
-		&:link,&:visited,&:hover,:active {
+		&:link,&:visited{
 			color:black;
 			text-decoration:none;
 		}
 	}
 	li{
 		list-style: none;
-		color:white;
 	}
 	@include max-screen($breakpoint-md) { /* 991px以下のとき */
 		height: 70px;
@@ -69,11 +67,8 @@ header{
 	height: 30px;       /* ※縦横を同値に */
 	box-shadow: 0 0 2px rgb(0, 0, 0);
 	@include max-screen($breakpoint-md) { /* 991px以下のとき */
-		border-radius: 50%;  /* 角丸半径を50%にする(=円形にする) */
-		background-position: center;
-		width:  60px;       /* ※縦横を同値に */
-		height: 60px;       /* ※縦横を同値に */
-		margin: auto;
+		width:  60px;
+		height: 60px;
 	}
 }
 
@@ -132,17 +127,15 @@ nav{
 	top: 10px;
 	z-index: 10;
 }
-.menu-trigger,.menu-trigger span {
+.menu-trigger,.menu-trigger span{
 	display: inline-block;
 	transition: all .4s;
 	box-sizing: border-box;
 }
-.menu-trigger {
+.menu-trigger{
 	position: relative;
 	width: 50px;
 	height: 44px;
-}
-.menu-trigger{
 	span {
 		position: absolute;
 		left: 0;
@@ -151,8 +144,6 @@ nav{
 		background-color: #000;
 		border-radius: 4px;
 	}
-}
-.menu-trigger{
 	span:nth-of-type(1) {
 		top: 0;
 	}
@@ -179,8 +170,9 @@ nav{
 	}
 }
   /* ------ spメニュー ------ */
-@include max-screen($breakpoint-md) { /* 991px以下のとき */
-    #sp-menu {
+
+#sp-menu {
+	@include max-screen($breakpoint-md) { /* 991px以下のとき */
     	position: fixed;
     	padding-top: 55px;
     	top: 0;
@@ -190,21 +182,17 @@ nav{
     	width: 100%;
     	min-height: 100%;
     	display: none;
-    	z-index: 9;
+		z-index: 9;
+		li{
+			text-align: center;
+			margin-bottom: 30px;
+		}
+		a{
+			color: #fff;
+			text-decoration: none;
+			font-weight: bold;
+		}
     }
-    #sp-menu li{
-    	text-align: center;
-    	margin-bottom: 30px;
-    }
-    #sp-menu a{
-    	color: #fff;
-    	text-decoration: none;
-    	font-weight: bold;
-	}
-	.sign-up-imge{
-		width: 350px;
-		height: 400px;
-	}
 }
 //ハンバーガーメニュー
 // フッター
