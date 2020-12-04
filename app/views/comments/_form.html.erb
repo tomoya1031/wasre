@@ -1,7 +1,7 @@
 <% unless product.is_active %>
   <%= form_with(model: [product, comment] ) do |f| %>
-      <div class="comment-text  form-group">
-          <%= f.text_area :comment, class: "comment", class: "form-control" %>
+      <div class="comment-text form-group">
+          <%= f.text_area :comment, class: "form-control" %>
           <div class="right-button">
             <% if user_signed_in? %>
               <%= f.submit "送信", class: "btn btn-success room-sub"%>

@@ -40,8 +40,6 @@ class Product < ApplicationRecord
     end
   end
 
-
-  
   def create_notification_by(current_user)
     notification = current_user.active_notifications.new(
       product_id: self.id,
@@ -75,5 +73,4 @@ class Product < ApplicationRecord
     end
     notification.save if notification.valid?
   end
-
 end
