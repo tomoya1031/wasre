@@ -17,36 +17,10 @@
 .youchat-box{
 	justify-content: flex-start;
 }
-.arrow_mybox,.arrow_youbox{
-    position: relative;
-	max-width: 500px;
-    padding: 10px;
-    text-align: left;
-    color: #FFFFFF;
-    font-weight: bold;
-    border-radius: 10px;
-    -webkit-border-radius: 10px;
-    -moz-border-radius: 10px;
-    &:after{
-        border: solid transparent;
-        content: '';
-        height: 0;
-        width: 0;
-        pointer-events: none;
-        position: absolute;
-        border-color:  rgba(0, 153, 255, 0);
-        border-top-width: 10px;
-        border-bottom-width: 10px;
-        border-left-width: 10px;
-        border-right-width: 10px;
-        margin-top: -10px;
-        top: 20px;
-    }
-}
+//共通項目をcomment.scssに記載（上から順に更新されるため）
 .arrow_mybox{
 	margin-right: 10px;
     background:  #09ff00;
-    padding: 10px;
     &:after{
         border-left-color: #09ff00;
         left: 100%;
@@ -54,8 +28,6 @@
 }
 .arrow_youbox{
     background: #c1c5c7;
-    padding: 10px 10px;
-    word-wrap: break-word;
     &:after{
         border-right-color: #c1c5c7;
         right: 100%;

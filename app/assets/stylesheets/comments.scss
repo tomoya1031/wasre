@@ -33,30 +33,42 @@
 	display: flex;
 	justify-content: flex-start;
 	align-items: baseline;
+	margin-bottom: 20px;
 }
-.arrow_box{
+.comment-prof{
+	width: 80px;
+	min-height: 60px;
+}
+.comment-imag{
+	margin: 0 auto;
+}
+.arrow_mybox,.arrow_youbox,.arrow_box{
     position: relative;
-    max-width: 500px;
-    background:  #0099FF;
-	padding: 10px;
-	margin: 10px;
+	max-width: 450px;
+    padding: 10px;
     text-align: left;
     color: #FFFFFF;
     font-weight: bold;
     border-radius: 10px;
     -webkit-border-radius: 10px;
-	-moz-border-radius: 10px;
-	word-wrap: break-word;
+    -moz-border-radius: 10px;
+    word-wrap: break-word;
+    &:after{
+        border: solid transparent;
+        content: '';
+        pointer-events: none;
+        position: absolute;
+        border-color:  rgba(0, 153, 255, 0);
+        border-width: 10px;
+        margin-top: -10px;
+        top: 20px;
+    }
+}
+.arrow_box{
+	background:  #0099FF;
+	margin: 10px;
 	&:after{
-		border: solid transparent;
-		content: '';
-		pointer-events: none;
-		position: absolute;
-		border-color:  rgba(0, 153, 255, 0);
-		border-width: 10px;
-		margin-top: -10px;
 		border-right-color: #0099FF;
 		right: 100%;
-		top: 20px;
 	}
 }
