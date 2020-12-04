@@ -169,15 +169,15 @@ nav{
   /* ------ spメニュー ------ */
 #sp-menu {
 	@include max-screen($breakpoint-md) { /* 991px以下のとき */
-    	position: fixed;
-    	padding-top: 55px;
-    	top: 0;
-    	left: 0;
-    	background: #000;
-    	color: #fff;
-    	width: 100%;
-    	min-height: 100%;
-    	display: none;
+		position: fixed;
+	padding-top: 55px;
+	top: 0;
+	left: 0;
+	background: #000;
+	color: #fff;
+	width: 100%;
+	min-height: 100%;
+	display: none;
 		z-index: 9;
 		li{
 			text-align: center;

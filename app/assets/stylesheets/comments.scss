@@ -47,16 +47,16 @@
     -webkit-border-radius: 10px;
 	-moz-border-radius: 10px;
 	word-wrap: break-word;
-}
-.arrow_box:after{
-    border: solid transparent;
-    content: '';
-    pointer-events: none;
-    position: absolute;
-    border-color:  rgba(0, 153, 255, 0);
-    border-width: 10px;
-    margin-top: -10px;
-    border-right-color: #0099FF;
-    right: 100%;
-    top: 20px;
+	&:after{
+		border: solid transparent;
+		content: '';
+		pointer-events: none;
+		position: absolute;
+		border-color:  rgba(0, 153, 255, 0);
+		border-width: 10px;
+		margin-top: -10px;
+		border-right-color: #0099FF;
+		right: 100%;
+		top: 20px;
+	}
 }
