@@ -1,6 +1,6 @@
 <% product.comments.includes(:user).each do |comment| %>
   <div class="comment-list">
-    <div>
+    <div class="comment-prof">
       <%= link_to user_path(comment.user) do %>
         <div>
           <%= attachment_image_tag comment.user, :profile_image, :fill, 40, 40, fallback: "no_image.png", size:'40x40' %>
