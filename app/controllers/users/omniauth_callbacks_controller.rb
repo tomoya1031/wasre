@@ -38,7 +38,6 @@ class Users::OmniauthCallbacksController < Devise::OmniauthCallbacksController
   def authorization   # APIから取得したユーザー情報はrequest.env["omniauth.auth"]に格納されてる
     sns_info = User.from_omniauth(request.env["omniauth.auth"])     # User.from_omniauth は、モデルで定義（次項）
     @user = sns_info[:user]    # deviseのヘルパーを使うため、＠user に代入(ハッシュ(モデルの返り値)から値を取得)
-
     if @user.persisted? # ユーザー登録済み(ログイン処理)
       sign_in_and_redirect @user, event: :authentication   # authenticationのcallbackメソッドを呼んで、@user でログイン
       set_flash_message(:notice, :success, kind: "#{provider}".capitalize) if is_navigational_format?
