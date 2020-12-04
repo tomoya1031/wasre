@@ -13,9 +13,8 @@ class ProductsController < ApplicationController
   def create
     @product = Product.new(product_params)
     @product.user_id = current_user.id
-    tag_list = params[:product][:tag_name].split(nil)
       if @product.save
-        @product.save_tag(tag_list)
+        @product.save_tag(tag_params)
         redirect_to product_path(@product.id)
       else
         render 'new'
@@ -66,9 +65,8 @@ class ProductsController < ApplicationController
   end
 
   def update
-    tag_list = params[:product][:tag_name].split(nil)
     if @product.update(product_params)
-      @product.save_tag(tag_list)
+      @product.save_tag(tag_params)
       redirect_to product_path(@product.id)
     else
       render "edit"
@@ -86,6 +84,10 @@ class ProductsController < ApplicationController
   private
   def product_params
     params.require(:product).permit(:name, :introduction, :status, :genre_id, product_images_images: [])
+  end
+
+  def tag_params
+    params[:product][:tag_name].split(nil)
   end
 
   def currect_user
