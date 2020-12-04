@@ -15,7 +15,7 @@
 		<td><%= order.created_at.strftime('%Y/%m/%d %H:%M') %></td>
         <td>
           <% order.product.product_images.first(1).each do |image| %>
-            <%= attachment_image_tag image, :image, :fill, 100, 100, 'data-turbolinks': false, fallback: "no_image.jpg", size:"200x160", class: 'order-image'%>
+            <%= attachment_image_tag image, :image, :fill, 100, 100, 'data-turbolinks': false, fallback: "no_image.png", size:"200x160", class: 'order-image'%>
           <% end %>
         </td>
 		<td><%= order.product.name %></td>
