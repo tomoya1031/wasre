@@ -9,11 +9,11 @@
 	width: 600px;
 	height: 800px;
 	background-position: center;
-	background-size: cover;
+    background-size: cover;
+    margin: 0 auto;
 	@include max-screen($breakpoint-lg) { /* 1200px以下のとき */
 		width: 500px;
 		height: 700px;
-		margin: 0 auto;
     }
     @include max-screen($breakpoint-md) { /* 991px以下のとき */
         width: 350px;

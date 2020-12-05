@@ -1,5 +1,5 @@
 FactoryBot.define do
-  factory :sn do
+  factory :sns_credential do
     provider { "MyString" }
     uid { "MyString" }
     user { nil }

@@ -1,10 +1,9 @@
 Rails.application.routes.draw do
+  
   mount RailsAdmin::Engine => '/admin', as: 'rails_admin'
-  devise_scope :user do
-    post 'users/guest_sign_in', to: 'users/sessions#new_guest'
-  end
+
   devise_for :users, controllers: { 
-    omniauth_callbacks: 'omniauth_callbacks',
+    omniauth_callbacks: 'users/omniauth_callbacks',
     registrations: 'users/registrations',
     passwords: 'users/passwords'
   }#, skip: :all
