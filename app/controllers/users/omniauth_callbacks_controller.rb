@@ -17,7 +17,7 @@ class Users::OmniauthCallbacksController < Devise::OmniauthCallbacksController
   # end
 
   def google_oauth2
-    authorization   # コールバック
+    callback_for(:google)   # コールバック
   end
 
   # GET|POST /users/auth/twitter/callback
@@ -34,16 +34,33 @@ class Users::OmniauthCallbacksController < Devise::OmniauthCallbacksController
   # end
 
   private
-  # コールバックのメソッド定義
-  def authorization   # APIから取得したユーザー情報はrequest.env["omniauth.auth"]に格納されてる
-    sns_info = User.from_omniauth(request.env["omniauth.auth"])     # User.from_omniauth は、モデルで定義（次項）
-    @user = sns_info[:user]    # deviseのヘルパーを使うため、＠user に代入(ハッシュ(モデルの返り値)から値を取得)
-    if @user.persisted? # ユーザー登録済み(ログイン処理)
-      sign_in_and_redirect @user, event: :authentication   # authenticationのcallbackメソッドを呼んで、@user でログイン
+  def callback_for(provider)
+    info = User.find_oauth(request.env["omniauth.auth"])
+    # snsの情報からuserが登録されているか or snsから情報を取得できているかを確認
+    @user = User.where(name: info[:user][:name]).or(User.where(email: info[:user][:email])).first || info[:user]
+
+    # persisted?はデータがDBに保存されているかを確認する/配列に対しては使えないから@userを定義するときは気をつける
+    if @user.persisted?
+      #保存されていればログインしてroot_pathにリダイレクトされる
+      sign_in_and_redirect @user, event: :authentication
       set_flash_message(:notice, :success, kind: "#{provider}".capitalize) if is_navigational_format?
-    else                # ユーザー未登録(新規登録画面へ遷移)
-      @sns_id = sns_info[:sns].id                  # ハッシュ(モデルの返り値)から取得した、認証データを一時的に保持(ユーザー登録ページに渡す)
-      render template: new_user_registration_url   # ユーザー登録ページに遷移
+    else
+      # 登録するアクションに取得した値を渡すために。sessionを利用してuserインスタンスを作成する
+      session[:name] = info[:user][:name]
+      session[:email] = info[:user][:email]
+
+      #snsでのユーザ登録ではパスワードを入力させないので準備する。パスワードを作成するDeviseメソッドもある。
+      #今回のバリデーションは英数字のみなのでこっちを採用
+      session[:password_confirmation] = SecureRandom.alphanumeric(30)
+
+      #SnsCredentialが登録されていないとき
+      if SnsCredential.find_by(uid: info[:sns][:uid], provider: info[:sns][:provider]).nil?
+        #ユーザ登録と同時にsns_credentialも登録するために
+        session[:uid] = info[:sns][:uid]
+        session[:provider] = info[:sns][:provider]
+      end
+      #登録フォームのviewにリダイレクトさせる
+      redirect_to new_user_registration_path
     end
   end
 end

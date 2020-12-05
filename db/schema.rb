@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_11_06_083217) do
+ActiveRecord::Schema.define(version: 2020_12_05_070919) do
 
   create_table "comments", force: :cascade do |t|
     t.integer "user_id", null: false
@@ -105,6 +105,15 @@ ActiveRecord::Schema.define(version: 2020_11_06_083217) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["user_id"], name: "index_sns_on_user_id"
+  end
+
+  create_table "sns_credentials", force: :cascade do |t|
+    t.string "provider"
+    t.string "uid"
+    t.integer "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_sns_credentials_on_user_id"
   end
 
   create_table "tag_maps", force: :cascade do |t|
