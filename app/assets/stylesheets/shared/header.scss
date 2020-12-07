@@ -53,7 +53,7 @@ header{
 	}
 }
 nav{
-	display: flex;
+	display: flex !important;
 	justify-content: space-around;
 	@include max-screen($breakpoint-md) { /* 991px以下のとき */
 		flex-direction: column;
@@ -71,7 +71,6 @@ nav{
 .top-hi{
 	padding-top: 10px;
 }
-
 //ハンバーガーメニュー
 .menu-on{
 	@include max-screen($breakpoint-md) { /* 991px以下のとき */

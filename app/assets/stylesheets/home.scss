@@ -24,8 +24,10 @@
 	height: 600px;
 	background-position: center;
     background-size: cover;
-    @include max-screen($breakpoint-xs) { /* 480px以下のとき */
+    @include max-screen($breakpoint-md) { /* 991px以下のとき */
         width: 100%;
+    }
+    @include max-screen($breakpoint-xs) { /* 480px以下のとき */
         height: 500px;
     }
 }

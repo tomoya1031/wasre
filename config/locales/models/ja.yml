@@ -6,7 +6,15 @@ ja:
       message: 取引チャット
       comment: コメント
       product: 商品
-      product_images: 商品写真
+      product_image: 商品写真
+      entry: 取引エントリー
+      favorite: いいね
+      notification: 通知
+      order: 取引履歴
+      room: 取引ルーム
+      sns_credential: sns認証
+      tag: タグ
+      tag_map: タグ中間
     attributes:
       user:
         email: メールアドレス
@@ -34,4 +42,3 @@ ja:
         product_images_images: 商品写真
       product_images:
         image_id: 商品写真
-        
