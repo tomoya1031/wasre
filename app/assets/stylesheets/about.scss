@@ -1,0 +1,85 @@
+@import 'setting/_break_point';
+
+.about-top{
+	padding-top: 20px;
+    text-align: center;
+    @include max-screen($breakpoint-xs) { /* 480px以下のとき */
+        padding: 0;
+        font-size: 20px;
+    }
+}
+.about-subtitle{
+	padding:13px 0;
+	color: #494949;
+	background: #fffaf4;
+    border-left: solid 5px #ffaf58;
+    @include max-screen($breakpoint-xs) { /* 480px以下のとき */
+        font-size: 20px;
+    }
+}
+@for $i from 1 through 3 {
+    .about-imge#{$i} {
+        background-image: image-url("imge#{$i+1}.jpg");
+        margin: 40px auto 0 auto;
+        width: 400px;
+        height: 400px;
+        background-position: center;
+        background-size: cover;
+        @include max-screen($breakpoint-lg) { /* 1200px以下のとき */
+            margin-top: 10px;
+        }
+        @include max-screen($breakpoint-xs) { /* 480px以下のとき */
+            width: 100%;
+            height: 300px;
+        }
+    }
+}
+.about-imge2{
+    @include max-screen($breakpoint-xs) { /* 480px以下のとき */
+        height: 380px;
+    }
+}
+.about-imge3{
+	height: 350px;
+}
+.about-text1,.about-text2{
+	padding-left:20px;
+	padding-right: 40px;
+	line-height: 40px;
+	font-size:20px;
+    font-family: 'Hiragino Kaku Gothic Std';
+    @include max-screen($breakpoint-lg) { /* 1200px以下のとき */
+        padding: 0px;
+    }
+    @include max-screen($breakpoint-xs) { /* 480px以下のとき */
+        font-size:15px;
+    }
+}
+.about-text1{
+	padding-left:20px;
+}
+.displey-none{
+    display: none;
+    @include max-screen($breakpoint-lg) { /* 1200px以下のとき */
+        display: inline;
+    }
+}
+.displey-on {
+    @include max-screen($breakpoint-lg) { /* 1200px以下のとき */
+        display: none;
+    }
+}
+/*アニメーション要素のスタイル*/
+.animation{
+	opacity : 0;
+	visibility: hidden;
+	transition: 3s;
+	transform: translateY(100px);
+}
+/*アニメーション要素までスクロールした時のスタイル*/
+.active{
+	opacity: 1;
+	visibility: visible;
+	transform: translateY(0);
+}
+// アバウト

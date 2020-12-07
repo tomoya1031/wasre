@@ -17,7 +17,7 @@
 .youchat-box{
 	justify-content: flex-start;
 }
-//共通項目をcomment.scssに記載（上から順に更新されるため）
+//共通項目はapplicationに記載
 .arrow_mybox{
 	margin-right: 10px;
     background:  #09ff00;
@@ -33,6 +33,7 @@
         right: 100%;
     }
 }
+//共通項目はapplicationに記載
 .room-image{
     width: 100px;
     height: 100px;
