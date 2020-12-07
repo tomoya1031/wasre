@@ -34,185 +34,6 @@ html {
 body {
 	padding-bottom: 70px;
 }
-header{
-	background-color:white;
-	height: 100px;
-	width: 100%;
-	box-shadow: 0 0 8px gray;
-	a{
-		&:link,&:visited{
-			color:black;
-			text-decoration:none;
-		}
-	}
-	li{
-		list-style: none;
-	}
-	@include max-screen($breakpoint-md) { /* 991px以下のとき */
-		height: 70px;
-	}
-}
-.top-user{
-	margin-top: 20px;
-	@include max-screen($breakpoint-md) { /* 991px以下のとき */
-		margin-top: 5px;
-	}
-}
-.top-profile{
-	border-radius: 50%;  /* 角丸半径を50%にする(=円形にする) */
-	background-position: center;
-    width:  30px;       /* ※縦横を同値に */
-	height: 30px;       /* ※縦横を同値に */
-	box-shadow: 0 0 2px rgb(0, 0, 0);
-	@include max-screen($breakpoint-md) { /* 991px以下のとき */
-		width:  60px;
-		height: 60px;
-	}
-}
-.title{
-	text-align: center;
-	padding: 5px 0;
-}
-.top-search{
-	text-align: right;
-	padding-top: 20px;
-}
-.title-name{
-	margin: auto;
-	color:black;
-	font-family: 'Comic Sans MS', cursive;
-	font-size: 43px;
-	@include max-screen($breakpoint-xs) { /* 480px以下のとき */
-		font-size: 35px;
-	}
-}
-nav{
-	display: flex;
-	justify-content: space-around;
-	@include max-screen($breakpoint-md) { /* 991px以下のとき */
-		flex-direction: column;
-	}
-}
-.header-list{
-	margin: auto 0;
-}
-.search{
-	.form-control{
-		width: 200px !important;
-		display: inline !important;
-	}
-}
-.top-hi{
-	padding-top: 10px;
-}
-
-//ハンバーガーメニュー
-.menu-on{
-	@include max-screen($breakpoint-md) { /* 991px以下のとき */
-		display: none;
-	}
-}
-.menu-none,#hm-icon{
-	display: none;
-	@include max-screen($breakpoint-md) { /* 991px以下のとき */
-		display: inline;
-	}
-}
-#hm-icon{
-	position: absolute;
-	right: 20px;
-	top: 10px;
-	z-index: 10;
-}
-.menu-trigger,.menu-trigger span{
-	display: inline-block;
-	transition: all .4s;
-	box-sizing: border-box;
-}
-.menu-trigger{
-	position: relative;
-	width: 50px;
-	height: 44px;
-	span {
-		position: absolute;
-		left: 0;
-		width: 100%;
-		height: 4px;
-		background-color: #000;
-		border-radius: 4px;
-	}
-	span:nth-of-type(1) {
-		top: 0;
-	}
-	span:nth-of-type(2) {
-		top: 20px;
-	}
-	span:nth-of-type(3) {
-		bottom: 0;
-	}
-}
-.menu-trigger.active{
-	span:nth-of-type(1) {
-	-webkit-transform: translateY(20px) rotate(-45deg);
-	transform: translateY(20px) rotate(-45deg);
-	background-color: #fff;
-	}
-	span:nth-of-type(2) {
-		opacity: 0;
-	}
-	span:nth-of-type(3) {
-		-webkit-transform: translateY(-20px) rotate(45deg);
-		transform: translateY(-20px) rotate(45deg);
-		background-color: #fff;
-	}
-}
-  /* ------ spメニュー ------ */
-#sp-menu {
-	@include max-screen($breakpoint-md) { /* 991px以下のとき */
-		position: fixed;
-	padding-top: 55px;
-	top: 0;
-	left: 0;
-	background: #000;
-	color: #fff;
-	width: 100%;
-	min-height: 100%;
-	display: none;
-		z-index: 9;
-		li{
-			text-align: center;
-			margin-bottom: 30px;
-		}
-		a{
-			color: #fff;
-			text-decoration: none;
-			font-weight: bold;
-		}
-    }
-}
-//ハンバーガーメニュー
-// フッター
-footer{
-	font-family: 'sans-serif', sans-serif;
-	background-color: rgb(220, 220, 220);
-	position: fixed;
-	bottom: 0;
-	width: 100%;
-	height: 50px;
-	text-align: right;
-	font-size:30px;
-	box-shadow: 0 0 8px gray;
-	a{
-		&:link,&:visited {
-			color:black;
-			text-decoration:none;
-		}
-		&:hover{
-			color:rgb(155, 148, 148);
-		}
-	}
-}
-// フッター
 /*ページネーション自体のデザイン*/
 .pagination>li>a {          
 	border: none;     /*枠線をなくす*/
@@ -236,3 +57,48 @@ footer{
 	@extend .has-error;
 }
 // エラーメッセージ
+//吹き出し共通項目（commentとroom）
+.arrow_mybox,.arrow_youbox,.arrow_box{
+    position: relative;
+	max-width: 450px;
+    padding: 10px;
+    text-align: left;
+    color: #FFFFFF;
+    font-weight: bold;
+    border-radius: 10px;
+    -webkit-border-radius: 10px;
+    -moz-border-radius: 10px;
+    word-wrap: break-word;
+    &:after{
+        border: solid transparent;
+        content: '';
+        pointer-events: none;
+        position: absolute;
+        border-color:  rgba(0, 153, 255, 0);
+        border-width: 10px;
+        margin-top: -10px;
+        top: 20px;
+    }
+}
+// 新規登録 サンキューページ 画像
+.sign-up-imge{
+	background-image: image-url("imge7.png");
+	width: 600px;
+	height: 800px;
+	background-position: center;
+    background-size: cover;
+    margin: 0 auto;
+	@include max-screen($breakpoint-lg) { /* 1200px以下のとき */
+		width: 500px;
+		height: 700px;
+    }
+    @include max-screen($breakpoint-md) { /* 991px以下のとき */
+        width: 350px;
+        height: 400px;
+    }
+	@include max-screen($breakpoint-xs) { /* 480px以下のとき */
+		width: 180px;
+		height: 200px;
+	}
+}
+// 新規登録 サンキューページ 画像
