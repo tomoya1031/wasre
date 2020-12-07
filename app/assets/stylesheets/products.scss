@@ -53,17 +53,6 @@
 	text-align: center;
 }
 // 商品一覧
-// スライドショー
-.slick-next {
-    right: 10px !important;
-    z-index: 100;
- }
-
-.slick-prev {
-	left: 10px !important;
-	z-index: 100;
- }
- // スライドショー
 //商品詳細
 .product-show{
 	tr{
@@ -84,6 +73,16 @@
 .chat-sub{
 	margin-top: 50px;
 }
+// スライドショー
+.slick-next {
+    right: 10px !important;
+    z-index: 100;
+ }
+
+.slick-prev {
+	left: 10px !important;
+	z-index: 100;
+ }
 // 商品詳細
 // 商品投稿
 .view {
