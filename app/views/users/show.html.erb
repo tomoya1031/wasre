@@ -23,13 +23,13 @@
 	  <% end %>
 	  <div class="mypage">
 
-		<%= render 'myprofile', user: @user %>
+		<%= render 'show_profile', user: @user %>
 
 		<% if @user == current_user%>
 	      <%= link_to "取　引　履　歴", orders_path, class: "btn btn-info btn-lg btn-block" %>
 		<% end %>
 
-		<%= render 'myproduct', products: @products %>
+		<%= render 'show_product', products: @products %>
 
 	  </div>
 	</div>

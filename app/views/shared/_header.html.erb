@@ -2,7 +2,7 @@
   <div class="container">
     <div class='row'>
       <% if user_signed_in? %>
-        <div class="col-lg-4 col-xs-4 top-user">
+        <div class="col-lg-4 col-md-4 col-xs-4 top-user">
           <span>
             <%= link_to user_path(current_user.id) do %>
               <%= attachment_image_tag current_user, :profile_image, fallback: "no_image.png", class:"top-profile" %>
@@ -11,12 +11,12 @@
           </span>
         </div>
       <% else %>
-        <div class="col-lg-4 col-xs-4"></div>
+        <div class="col-lg-4 col-md-4 col-xs-4"></div>
       <% end %>
       <div class="col-lg-4 col-xs-4 title">
         <%= link_to "WASRe:", root_path, class: "title-name" %>            
       </div>
-      <div class="col-lg-4 top-search menu-on">
+      <div class="col-lg-4 col-md-4 top-search menu-on">
         <div  class="form-group search">
           <%= form_with(url: products_path, method: :get, local: true) do %>  
             <%= text_field_tag :search, params[:search] ,class:"form-control" %>
