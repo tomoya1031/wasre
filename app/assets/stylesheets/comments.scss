@@ -1,6 +1,7 @@
 // Place all the styles related to the Comments controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+@import 'setting/_break_point';
 
 // いいね コメント
 .favorite-comment{
@@ -49,5 +50,24 @@
 	&:after{
 		border-right-color: #0099FF;
 		right: 100%;
+	}
+}
+.comment-form{
+	.form-control{
+		margin: 0 auto;
+		max-width: 497px !important;
+		display: inline !important;
+		@include max-screen($breakpoint-lg) { /* 1200px以下のとき */
+			max-width: 557px !important;
+		}
+		@include max-screen($breakpoint-md) { /* 991px以下のとき */
+			max-width: 662px !important;
+		}
+		@include max-screen($breakpoint-xs) { /* 480px以下のとき */
+			max-width: 272px !important;
+		}
+	}
+	.btn{
+		margin-bottom: 40px;
 	}
 }

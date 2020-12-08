@@ -1,14 +1,12 @@
 <% unless product.is_active %>
   <%= form_with(model: [product, comment] ) do |f| %>
-      <div class="comment-text form-group">
-          <%= f.text_area :comment, class: "form-control" %>
-          <div class="right-button">
-            <% if user_signed_in? %>
-              <%= f.submit "送信", class: "btn btn-success room-sub"%>
-            <% else %>
-              <%= link_to "送信",new_user_session_path, class: "btn btn-success room-sub" %>
-            <% end %>
-          </div>
-      </div>
+    <div class="comment-form form-group">
+      <%= f.text_area :comment, class: "form-control" %>
+      <% if user_signed_in? %>
+        <%= f.submit "送信", class: "btn btn-success"%>
+      <% else %>
+        <%= link_to "送信",new_user_session_path, class: "btn btn-success" %>
+      <% end %>
+    </div>
   <% end %>
 <% end %>
