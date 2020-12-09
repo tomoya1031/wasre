@@ -4,26 +4,26 @@
 @import 'setting/_break_point';
 
 // 商品一覧
-.product-contena{
+.product-contena {
 	display: flex;
 	width: 100%;
 	justify-content: flex-start;
 	flex-wrap: wrap;
-	a{
+	a {
 		&:link,&:visited,&:hover,:active {
 			color:black;
 			text-decoration:none;
 		}
 	}
 }
-.product-box{
+.product-box {
 	width: 200px;
 	text-align: center;
 	@include max-screen($breakpoint-xs) { /* 480px以下のとき */
 		width: 100px;
 	}
 }
-.product-image{
+.product-image {
 	border-radius: 50%;
 	width:  160px;       /* ※縦横を同値に */
 	height: 160px;       /* ※縦横を同値に */
@@ -32,45 +32,41 @@
 		height: 80px;
 	}
 }
-.product-image:hover{
+.product-image:hover {
 	transform: scale(1.1) rotate(9deg);
 	transition-duration: 0.5s;
 }
-.product-name{
+.product-name {
 	text-align: center;
 	font-size: 20px;
 	@include max-screen($breakpoint-xs) { /* 480px以下のとき */
 		font-size: 13px;
 	}
 }
-.product-intro{
+.product-intro {
 	background-color: rgb(245, 245, 245);
-
 	font-size: 18px;
 	line-height: 40px;
 }
-.paginate{
-	text-align: center;
-}
 // 商品一覧
 //商品詳細
-.product-show{
-	tr{
-		td{
+.product-show {
+	tr {
+		td {
 			font-size: 16px;
 		}
 	}
 }
-.product-title{
+.product-title {
 	font-weight: bold;
 }
-.product-edit{
+.product-edit {
 	text-align: right;
 	@include max-screen($breakpoint-xs) { /* 480px以下のとき */
 		text-align: center;
 	}
 }
-.chat-sub{
+.chat-sub {
 	margin-top: 50px;
 }
 // スライドショー
@@ -90,18 +86,18 @@
 	width: 100%;
 	justify-content: space-between;
 	flex-wrap: wrap;
+	>div {
+		margin: 10px;
+	}
 }
-.view > div {
-	margin: 10px;
-}
-.view_box{
+.view_box {
 	width: 200px;
 }
-.img{
+.img {
 	width: 200px;
 	height: 200px;
 }
-.sub-produtc{
+.sub-produtc {
 	width: 100%;
 }
 // 商品投稿
