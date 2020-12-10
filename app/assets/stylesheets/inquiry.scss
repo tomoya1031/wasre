@@ -3,25 +3,25 @@
 // You can use Sass (SCSS) here: http://sass-lang.com/
 @import 'setting/_break_point';
 
-.thanks{
+.thanks {
     text-align: center;
     margin: auto;
 }
 @include max-screen($breakpoint-xs) { /* 480px以下のとき */
-    .thanks-title{
+    .thanks-title {
         font-size: 20pz;
     }
-    .thanks-text{
+    .thanks-text {
         font-size: 10px;
     }
-    .inquiry{
-        tr{
-            th,td{
+    .inquiry {
+        tr {
+            th, td {
                 width: 100%;
                 display: block;
                 border-style: none !important;
             }
-            td{
+            td {
                 border-bottom: 1px solid #ddd !important;
             }
         }

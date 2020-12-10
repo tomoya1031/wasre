@@ -3,14 +3,14 @@
 // You can use Sass (SCSS) here: http://sass-lang.com/
 @import 'setting/_break_point';
 
-.genre{
+.genre {
 	margin-top: 100px;
 }
-.genre-nav{
+.genre-nav {
 	font-size: 18px;
 }
 @include max-screen($breakpoint-xs) { /* 480px以下のとき */
-	.genre-title,.genre-nav{
+	.genre-title, .genre-nav {
 		font-size: 10px;
 	}
 }

@@ -65,7 +65,7 @@ body {
 	@extend .has-error;
 }
 //吹き出し共通項目（commentとroom）
-.arrow_mybox,.arrow_youbox,.arrow_box {
+.arrow_mybox, .arrow_youbox, .arrow_box {
     position: relative;
 	max-width: 450px;
     padding: 10px;

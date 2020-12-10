@@ -5,18 +5,18 @@
 <% end %>
 <div class="row">
   <div class="col-lg-2"></div>
-    <div class="col-lg-8 col-xs-12">
+	<div class="col-lg-8 col-xs-12">
 	  <% if @user == current_user%>
 		<div>
-	      <h1><i class="fas fa-user"></i> マイページ</h1>
+		  <h1><i class="fas fa-user"></i> マイページ</h1>
 		  <% if unchecked_notifications.any? %>
-            <i class="fa fa-circle" style="color: gold;"></i>
-          <% end %>
-          <li>
-            <%= link_to "NOTICE", notifications_path, class: "btn-default" %>
-          </li>
-        </div>
-        <br>
+			<i class="fa fa-circle" style="color: gold;"></i>
+		  <% end %>
+		  <li>
+			<%= link_to "NOTICE", notifications_path, class: "btn-default" %>
+		  </li>
+		</div>
+		<br>
 	  <% else %>
 		<h3><i class="fas fa-user"></i> プロフィール</h3>
 		<br>
@@ -26,7 +26,7 @@
 		<%= render 'show_profile', user: @user %>
 
 		<% if @user == current_user%>
-	      <%= link_to "取　引　履　歴", orders_path, class: "btn btn-info btn-lg btn-block" %>
+		  <%= link_to "取　引　履　歴", orders_path, class: "btn btn-info btn-lg btn-block" %>
 		<% end %>
 
 		<%= render 'show_product', products: @products %>

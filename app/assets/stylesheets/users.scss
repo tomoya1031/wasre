@@ -3,20 +3,20 @@
 // You can use Sass (SCSS) here: http://sass-lang.com/
 @import 'setting/_break_point';
 
-.mypage{
+.mypage {
 	box-shadow: 0 0 8px gray;
 	padding: 0 20px 20px 20px;
 }
-.mypage-product{
+.mypage-product {
     padding: 10px;
-    h3{
+    h3 {
         @include max-screen($breakpoint-xs) { /* 480px以下のとき */
             margin-top: 10px;
             font-size: 18px;
         }
     }
 }
-.profile-imag{
+.profile-imag {
 	width: 100%;
 	height: 300px;
 	background-position: center;
@@ -29,17 +29,17 @@
         height: 150px;
     }
 }
-.profile-name{
+.profile-name {
     font-size: 25px;
     @include max-screen($breakpoint-xs) { /* 480px以下のとき */
         font-size: 18px;
     }
 }
-.mypage{
-	table{
-		tr{
-			td{
-                div{
+.mypage {
+	table {
+		tr {
+			td {
+                div {
                     font-size: 23px;
                     @include max-screen($breakpoint-xs) { /* 480px以下のとき */
                         font-size: 18px;
@@ -73,14 +73,14 @@
         font-size: 8px;
         white-space: nowrap;
     }
-    .mypage-edit{
-        tr{
-            th,td{
+    .mypage-edit {
+        tr {
+            th, td {
                 width: 100%;
                 display: block;
                 border-style: none !important;
             }
-            td{
+            td {
                 border-bottom: 1px solid #ddd !important;
             }
         }

@@ -3,7 +3,7 @@
 // You can use Sass (SCSS) here: http://sass-lang.com/
 @import 'setting/_break_point';
 
-.home-text{
+.home-text {
     padding-top: 80px;
     line-height: 80px;
     @include max-screen($breakpoint-lg) { /* 1200px以下のとき */
@@ -17,7 +17,7 @@
         line-height: 40px;
     }
 }
-.home-imge1{
+.home-imge1 {
     background-image: image-url("imge6.jpg");
     margin: 0 auto;
 	width: 400px;
@@ -31,10 +31,10 @@
         height: 500px;
     }
 }
-.link,.link:hover {
+.link, .link:hover {
     text-decoration: none;
 }
-.link-b,.link-g,.link-p,.link-y{
+.link-b, .link-g, .link-p, .link-y {
     margin: 10px auto;
     color:black;
 	width: 350px;
@@ -51,32 +51,32 @@
         width: 80%;
     }
 }
-.link-b{
+.link-b {
     color: white;
     background-color: #191970;
     margin: 0;
+    &:hover{
+        background-color: rgb(29, 191, 219);
+    }
     @include max-screen($breakpoint-md) { /* 991px以下のとき */
         margin: 0 auto;
     }
 }
-.link-b:hover{
-    background-color: rgb(29, 191, 219);
-}
-.link-g{
-	background-color: #f0fff0;
-}
-.link-g:hover{
-    background-color: rgb(25, 192, 25);
+.link-g {
+    background-color: #f0fff0;
+    &:hover{
+        background-color: rgb(25, 192, 25);
+    }
 }
 .link-p{
-	background-color: #FFEEFF;
-}
-.link-p:hover{
-    background-color: pink;
+    background-color: #FFEEFF;
+    &:hover{
+        background-color: pink;
+    }
 }
 .link-y{
-	background-color: #fafad2;
-}
-.link-y:hover{
-    background-color: yellow;
+    background-color: #fafad2;
+    &:hover{
+        background-color: yellow;
+    }
 }
