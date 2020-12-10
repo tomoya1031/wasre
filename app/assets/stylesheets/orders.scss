@@ -3,10 +3,10 @@
 // You can use Sass (SCSS) here: http://sass-lang.com/
 @import 'setting/_break_point';
 
-.order{
-	thead tbody{
-		tr{
-			th{
+.order {
+	thead tbody {
+		tr {
+			th {
                 text-align: center;
                 @include max-screen($breakpoint-xs) { /* 480px以下のとき */
                     font-size: 10px;
@@ -15,7 +15,7 @@
 		}
     }
 }
-.order-image{
+.order-image {
     background-position: center;
     @include max-screen($breakpoint-xs) { /* 480px以下のとき */
         width: 40px;

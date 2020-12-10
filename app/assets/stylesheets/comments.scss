@@ -4,56 +4,56 @@
 @import 'setting/_break_point';
 
 // いいね コメント
-.favorite-comment{
+.favorite-comment {
 	display: flex;
 	justify-content: center;
 	font-size: 16px;
 	padding-bottom: 10px;
 }
-.favorite{
+.favorite {
     padding-left: 10px;
-	li{
+	li {
 		list-style: none;
 	}
-	a{
+	a {
 		&:link {
 			color:black;
 			text-decoration:none;
 		}
 	}
 }
-#comment{
-	li{
+#comment {
+	li {
 		list-style: none;
 	}
 }
-.comment-box{
+.comment-box {
 	padding-top: 30px;
 }
-.comment-list{
+.comment-list {
 	display: flex;
 	justify-content: flex-start;
 	align-items: baseline;
 	margin-bottom: 20px;
 }
-.comment-prof{
+.comment-prof {
 	width: 80px;
 	min-height: 60px;
 }
-.comment-imag{
+.comment-imag {
 	margin: 0 auto;
 }
 //共通項目はapplicationに記載
-.arrow_box{
+.arrow_box {
 	background:  #0099FF;
 	margin: 10px;
-	&:after{
+	&:after {
 		border-right-color: #0099FF;
 		right: 100%;
 	}
 }
-.comment-form{
-	.form-control{
+.comment-form {
+	.form-control {
 		margin: 0 auto;
 		max-width: 497px !important;
 		display: inline !important;
@@ -67,7 +67,7 @@
 			max-width: 272px !important;
 		}
 	}
-	.btn{
+	.btn {
 		margin-bottom: 40px;
 	}
 }

@@ -10,7 +10,7 @@
 	justify-content: flex-start;
 	flex-wrap: wrap;
 	a {
-		&:link,&:visited,&:hover,:active {
+		&:link,&:visited {
 			color:black;
 			text-decoration:none;
 		}

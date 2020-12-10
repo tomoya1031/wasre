@@ -3,38 +3,38 @@
 // You can use Sass (SCSS) here: http://sass-lang.com/
 @import 'setting/_break_point';
 
-.right-button{
+.right-button {
 	text-align: right;
 }
-.mychat-box,.youchat-box{
+.mychat-box, .youchat-box {
 	display: flex;
 	align-items: baseline;
 	padding: 10px 0;
 }
-.mychat-box{
+.mychat-box {
 	justify-content: flex-end;
 }
-.youchat-box{
+.youchat-box {
 	justify-content: flex-start;
 }
 //共通項目はapplicationに記載
-.arrow_mybox{
+.arrow_mybox {
 	margin-right: 10px;
     background:  #09ff00;
-    &:after{
+    &:after {
         border-left-color: #09ff00;
         left: 100%;
     }
 }
-.arrow_youbox{
+.arrow_youbox {
     background: #c1c5c7;
-    &:after{
+    &:after {
         border-right-color: #c1c5c7;
         right: 100%;
     }
 }
 //共通項目はapplicationに記載
-.room-image{
+.room-image {
     width: 100px;
     height: 100px;
     @include max-screen($breakpoint-xs) { /* 480px以下のとき */
@@ -42,13 +42,13 @@
         height: 70px;
     }
 }
-.room-post{
+.room-post {
 	text-align: right;
 }
-.room-sub{
+.room-sub {
 	margin-top: 10px;
 }
-.chat-time{
+.chat-time {
     @include max-screen($breakpoint-xs) { /* 480px以下のとき */
     font-size: 8px;
     }
