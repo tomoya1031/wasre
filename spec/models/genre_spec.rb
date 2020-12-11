@@ -33,5 +33,4 @@ RSpec.describe Genre, type: :model do
       end
     end
   end
-
 end
