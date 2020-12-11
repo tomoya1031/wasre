@@ -26,7 +26,7 @@ class ProductsController < ApplicationController
     if (@genre_id = params[:genre_id]).present?
       @genre = Genre.find(@genre_id)
       #↓カミナリ使う時は使用する,今も一応カウントで使用
-      @products_all = Product.where(genre_id: @genre,is_active: false)
+      @products_all = Product.where(genre_id: @genre, is_active: false)
       @product = "ジャンル検索結果：#{@genre.name}"
     elsif (@tag_id = params[:tag_id]).present?
       @tag = Tag.find(@tag_id)

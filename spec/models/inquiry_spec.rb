@@ -26,5 +26,4 @@ RSpec.describe Inquiry, type: :model do
         expect(@inquiry.valid?).to eq(false)
       end
     end
-
 end
