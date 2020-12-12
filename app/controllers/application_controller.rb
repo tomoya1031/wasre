@@ -7,12 +7,12 @@ class ApplicationController < ActionController::Base
   end
 
   def after_sign_in_path_for(resource)
-    user_path(current_user.id) # ログイン後に遷移するpathを設定
+    user_path(current_user.id)
     # flash[:notice] = "Signed in successfully."
   end
 
   def after_sign_out_path_for(resource)
-    "/" # ログアウト後に遷移するpathを設定
+    "/"
     # flash[:notice] = "Signed out successfully."
   end
 

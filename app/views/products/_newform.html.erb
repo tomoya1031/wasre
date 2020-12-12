@@ -39,15 +39,15 @@
 		  <%= f.text_area :introduction, :size=>"20x7", placeholder: "商品説明", class: "form-control" %>
 		</div>
 		<div class="field form-group">
-		  <%= f.label :"ジャンル"%><br />
+		  <%= f.label :"ジャンル"%><br>
 		  <%= f.collection_select :genre_id, Genre.where(is_active: "true"), :id, :name,disabled: true, include_blank: "選択して下さい", class: "dropdown-menu" %>
 		</div>
 		<div class="field form-group">
-		  <%= f.label :"商品状態"%><br />
+		  <%= f.label :"商品状態" %><br>
 		  <%= f.select :status, Product.statuses.keys.to_a, include_blank: "選択して下さい", class: "form-control" %>
 		</div>
 		<div class="field form-group">
-		  <%= f.label :'タグ（例：ジャケット アウトドア ブランド）'%>
+		  <%= f.label :"タグ（例：ジャケット アウトドア ブランド）" %>
 		  <%= f.text_area :tag_name, placeholder: "スペースを入力することで複数のタグを付けることができます。", class: "form-control" %>
 		</div>
         <% if product.id.nil? %>
