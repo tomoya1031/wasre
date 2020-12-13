@@ -57,13 +57,13 @@
 		margin: 0 auto;
 		max-width: 497px !important;
 		display: inline !important;
-		@include max-screen($breakpoint-lg) { /* 1200px以下のとき */
+		@include max-screen($breakpoint-lg) {
 			max-width: 557px !important;
 		}
-		@include max-screen($breakpoint-md) { /* 991px以下のとき */
+		@include max-screen($breakpoint-md) {
 			max-width: 662px !important;
 		}
-		@include max-screen($breakpoint-xs) { /* 480px以下のとき */
+		@include max-screen($breakpoint-xs) {
 			max-width: 272px !important;
 		}
 	}

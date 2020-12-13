@@ -37,7 +37,7 @@
 .room-image {
     width: 100px;
     height: 100px;
-    @include max-screen($breakpoint-xs) { /* 480px以下のとき */
+    @include max-screen($breakpoint-xs) {
         width: 70px;
         height: 70px;
     }
@@ -49,7 +49,7 @@
 	margin-top: 10px;
 }
 .chat-time {
-    @include max-screen($breakpoint-xs) { /* 480px以下のとき */
+    @include max-screen($breakpoint-xs) {
     font-size: 8px;
     }
 }

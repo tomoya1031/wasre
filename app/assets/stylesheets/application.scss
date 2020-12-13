@@ -95,15 +95,15 @@ body {
 	background-position: center;
     background-size: cover;
     margin: 0 auto;
-	@include max-screen($breakpoint-lg) { /* 1200px以下のとき */
+	@include max-screen($breakpoint-lg) {
 		width: 500px;
 		height: 700px;
     }
-    @include max-screen($breakpoint-md) { /* 991px以下のとき */
+    @include max-screen($breakpoint-md) {
         width: 350px;
         height: 400px;
     }
-	@include max-screen($breakpoint-xs) { /* 480px以下のとき */
+	@include max-screen($breakpoint-xs) {
 		width: 180px;
 		height: 200px;
 	}
