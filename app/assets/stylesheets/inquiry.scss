@@ -7,7 +7,7 @@
     text-align: center;
     margin: auto;
 }
-@include max-screen($breakpoint-xs) { /* 480px以下のとき */
+@include max-screen($breakpoint-xs) {
     .thanks-title {
         font-size: 20pz;
     }

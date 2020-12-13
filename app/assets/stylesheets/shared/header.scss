@@ -14,23 +14,23 @@ header {
 	li {
 		list-style: none;
 	}
-	@include max-screen($breakpoint-md) { /* 991px以下のとき */
+	@include max-screen($breakpoint-md) {
 		height: 70px;
 	}
 }
 .top-user {
 	margin-top: 20px;
-	@include max-screen($breakpoint-md) { /* 991px以下のとき */
+	@include max-screen($breakpoint-md) {
 		margin-top: 5px;
 	}
 }
 .top-profile {
-	border-radius: 50%;  /* 角丸半径を50%にする(=円形にする) */
+	border-radius: 50%;
 	background-position: center;
-    width:  30px;       /* ※縦横を同値に */
-	height: 30px;       /* ※縦横を同値に */
+    width:  30px;
+	height: 30px;
 	box-shadow: 0 0 2px rgb(0, 0, 0);
-	@include max-screen($breakpoint-md) { /* 991px以下のとき */
+	@include max-screen($breakpoint-md) { 
 		width:  60px;
 		height: 60px;
 	}
@@ -48,14 +48,14 @@ header {
 	color:black;
 	font-family: 'Comic Sans MS', cursive;
 	font-size: 43px;
-	@include max-screen($breakpoint-xs) { /* 480px以下のとき */
+	@include max-screen($breakpoint-xs) {
 		font-size: 35px;
 	}
 }
 nav {
 	display: flex !important;
 	justify-content: space-around;
-	@include max-screen($breakpoint-md) { /* 991px以下のとき */
+	@include max-screen($breakpoint-md) {
 		flex-direction: column;
 	}
 }
@@ -73,13 +73,13 @@ nav {
 }
 //ハンバーガーメニュー
 .menu-on {
-	@include max-screen($breakpoint-md) { /* 991px以下のとき */
+	@include max-screen($breakpoint-md) {
 		display: none;
 	}
 }
 .menu-none,#hm-icon {
 	display: none;
-	@include max-screen($breakpoint-md) { /* 991px以下のとき */
+	@include max-screen($breakpoint-md) {
 		display: inline;
 	}
 }
@@ -133,7 +133,7 @@ nav {
 }
   /* ------ spメニュー ------ */
 #sp-menu {
-	@include max-screen($breakpoint-md) { /* 991px以下のとき */
+	@include max-screen($breakpoint-md) {
 		position: fixed;
 		padding-top: 55px;
 		top: 0;

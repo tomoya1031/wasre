@@ -9,15 +9,3 @@ $breakpoint-xs: 480px;
         @content;
     }
 }
-/* $break-point以上の時に@contentを適用 */
-@mixin min-screen($break-point) { 
-    @media screen and (min-width: $break-point) {
-        @content;
-    }
-}
-/* $break-point以上の時に@contentを適用 */
-@mixin min-screen($break-point) { 
-    @media screen and (min-width: $break-point) {
-        @content;
-    }
-}

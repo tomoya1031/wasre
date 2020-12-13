@@ -8,7 +8,7 @@
 		tr {
 			th {
                 text-align: center;
-                @include max-screen($breakpoint-xs) { /* 480px以下のとき */
+                @include max-screen($breakpoint-xs) {
                     font-size: 10px;
                 }
 			}
@@ -17,7 +17,7 @@
 }
 .order-image {
     background-position: center;
-    @include max-screen($breakpoint-xs) { /* 480px以下のとき */
+    @include max-screen($breakpoint-xs) {
         width: 40px;
         height: 40px;
     }

@@ -9,7 +9,7 @@
 .genre-nav {
 	font-size: 18px;
 }
-@include max-screen($breakpoint-xs) { /* 480px以下のとき */
+@include max-screen($breakpoint-xs) {
 	.genre-title, .genre-nav {
 		font-size: 10px;
 	}

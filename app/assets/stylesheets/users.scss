@@ -10,7 +10,7 @@
 .mypage-product {
     padding: 10px;
     h3 {
-        @include max-screen($breakpoint-xs) { /* 480px以下のとき */
+        @include max-screen($breakpoint-xs) {
             margin-top: 10px;
             font-size: 18px;
         }
@@ -25,13 +25,13 @@
     flex-direction: column; /* 子要素をflexboxにより縦方向に揃える */
     justify-content: center; /* 子要素をflexboxにより中央に配置する */
     align-items: center;  /* 子要素をflexboxにより中央に配置する */
-    @include max-screen($breakpoint-xs) { /* 480px以下のとき */
+    @include max-screen($breakpoint-xs) {
         height: 150px;
     }
 }
 .profile-name {
     font-size: 25px;
-    @include max-screen($breakpoint-xs) { /* 480px以下のとき */
+    @include max-screen($breakpoint-xs) {
         font-size: 18px;
     }
 }
@@ -41,13 +41,13 @@
 			td {
                 div {
                     font-size: 23px;
-                    @include max-screen($breakpoint-xs) { /* 480px以下のとき */
+                    @include max-screen($breakpoint-xs) {
                         font-size: 18px;
                     }
 				}
 				font-size: 20px;
                 line-height: 40px;
-                @include max-screen($breakpoint-xs) { /* 480px以下のとき */
+                @include max-screen($breakpoint-xs) {
                     font-size: 13px;
                 }
 			}
@@ -56,19 +56,19 @@
 	}
 }
 .img-square {
-    border-radius: 50%;  /* 角丸半径を50%にする(=円形にする) */
-    width:  160px;       /* ※縦横を同値に */
-	height: 160px;       /* ※縦横を同値に */
+    border-radius: 50%;
+    width:  160px;
+	height: 160px;
     box-shadow: 0 0 8px gray;
-    @include max-screen($breakpoint-xs) { /* 480px以下のとき */
-        width:  80px;       /* ※縦横を同値に */
-        height: 80px;       /* ※縦横を同値に */
+    @include max-screen($breakpoint-xs) {
+        width:  80px;
+        height: 80px;
     }
 }
 .prof-intro{
 	margin: 30px;
 }
-@include max-screen($breakpoint-xs) { /* 480px以下のとき */
+@include max-screen($breakpoint-xs) {
     .mypage-product-title{
         font-size: 8px;
         white-space: nowrap;

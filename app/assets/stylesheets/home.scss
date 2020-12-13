@@ -6,13 +6,13 @@
 .home-text {
     padding-top: 80px;
     line-height: 80px;
-    @include max-screen($breakpoint-lg) { /* 1200px以下のとき */
+    @include max-screen($breakpoint-lg) {
         padding: 0;
     }
-    @include max-screen($breakpoint-md) { /* 991px以下のとき */
+    @include max-screen($breakpoint-md) {
             text-align: center;
     }
-    @include max-screen($breakpoint-xs) { /* 480px以下のとき */
+    @include max-screen($breakpoint-xs) {
         font-size: 20px;
         line-height: 40px;
     }
@@ -24,10 +24,10 @@
 	height: 600px;
 	background-position: center;
     background-size: cover;
-    @include max-screen($breakpoint-md) { /* 991px以下のとき */
+    @include max-screen($breakpoint-md) {
         width: 100%;
     }
-    @include max-screen($breakpoint-xs) { /* 480px以下のとき */
+    @include max-screen($breakpoint-xs) {
         height: 500px;
     }
 }
@@ -43,11 +43,11 @@
     line-height: 60px;
     border-radius: 5px; /*角丸*/
     font-size: 18px;
-    @include max-screen($breakpoint-lg) { /* 1200px以下のとき */
+    @include max-screen($breakpoint-lg) {
         width: 300px;
         margin-top: 30px;
     }
-    @include max-screen($breakpoint-md) { /* 991px以下のとき */
+    @include max-screen($breakpoint-md) {
         width: 80%;
     }
 }
@@ -58,7 +58,7 @@
     &:hover{
         background-color: rgb(29, 191, 219);
     }
-    @include max-screen($breakpoint-md) { /* 991px以下のとき */
+    @include max-screen($breakpoint-md) {
         margin: 0 auto;
     }
 }
