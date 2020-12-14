@@ -54,6 +54,14 @@ http://wasre.work/
 
 
 ## 機能一覧
+* DM機能 
+* 一部非同期通信(Ajax)を使用してユーザーストレスの軽減
+* 通知機能 
+* N＋１問題を意識したパフォーマンス
+* Rspecを取り入れたバグの検知,(単体／結合） 計160以上
+* レスポンシブデザイン  
+など
+
 詳細は下記よりご確認ください。
 
 <https://docs.google.com/spreadsheets/d/1Vig38myydpFf6p2FuUNIFcfWJr2X97EB4--Et8M4fwk/edit?usp=sharing>
