@@ -10,7 +10,7 @@
   <%- resource_class.omniauth_providers.each do |provider| %>
     <!--<%= link_to 'Googleで登録', user_google_oauth2_omniauth_authorize_path, method: :post %>
     <%= link_to "Sign in with #{OmniAuth::Utils.camelize(provider)}", user_google_oauth2_omniauth_callback_path %><br />
-    <%= link_to "Sign in with #{OmniAuth::Utils.camelize(provider)}", user_google_oauth2_omniauth_callback_path(resource_name, provider) %><br />-->
-    <%= link_to "Sign in with", user_google_oauth2_omniauth_authorize_path, method: :post %><br />
+    <%= link_to "Sign in with #{OmniAuth::Utils.camelize(provider)}", user_google_oauth2_omniauth_callback_path(resource_name, provider) %><br />
+    <%= link_to "Sign in with", user_google_oauth2_omniauth_authorize_path, method: :post %><br />-->
   <% end %>
 <% end %>
